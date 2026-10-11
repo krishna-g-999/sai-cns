@@ -1,0 +1,131 @@
+endpoint,task,model,split,metric,mean,sd
+BBB,classification,RandomForest,random,roc_auc,0.8945,0.0145
+BBB,classification,RandomForest,scaffold,roc_auc,0.8756,0.021
+BBB,classification,XGBoost,random,roc_auc,0.8915,0.0136
+BBB,classification,XGBoost,scaffold,roc_auc,0.8683,0.0259
+BBB,classification,HistGradientBoosting,random,roc_auc,0.885,0.0161
+BBB,classification,HistGradientBoosting,scaffold,roc_auc,0.8574,0.0249
+BBB,classification,kNN read-across,random,roc_auc,0.8508,0.0093
+BBB,classification,kNN read-across,scaffold,roc_auc,0.8264,0.0219
+BBB,classification,LogisticRegression,random,roc_auc,0.7873,0.0049
+BBB,classification,LogisticRegression,scaffold,roc_auc,0.7435,0.0335
+AChE,classification,RandomForest,random,roc_auc,0.9632,0.0049
+AChE,classification,RandomForest,scaffold,roc_auc,0.9148,0.0216
+AChE,classification,XGBoost,random,roc_auc,0.9581,0.006
+AChE,classification,XGBoost,scaffold,roc_auc,0.9129,0.0197
+AChE,classification,HistGradientBoosting,random,roc_auc,0.9657,0.0046
+AChE,classification,HistGradientBoosting,scaffold,roc_auc,0.9247,0.0152
+AChE,classification,kNN read-across,random,roc_auc,0.9436,0.0026
+AChE,classification,kNN read-across,scaffold,roc_auc,0.8804,0.0256
+AChE,classification,LogisticRegression,random,roc_auc,0.9013,0.0049
+AChE,classification,LogisticRegression,scaffold,roc_auc,0.8397,0.0165
+BChE,classification,RandomForest,random,roc_auc,0.9707,0.0058
+BChE,classification,RandomForest,scaffold,roc_auc,0.9426,0.0116
+BChE,classification,XGBoost,random,roc_auc,0.9688,0.0067
+BChE,classification,XGBoost,scaffold,roc_auc,0.9317,0.0121
+BChE,classification,HistGradientBoosting,random,roc_auc,0.9719,0.0043
+BChE,classification,HistGradientBoosting,scaffold,roc_auc,0.9313,0.0137
+BChE,classification,kNN read-across,random,roc_auc,0.9495,0.0085
+BChE,classification,kNN read-across,scaffold,roc_auc,0.9047,0.0119
+BChE,classification,LogisticRegression,random,roc_auc,0.927,0.0114
+BChE,classification,LogisticRegression,scaffold,roc_auc,0.8694,0.0124
+BACE1,classification,RandomForest,random,roc_auc,0.9749,0.0077
+BACE1,classification,RandomForest,scaffold,roc_auc,0.9635,0.0055
+BACE1,classification,XGBoost,random,roc_auc,0.9706,0.0081
+BACE1,classification,XGBoost,scaffold,roc_auc,0.9597,0.0047
+BACE1,classification,HistGradientBoosting,random,roc_auc,0.9732,0.008
+BACE1,classification,HistGradientBoosting,scaffold,roc_auc,0.9608,0.0092
+BACE1,classification,kNN read-across,random,roc_auc,0.9463,0.015
+BACE1,classification,kNN read-across,scaffold,roc_auc,0.9194,0.0148
+BACE1,classification,LogisticRegression,random,roc_auc,0.9314,0.0149
+BACE1,classification,LogisticRegression,scaffold,roc_auc,0.9123,0.0112
+GSK3B,classification,RandomForest,random,roc_auc,0.9615,0.0036
+GSK3B,classification,RandomForest,scaffold,roc_auc,0.9368,0.0109
+GSK3B,classification,XGBoost,random,roc_auc,0.9554,0.0045
+GSK3B,classification,XGBoost,scaffold,roc_auc,0.931,0.0113
+GSK3B,classification,HistGradientBoosting,random,roc_auc,0.9593,0.0041
+GSK3B,classification,HistGradientBoosting,scaffold,roc_auc,0.9297,0.0148
+GSK3B,classification,kNN read-across,random,roc_auc,0.9256,0.0063
+GSK3B,classification,kNN read-across,scaffold,roc_auc,0.8986,0.0116
+GSK3B,classification,LogisticRegression,random,roc_auc,0.8778,0.0189
+GSK3B,classification,LogisticRegression,scaffold,roc_auc,0.8387,0.0256
+MAO_A,classification,RandomForest,random,roc_auc,0.9596,0.0134
+MAO_A,classification,RandomForest,scaffold,roc_auc,0.8943,0.0302
+MAO_A,classification,XGBoost,random,roc_auc,0.951,0.0161
+MAO_A,classification,XGBoost,scaffold,roc_auc,0.8857,0.0291
+MAO_A,classification,HistGradientBoosting,random,roc_auc,0.9523,0.017
+MAO_A,classification,HistGradientBoosting,scaffold,roc_auc,0.8814,0.0273
+MAO_A,classification,kNN read-across,random,roc_auc,0.9392,0.0173
+MAO_A,classification,kNN read-across,scaffold,roc_auc,0.8752,0.0233
+MAO_A,classification,LogisticRegression,random,roc_auc,0.9103,0.0156
+MAO_A,classification,LogisticRegression,scaffold,roc_auc,0.8058,0.0394
+MAO_B,classification,RandomForest,random,roc_auc,0.9612,0.0062
+MAO_B,classification,RandomForest,scaffold,roc_auc,0.9124,0.0312
+MAO_B,classification,XGBoost,random,roc_auc,0.959,0.0063
+MAO_B,classification,XGBoost,scaffold,roc_auc,0.9088,0.0221
+MAO_B,classification,HistGradientBoosting,random,roc_auc,0.9624,0.0033
+MAO_B,classification,HistGradientBoosting,scaffold,roc_auc,0.91,0.0302
+MAO_B,classification,kNN read-across,random,roc_auc,0.9436,0.0036
+MAO_B,classification,kNN read-across,scaffold,roc_auc,0.866,0.0406
+MAO_B,classification,LogisticRegression,random,roc_auc,0.8904,0.0068
+MAO_B,classification,LogisticRegression,scaffold,roc_auc,0.8094,0.0326
+hERG,classification,RandomForest,random,roc_auc,0.9539,0.0062
+hERG,classification,RandomForest,scaffold,roc_auc,0.9299,0.012
+hERG,classification,XGBoost,random,roc_auc,0.9486,0.0097
+hERG,classification,XGBoost,scaffold,roc_auc,0.9266,0.0146
+hERG,classification,HistGradientBoosting,random,roc_auc,0.952,0.0089
+hERG,classification,HistGradientBoosting,scaffold,roc_auc,0.9273,0.0127
+hERG,classification,kNN read-across,random,roc_auc,0.9221,0.0078
+hERG,classification,kNN read-across,scaffold,roc_auc,0.8922,0.0127
+hERG,classification,LogisticRegression,random,roc_auc,0.8938,0.0043
+hERG,classification,LogisticRegression,scaffold,roc_auc,0.863,0.0143
+D2,regression,RandomForest,random,r2,0.6284,0.0108
+D2,regression,RandomForest,scaffold,r2,0.5135,0.0645
+D2,regression,XGBoost,random,r2,0.6467,0.0157
+D2,regression,XGBoost,scaffold,r2,0.5443,0.0594
+D2,regression,HistGradientBoosting,random,r2,0.663,0.0203
+D2,regression,HistGradientBoosting,scaffold,r2,0.5555,0.0539
+D2,regression,kNN read-across,random,r2,0.6192,0.0284
+D2,regression,kNN read-across,scaffold,r2,0.504,0.0509
+D2,regression,LogisticRegression,random,r2,0.4748,0.0216
+D2,regression,LogisticRegression,scaffold,r2,0.3566,0.057
+A2A,regression,RandomForest,random,r2,0.7082,0.0175
+A2A,regression,RandomForest,scaffold,r2,0.6266,0.0254
+A2A,regression,XGBoost,random,r2,0.7151,0.02
+A2A,regression,XGBoost,scaffold,r2,0.6401,0.0227
+A2A,regression,HistGradientBoosting,random,r2,0.7149,0.021
+A2A,regression,HistGradientBoosting,scaffold,r2,0.6381,0.0257
+A2A,regression,kNN read-across,random,r2,0.6953,0.0187
+A2A,regression,kNN read-across,scaffold,r2,0.6121,0.0147
+A2A,regression,LogisticRegression,random,r2,0.5842,0.0302
+A2A,regression,LogisticRegression,scaffold,r2,0.4906,0.0511
+HT2A,regression,RandomForest,random,r2,0.6898,0.0131
+HT2A,regression,RandomForest,scaffold,r2,0.5395,0.0502
+HT2A,regression,XGBoost,random,r2,0.6922,0.0114
+HT2A,regression,XGBoost,scaffold,r2,0.5583,0.0496
+HT2A,regression,HistGradientBoosting,random,r2,0.6979,0.0138
+HT2A,regression,HistGradientBoosting,scaffold,r2,0.5603,0.0444
+HT2A,regression,kNN read-across,random,r2,0.6504,0.0276
+HT2A,regression,kNN read-across,scaffold,r2,0.5011,0.0685
+HT2A,regression,LogisticRegression,random,r2,0.5234,0.0347
+HT2A,regression,LogisticRegression,scaffold,r2,0.3297,0.0853
+SERT,regression,RandomForest,random,r2,0.6795,0.0178
+SERT,regression,RandomForest,scaffold,r2,0.4731,0.0903
+SERT,regression,XGBoost,random,r2,0.7043,0.0255
+SERT,regression,XGBoost,scaffold,r2,0.5177,0.0914
+SERT,regression,HistGradientBoosting,random,r2,0.72,0.0238
+SERT,regression,HistGradientBoosting,scaffold,r2,0.5286,0.0868
+SERT,regression,kNN read-across,random,r2,0.6488,0.0252
+SERT,regression,kNN read-across,scaffold,r2,0.4229,0.0805
+SERT,regression,LogisticRegression,random,r2,0.5248,0.0436
+SERT,regression,LogisticRegression,scaffold,r2,0.2638,0.1322
+antioxidant_DPPH,regression,RandomForest,random,r2,0.6423,0.0499
+antioxidant_DPPH,regression,RandomForest,scaffold,r2,0.4424,0.0747
+antioxidant_DPPH,regression,XGBoost,random,r2,0.6784,0.0516
+antioxidant_DPPH,regression,XGBoost,scaffold,r2,0.4463,0.1109
+antioxidant_DPPH,regression,HistGradientBoosting,random,r2,0.674,0.0479
+antioxidant_DPPH,regression,HistGradientBoosting,scaffold,r2,0.4297,0.1011
+antioxidant_DPPH,regression,kNN read-across,random,r2,0.5906,0.0553
+antioxidant_DPPH,regression,kNN read-across,scaffold,r2,0.3325,0.1051
+antioxidant_DPPH,regression,LogisticRegression,random,r2,0.1465,0.1147
+antioxidant_DPPH,regression,LogisticRegression,scaffold,r2,-0.7424,0.2476

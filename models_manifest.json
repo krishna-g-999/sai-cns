@@ -1,14 +1,16 @@
 {
   "schema": 1,
   "version": "1.1",
-  "archive": "brainsafe_models_v1.1.tar.gz",
-  "archive_bytes": 863978623,
-  "archive_sha256": "bc426fdad8f93999f8ddba8066ac345010b92a07a07f02bf03875131980c974c",
+  "archive": "sai_cns_models_v1.1.tar.gz",
+  "archive_bytes": 866941137,
+  "archive_sha256": "eefd05f77519403342e9588982df9bb2acd5cb0297b77410b4f61f35b44cbfd2",
   "n_files": 252,
   "unpacked_bytes": 920392950,
-  "urls": [],
+  "urls": [
+    "https://saicnsmodels2026.blob.core.windows.net/models/sai_cns_models_v1.1.tar.gz"
+  ],
   "doi": "",
-  "note": "Fetched at start-up by model_fetch.py when models_rf/ is absent. Every file is verified against its checksum before the server loads anything.",
+  "note": "Fetched at start-up by model_fetch.py when models_rf/ is absent. Every file is verified against its checksum before the server loads anything. The URL above is a deployment mirror; the citable archive DOI goes in \"doi\" when the Zenodo deposit is made, and both may be listed in \"urls\".",
   "files": {
     "models_rf/A1_binder.joblib": {
       "bytes": 4198507,

@@ -1,0 +1,23 @@
+# Runtime dependencies for the published container image. Deliberately NOT the repository's
+# requirements.txt, which is the environment that TRAINS and VALIDATES: that one carries
+# matplotlib for the manuscript figures, python-docx and pypandoc_binary for the reports, and
+# xgboost for the model-family comparison. None of them is imported to answer a query, and
+# pypandoc_binary alone pulls a pandoc binary of over a hundred megabytes.
+#
+# The imports the served application actually makes are joblib, numpy, pandas, rdkit, requests
+# and streamlit, plus scikit-learn and scipy, which are needed to unpickle and evaluate the
+# estimators even though app.py never names them.
+#
+# Versions are pinned to the environment the estimators were fitted under. scikit-learn records
+# its own version inside each pickle and warns on a mismatch, so the pin is what makes the
+# container reproduce the validated numbers exactly rather than approximately. This is the same
+# set that runs on the institute HPC, where the three-phase check returned a largest difference
+# of 0 across 3,476 values.
+rdkit==2026.03.2
+scikit-learn==1.8.0
+numpy==2.4.6
+pandas==3.0.3
+scipy==1.17.1
+joblib==1.5.3
+requests
+streamlit==1.58.0

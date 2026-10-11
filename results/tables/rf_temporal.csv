@@ -1,0 +1,13 @@
+endpoint,task,cutoff_year,n_train,n_test,metric,score
+AChE,classification,2020,4006,1007,auroc,0.751
+BChE,classification,2021,2624,609,auroc,0.804
+BACE1,classification,2017,6266,1578,auroc,0.913
+GSK3B,classification,2021,4075,521,auroc,0.748
+MAO_A,classification,2020,2706,792,auroc,0.713
+MAO_B,classification,2020,3525,893,auroc,0.845
+hERG,classification,2020,7888,1986,auroc,0.721
+D2,regression,2019,6257,1494,r2,0.082
+A2A,regression,2020,4509,1423,r2,0.218
+HT2A,regression,2020,4509,945,r2,0.17
+SERT,regression,2015,3317,1063,r2,0.111
+antioxidant_DPPH,regression,2016,2263,519,r2,0.012

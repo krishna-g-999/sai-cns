@@ -1,0 +1,16 @@
+metric,k,n,estimate,ci95_low,ci95_high,note
+False-positive rate (any actionable disease call),75,1000,0.075,0.0603,0.093,"upper bound: compounds are presumed inactive, not proven inactive"
+Specificity (no disease call),925,1000,0.925,0.907,0.9397,
+"False-positive rate, in domain (T>=0.5)",75,1000,0.075,0.0603,0.093,
+False positives assigned to: ADHD,1,1000,0.001,,,median score 0.51
+False positives assigned to: Addiction,3,1000,0.003,,,median score 0.81
+False positives assigned to: Alzheimer's disease,3,1000,0.003,,,median score 0.36
+False positives assigned to: Chronic pain,1,1000,0.001,,,median score 0.74
+False positives assigned to: Cognition (cholinergic),5,1000,0.005,,,median score 0.47
+False positives assigned to: Depression / anxiety,10,1000,0.01,,,median score 0.50
+False positives assigned to: Epilepsy,1,1000,0.001,,,median score 0.56
+False positives assigned to: Neuroinflammation,3,1000,0.003,,,median score 0.45
+False positives assigned to: Neuroprotection / oxidative stress,10,1000,0.01,,,median score 0.38
+False positives assigned to: Parkinson's disease,30,1000,0.03,,,median score 0.41
+False positives assigned to: Psychosis / schizophrenia,2,1000,0.002,,,median score 0.56
+False positives assigned to: Sleep / wakefulness,6,1000,0.006,,,median score 0.66

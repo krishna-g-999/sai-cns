@@ -151,11 +151,29 @@ FOR_GUIDES_REVIEW/
 /archive/
 /reviewer_package/
 /validation/
-/results/
 /data/
-/inversion/
 /audit/
 /repro/
+#
+# results/ and inversion/ stay out, with one deliberate exception: the handful of small tables the
+# SERVED INTERFACE reads. Without them the landing page degrades silently rather than failing. It
+# rendered "- molecular targets" instead of "54", and /version returned an empty knowledge-graph
+# fingerprint, because every read is guarded and the guard substitutes a placeholder. A public
+# repository whose front page cannot render its own numbers is not self-sufficient, and the
+# degradation is invisible to whoever deploys it. Seven files, about 35 KB.
+/results/*
+!/results/tables/
+/results/tables/*
+!/results/tables/MODEL_INVENTORY.csv
+!/results/tables/inversion_validation.csv
+!/results/tables/model_comparison.csv
+!/results/tables/noncns_specificity_summary.csv
+!/results/tables/rf_cv_summary.csv
+!/results/tables/rf_temporal.csv
+/inversion/*
+!/inversion/results/
+/inversion/results/*
+!/inversion/results/GRAPH_FINGERPRINT.json
 
 # ---- Internal bookkeeping: kept on this machine, not on the public repository ----
 # None of these is needed to run the server or to reproduce the models. They are inventories of
