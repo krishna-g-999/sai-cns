@@ -1,12 +1,12 @@
-# BrainSafe AI
+# SAI-CNS
 
-**Repository:** https://github.com/krishna-g-999/brainsafe-ai
-**Server:** https://huggingface.co/spaces/Krishnag999/brainsafe-ai
+**Repository:** https://github.com/krishna-g-999/sai-cns
+**Server:** https://huggingface.co/spaces/Krishnag999/sai-cns
 
-**A calibrated, exposure-gated web server for multi-endpoint prediction of small-molecule action
-in the human brain.**
+**SAI-CNS: A Calibrated, Exposure-Gated Web Server for Small-Molecule Target Engagement and
+Pharmacokinetics in the Human Brain.**
 
-BrainSafe AI predicts, from chemical structure alone, whether a compound reaches the brain and what
+SAI-CNS predicts, from chemical structure alone, whether a compound reaches the brain and what
 it is likely to do once there. It couples the two questions that most CNS drug-discovery tools answer
 separately: a target score is admitted only in proportion to the compound's predicted brain exposure,
 so potency at a target the compound cannot reach contributes nothing to the output. A submitted
@@ -49,19 +49,19 @@ target; an applicability-domain distance to the nearest measured analogue on eve
 1,000 compounds with no recorded activity at any modelled target, specificity is **0.925** (95% CI
 0.907–0.940). Six adversarial checks, each written so that it could fail, all pass; a falsification
 analysis withdrew two endpoints that could not separate a real ligand from a trivial metabolite. Full
-detail: [`manuscript/NAR_WebServer_BrainSafe_built.md`](manuscript/NAR_WebServer_BrainSafe_built.md),
+detail: [`manuscript/NAR_WebServer_SAI-CNS_built.md`](manuscript/NAR_WebServer_SAI-CNS_built.md),
 [`docs/TECHNICAL_REPORT.md`](docs/TECHNICAL_REPORT.md).
 
 ## Repository structure
 
-Standard research layout (`data/`, `src/brainsafe/{data,features,models,evaluation,figures,gnn,adme}`,
+Standard research layout (`data/`, `src/sai_cns/{data,features,models,evaluation,figures,gnn,adme}`,
 `results/`, `docs/`, `manuscript/`, `thesis/`, `inversion/`). `tools/check_freshness.py` declares
 every derived artefact and its inputs, and a pre-commit hook refuses a commit that leaves one stale.
 
-Key entry points: **`app.py`** (the interactive server), `src/brainsafe/models/train_rf.py`
-(core-panel training), `src/brainsafe/models/train_binders_hybrid.py` (binder-panel training),
-`src/brainsafe/evaluation/` (validation, comparison, conformal/temporal, adversarial checks),
-`src/brainsafe/adme/` (ADME and exposure, including Kp,uu), `src/brainsafe/figures/` (every
+Key entry points: **`app.py`** (the interactive server), `src/sai_cns/models/train_rf.py`
+(core-panel training), `src/sai_cns/models/train_binders_hybrid.py` (binder-panel training),
+`src/sai_cns/evaluation/` (validation, comparison, conformal/temporal, adversarial checks),
+`src/sai_cns/adme/` (ADME and exposure, including Kp,uu), `src/sai_cns/figures/` (every
 manuscript figure, regenerated from the current models on every run), `inversion/` (the ten-hypothesis
 falsification suite).
 
@@ -69,17 +69,17 @@ falsification suite).
 
 Trained-model binaries and large structure libraries are **not** stored in git; they are regenerated
 by the released scripts, or restored from the checksummed archive named in
-[`manuscript/NAR_WebServer_BrainSafe_built.md`](manuscript/NAR_WebServer_BrainSafe_built.md)'s Data
+[`manuscript/NAR_WebServer_SAI-CNS_built.md`](manuscript/NAR_WebServer_SAI-CNS_built.md)'s Data
 Availability section. In brief:
 
 ```bash
-python src/brainsafe/data/rebuild_endpoints.py          # pool ChEMBL + BindingDB
-python src/brainsafe/models/train_rf.py                 # core panel, RF + 10-fold
-python src/brainsafe/models/train_binders_hybrid.py      # binder panel
-python src/brainsafe/models/calibrate.py                # isotonic calibration
-python src/brainsafe/evaluation/rf_conformal_temporal.py
-python src/brainsafe/adme/fetch_adme.py && python src/brainsafe/adme/train_adme.py
-python src/brainsafe/evaluation/validate_inversion.py   # adversarial checks
+python src/sai_cns/data/rebuild_endpoints.py          # pool ChEMBL + BindingDB
+python src/sai_cns/models/train_rf.py                 # core panel, RF + 10-fold
+python src/sai_cns/models/train_binders_hybrid.py      # binder panel
+python src/sai_cns/models/calibrate.py                # isotonic calibration
+python src/sai_cns/evaluation/rf_conformal_temporal.py
+python src/sai_cns/adme/fetch_adme.py && python src/sai_cns/adme/train_adme.py
+python src/sai_cns/evaluation/validate_inversion.py   # adversarial checks
 python tools/check_freshness.py                         # confirm nothing is stale
 streamlit run app.py                                    # interactive tool
 ```
@@ -115,7 +115,7 @@ streamlit run app.py
 As a container, which is how it should be deployed:
 
 ```bash
-docker build -t brainsafe-ai . && docker run -p 8501:8501 brainsafe-ai
+docker build -t sai-cns . && docker run -p 8501:8501 sai-cns
 ```
 
 The image runs as an unprivileged user, reads only from disk, and exposes Streamlit's health
@@ -125,7 +125,7 @@ the theme live in `.streamlit/config.toml`.
 Before deploying, verify the environment and the application in one step:
 
 ```bash
-python src/brainsafe/evaluation/app_health.py
+python src/sai_cns/evaluation/app_health.py
 ```
 
 It checks that every declared dependency resolves and matches its pin, that the registered model
@@ -148,7 +148,7 @@ for user-entered compounds are resolved via PubChem.
 ## Citation
 
 See [`CITATION.cff`](CITATION.cff) for how to cite the software, and
-[`manuscript/NAR_WebServer_BrainSafe_built.md`](manuscript/NAR_WebServer_BrainSafe_built.md) for the
+[`manuscript/NAR_WebServer_SAI-CNS_built.md`](manuscript/NAR_WebServer_SAI-CNS_built.md) for the
 manuscript (submitted to *Nucleic Acids Research*, Web Server Issue; a condensed, submission-length
 draft is at
 [`manuscript/NAR_condensed_built.md`](manuscript/NAR_condensed_built.md)).

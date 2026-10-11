@@ -8,7 +8,7 @@ numbers, no table of contents) means the whole packet sent out reads as one docu
 as a manuscript in one style and its evidence in another.
 
 TECHNICAL_REPORT.md is not included here: it has its own converter
-(src/brainsafe/analysis/technical_report_docx.py) because it embeds rendered flowcharts.
+(src/sai_cns/analysis/technical_report_docx.py) because it embeds rendered flowcharts.
 
 Run:  python tools/build_supplementary_docx.py
 """

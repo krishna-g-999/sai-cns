@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Push BrainSafe AI to a Hugging Face Space.
+# Push SAI-CNS to a Hugging Face Space.
 #
 # Run this yourself: it needs a Hugging Face access token, which is a credential and is not something
 # to hand to an assistant. Create one at https://huggingface.co/settings/tokens with WRITE scope, and
@@ -12,7 +12,7 @@
 set -euo pipefail
 
 USER="${1:-Krishnag999}"
-SPACE="${2:-brainsafe-ai}"
+SPACE="${2:-sai-cns}"
 SRC="$(cd "$(dirname "$0")/../.." && pwd)"
 WORK="${TMPDIR:-/tmp}/hf-${SPACE}"
 
@@ -47,7 +47,7 @@ echo
 read -r -p "publish? [y/N] " ok
 [ "$ok" = "y" ] || { echo "aborted"; exit 1; }
 
-git commit -m "BrainSafe AI: web server and REST API"
+git commit -m "SAI-CNS: web server and REST API"
 git push
 echo
 echo "done. The Space will build for several minutes, then be live at:"

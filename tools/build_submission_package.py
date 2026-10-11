@@ -34,7 +34,7 @@ LAYOUT: list[tuple[str, list[tuple[str, str, str | None]]]] = [
     # folder first. Everything else in this package is institutional/PI-review material the
     # journal itself does not ask for.
     ("00_SUBMIT_TO_NAR", [
-        ("manuscript/NAR_WebServer_BrainSafe_condensed.docx", "1_manuscript.docx", None),
+        ("manuscript/NAR_WebServer_SAI-CNS_condensed.docx", "1_manuscript.docx", None),
         ("manuscript/figures/GraphicalAbstract.png", "2_graphical_abstract.png", None),
         ("manuscript/figures/GraphicalAbstract.pdf", "2_graphical_abstract.pdf", None),
         ("manuscript/Supplementary_Information.docx", "3_supplementary_information.docx", None),
@@ -46,12 +46,12 @@ LAYOUT: list[tuple[str, list[tuple[str, str, str | None]]]] = [
         ("manuscript/NAR_proposal_onepage.docx", "proposal_one_page.docx", None),
     ]),
     ("02_MANUSCRIPT", [
-        ("manuscript/NAR_WebServer_BrainSafe_condensed.docx", "01_manuscript_for_NAR.docx", None),
+        ("manuscript/NAR_WebServer_SAI-CNS_condensed.docx", "01_manuscript_for_NAR.docx", None),
         ("manuscript/NAR_condensed_draft.md", "01_manuscript_for_NAR.md", None),
         ("manuscript/Supplementary_Information.docx", "01b_supplementary_information.docx", None),
-        ("manuscript/NAR_WebServer_BrainSafe.docx", "02_manuscript_extended.docx", None),
-        ("manuscript/NAR_WebServer_BrainSafe_built.md", "manuscript.md", None),
-        ("manuscript/NAR_WebServer_BrainSafe_draft.md", "manuscript_source.md", None),
+        ("manuscript/NAR_WebServer_SAI-CNS.docx", "02_manuscript_extended.docx", None),
+        ("manuscript/NAR_WebServer_SAI-CNS_built.md", "manuscript.md", None),
+        ("manuscript/NAR_WebServer_SAI-CNS_draft.md", "manuscript_source.md", None),
         ("manuscript/references.md", "references.md", None),
         ("manuscript/references_verified.json", "references_verification.json", None),
         ("manuscript/references_links.json", "references_pubmed_links.json", None),
@@ -78,18 +78,18 @@ LAYOUT: list[tuple[str, list[tuple[str, str, str | None]]]] = [
         ("docs/ML_METHODS_AND_FORMULAS.md", "ml_methods_and_formulas.md", None),
         ("results/tables/decision_tree_example_full.txt", "decision_tree_example_full.txt", None),
     ]),
-    ("05_CODE/01_data_acquisition", [("src/brainsafe/data", ".", "*.py")]),
-    ("05_CODE/02_featurisation", [("src/brainsafe/features", ".", "*.py")]),
-    ("05_CODE/03_model_training", [("src/brainsafe/models", ".", "*.py")]),
-    ("05_CODE/04_validation", [("src/brainsafe/evaluation", ".", "*.py")]),
+    ("05_CODE/01_data_acquisition", [("src/sai_cns/data", ".", "*.py")]),
+    ("05_CODE/02_featurisation", [("src/sai_cns/features", ".", "*.py")]),
+    ("05_CODE/03_model_training", [("src/sai_cns/models", ".", "*.py")]),
+    ("05_CODE/04_validation", [("src/sai_cns/evaluation", ".", "*.py")]),
     ("05_CODE/05_falsification", [("inversion", ".", "*.py")]),
-    ("05_CODE/06_figures", [("src/brainsafe/figures", ".", "*.py")]),
-    ("05_CODE/07_reporting", [("src/brainsafe/analysis", ".", "*.py")]),
+    ("05_CODE/06_figures", [("src/sai_cns/figures", ".", "*.py")]),
+    ("05_CODE/07_reporting", [("src/sai_cns/analysis", ".", "*.py")]),
     ("05_CODE/08_application", [
         ("app.py", "app.py", None),
         ("api.py", "api.py", None),
         ("model_fetch.py", "model_fetch.py", None),
-        ("src/brainsafe/panel.py", "panel_registry.py", None),
+        ("src/sai_cns/panel.py", "panel_registry.py", None),
     ]),
     ("05_CODE/09_tests", [("tests", ".", "*.py")]),
     ("05_CODE/10_integrity_tooling", [
@@ -221,7 +221,7 @@ def main() -> None:
         "expected_but_absent": missing,
     }, indent=2), encoding="utf-8")
 
-    (out / "README.md").write_text(f"""# BrainSafe AI: submission package
+    (out / "README.md").write_text(f"""# SAI-CNS: submission package
 
 Built {datetime.now().strftime("%Y-%m-%d %H:%M")} by `tools/build_submission_package.py`.
 Everything here is a copy; the source of truth is the working repository

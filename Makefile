@@ -1,4 +1,4 @@
-# BrainSafe AI. One command per intention.
+# SAI-CNS. One command per intention.
 #
 # The targets are split by cost and by consequence, not by convenience. `reproduce` regenerates
 # everything downstream of the trained models and takes minutes. `train` refits them and takes
@@ -14,7 +14,7 @@
 #   make reproduce PY=python3
 
 PY ?= ./brainsafe_env/Scripts/python.exe
-SRC := src/brainsafe
+SRC := src/sai_cns
 
 .DEFAULT_GOAL := help
 .PHONY: help setup test test-fast coverage check freshness accept provenance \
@@ -101,10 +101,10 @@ train:  ## refit the whole panel from the endpoint tables. Hours. Read REPRODUCE
 
 # ---------------------------------------------------------------------------- container ----------
 docker-build:  ## build the server image
-	docker build -t brainsafe-ai:latest .
+	docker build -t sai-cns:latest .
 
 docker-run:  ## run the server: interface on 8501, API on 8000
-	docker run --rm -p 8501:8501 -p 8000:8000 brainsafe-ai:latest
+	docker run --rm -p 8501:8501 -p 8000:8000 sai-cns:latest
 
 clean:  ## remove caches and coverage output, never results or models
 	rm -rf .pytest_cache repro/coverage

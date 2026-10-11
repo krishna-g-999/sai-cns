@@ -1,7 +1,7 @@
 """Run the interface and the REST API together in one container.
 
-They are deliberately not separate containers. Both load the same read-only model set, roughly a
-gigabyte resident, so splitting them would double the memory for no isolation benefit. The API runs
+They are deliberately not separate containers. Both load the same read-only model set, measured at
+2.35 GB resident, so splitting them would double the memory for no isolation benefit. The API runs
 in a background thread of this process and the Streamlit server in a child process, because Streamlit
 insists on owning its own process and does not embed.
 
@@ -29,7 +29,9 @@ API_PORT = os.environ.get("API_PORT", "8000")
 # A Space publishes only the one port, so the API is reachable inside the container but not from the
 # internet. Serving both publicly needs either a reverse proxy that can carry Streamlit's websocket,
 # which is not worth writing, or a second Space running api.py. DEPLOY.md sets that out.
-API_ONLY = os.environ.get("BRAINSAFE_API_ONLY", "").lower() in ("1", "true", "yes")
+# Accepts the former BRAINSAFE_API_ONLY too; see _flag in model_fetch.py for why.
+from model_fetch import _flag  # noqa: E402
+API_ONLY = _flag("API_ONLY")
 
 
 def run_api():
@@ -49,7 +51,7 @@ def main():
         return api.main()
 
     print(f"starting API on {API_PORT} and interface on {UI_PORT}", flush=True)
-    t = threading.Thread(target=run_api, daemon=True, name="brainsafe-api")
+    t = threading.Thread(target=run_api, daemon=True, name="sai_cns-api")
     t.start()
 
     ui = subprocess.Popen([sys.executable, "-m", "streamlit", "run", str(ROOT / "app.py"),

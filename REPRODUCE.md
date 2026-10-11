@@ -1,4 +1,4 @@
-# Reproducing BrainSafe AI
+# Reproducing SAI-CNS
 
 Everything in the manuscript regenerates from this repository. This page is the quickstart; the
 edge-by-edge map of what produces what is `repro/PROVENANCE.md`, generated from the same dependency
@@ -9,7 +9,7 @@ declaration the freshness check enforces.
 ## Quickstart
 
 ```bash
-git clone https://github.com/krishna-g-999/brainsafe-ai && cd brainsafe-ai
+git clone https://github.com/krishna-g-999/sai-cns && cd sai-cns
 python -m venv brainsafe_env && . brainsafe_env/bin/activate   # Windows: brainsafe_env\Scripts\activate
 pip install -r requirements.txt
 python model_fetch.py                 # trained estimators, verified by SHA-256
@@ -117,7 +117,7 @@ except for one value differing by 1 × 10⁻¹².
 | scipy | 1.17.1 |
 | xgboost | 3.3.0 |
 
-Verify an environment with `python src/brainsafe/evaluation/app_health.py`, which exits non-zero if
+Verify an environment with `python src/sai_cns/evaluation/app_health.py`, which exits non-zero if
 the deployed panel does not behave as recorded.
 
 ---
@@ -164,7 +164,7 @@ actually appears in the manuscript.
 `.github/workflows/ci.yml`. To verify:
 
 ```bash
-docker build --build-arg SKIP_MODEL_FETCH=1 -t brainsafe-ai:ci .
+docker build --build-arg SKIP_MODEL_FETCH=1 -t sai-cns:ci .
 ```
 
 `SKIP_MODEL_FETCH=1` builds without the 0.84 GB archive, which is what CI needs; the resulting image

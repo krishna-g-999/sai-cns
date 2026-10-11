@@ -19,7 +19,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 
 
 def _f(path: str, fn, default="not available"):

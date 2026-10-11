@@ -44,6 +44,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -52,10 +53,10 @@ ROOT = Path(__file__).resolve().parents[1]
 # Four steps that all mutate models_rf/binder_modes.json, in the only order that is correct. See the
 # ORDERING HAZARD note in GRAPH below.
 THRESHOLD_SEQUENCE = (
-    "python src/brainsafe/models/final_thresholds.py && "
-    "python src/brainsafe/models/screening_thresholds.py && "
-    "python src/brainsafe/models/apply_specificity_decisions.py && "
-    "python src/brainsafe/models/calibrate_background_specificity.py"
+    "python src/sai_cns/models/final_thresholds.py && "
+    "python src/sai_cns/models/screening_thresholds.py && "
+    "python src/sai_cns/models/apply_specificity_decisions.py && "
+    "python src/sai_cns/models/calibrate_background_specificity.py"
 )
 
 # output -> (inputs, command that rebuilds it)
@@ -64,11 +65,11 @@ THRESHOLD_SEQUENCE = (
 GRAPH: list[tuple[str, list[str], str]] = [
     # ---- models are derived from the endpoint tables -----------------------------------------
     ("models_rf/BBB.joblib", ["data/endpoints/*.csv"],
-     "python src/brainsafe/models/train_rf.py"),
+     "python src/sai_cns/models/train_rf.py"),
     ("results/tables/rf_cv_summary.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/models/train_rf.py"),
+     "python src/sai_cns/models/train_rf.py"),
     ("results/tables/rf_cv_folds.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/models/train_rf.py"),
+     "python src/sai_cns/models/train_rf.py"),
 
     # The label-permutation null for the eight core classifiers. Written after a thesis audit found
     # the technical report asserting mean AUROCs of 0.4938 random and 0.4921 scaffold under permuted
@@ -77,7 +78,7 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # scaffold grouping alone confers nothing, so it belongs in the graph beside the figures it
     # supports. It depends on the endpoint tables, because it refits from them.
     ("results/tables/permutation_null.csv", ["data/endpoints/*.csv"],
-     "python src/brainsafe/evaluation/permutation_null.py"),
+     "python src/sai_cns/evaluation/permutation_null.py"),
 
     # H10, the falsification suite's test of the barrier model itself. Added after a thesis audit
     # found that the component the architecture is named for was the one component no hypothesis
@@ -88,27 +89,27 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # inside build_technical_report.py and written to no file, so no other document could cite them
     # and nothing checked them. The artefact reproduces the generator's values exactly.
     ("results/tables/library_sp3_coverage.csv", ["data/endpoints/*.csv"],
-     "python src/brainsafe/evaluation/library_sp3_coverage.py"),
+     "python src/sai_cns/evaluation/library_sp3_coverage.py"),
 
     # Whether the panel's two different "how many compounds" figures, 170,619 distinct SMILES and
     # 169,341 unique compounds keyed by the InChIKey of the desalted parent, are both real. Neither
     # the thesis nor the manuscript had re-derived the InChIKey figure; three separate outstanding-
     # items entries said so. It reproduces to the digit against the manuscript's stated value.
     ("results/tables/unique_compound_count.csv", ["data/endpoints/*.csv"],
-     "python src/brainsafe/evaluation/unique_compound_count.py"),
+     "python src/sai_cns/evaluation/unique_compound_count.py"),
 
     # SHAP attribution for the barrier model and hERG, quoted in the manuscript's Attribution
     # paragraph. No script computed these values and no table held them; the technical report has no
     # SHAP section at all. Depends on the served model, not only the table, because TreeExplainer
     # reads the fitted forest.
     ("results/tables/shap_attribution.csv", ["models_rf/BBB.joblib", "models_rf/hERG.joblib"],
-     "python src/brainsafe/evaluation/shap_attribution.py"),
+     "python src/sai_cns/evaluation/shap_attribution.py"),
 
     # The full estimator inventory behind Figure 2 (panel atlas) and the manuscript's own summary
     # counts. It read from no declared input, so a retrained panel could leave it silently behind;
     # this is the same gap already closed for model_comparison.csv and background_specificity.csv.
     ("results/tables/MODEL_INVENTORY.csv", ["models_rf/binder_modes.json", "models_rf/*.joblib"],
-     "python src/brainsafe/analysis/build_model_inventory.py"),
+     "python src/sai_cns/analysis/build_model_inventory.py"),
 
     # The external approved-drug set and its novelty flags. It was declared only as an INPUT, never
     # as an output, and it went stale in the way that omission allows. novel_to_model is computed by
@@ -119,8 +120,8 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # figure on the 227 genuinely novel is 0.7666, which is level with the 0.7645 obtained without
     # any novelty filtering at all. The dependency on featurize.py is the one that matters here.
     ("data/external/processed/external_bbb_test.csv",
-     ["src/brainsafe/features/featurize.py", "data/endpoints/BBB.csv"],
-     "python src/brainsafe/data/integrate_external.py"),
+     ["src/sai_cns/features/featurize.py", "data/endpoints/BBB.csv"],
+     "python src/sai_cns/data/integrate_external.py"),
 
     # The family comparison and the paired test on it. Neither was declared: model_comparison.csv
     # appeared only as an INPUT to the technical report and the significance table was absent
@@ -129,16 +130,16 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # table whose conclusion, "the forest is not distinguishable from the boosters", is quoted in the
     # thesis, the viva pack and two decks.
     ("results/tables/model_comparison.csv", ["data/endpoints/*.csv"],
-     "python src/brainsafe/evaluation/model_comparison.py"),
+     "python src/sai_cns/evaluation/model_comparison.py"),
     ("results/tables/model_family_significance.csv", ["results/tables/model_comparison.csv"],
-     "python src/brainsafe/evaluation/model_family_significance.py"),
+     "python src/sai_cns/evaluation/model_family_significance.py"),
 
     # The folded fingerprint's collision rate. featurize.py and docs/METHODS.md both asserted the
     # encoding was collision-free by construction, which is the reverse of what folding does, and
     # neither had a measurement behind it. It depends on the endpoint tables because the rate grows
     # with the size and diversity of the library actually being encoded.
     ("results/tables/fingerprint_collisions.csv", ["data/endpoints/*.csv"],
-     "python src/brainsafe/evaluation/fingerprint_collisions.py"),
+     "python src/sai_cns/evaluation/fingerprint_collisions.py"),
 
     ("inversion/results/H10_barrier_necessity.csv",
      ["models_rf/BBB.joblib", "data/processed/cv_predictions/BBB_scaffold_oof.csv",
@@ -151,26 +152,26 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # so they depend on the served models; T3 and T4 read tables.
     ("thesis/figures/FigureT1_scoring_pipeline.png",
      ["models_rf/binder_modes.json", "models_rf/BBB.joblib", "app.py"],
-     "python src/brainsafe/figures/thesis_T1_scoring_pipeline.py"),
+     "python src/sai_cns/figures/thesis_T1_scoring_pipeline.py"),
     ("thesis/figures/FigureT2_enrichment_and_gate.png",
      ["models_rf/binder_modes.json", "models_rf/endpoint_context.json", "app.py"],
-     "python src/brainsafe/figures/thesis_T2_enrichment_and_gate.py"),
+     "python src/sai_cns/figures/thesis_T2_enrichment_and_gate.py"),
     ("thesis/figures/FigureT3_uncertainty_stack.png",
      ["results/tables/calibration.csv", "results/tables/rf_conformal.csv",
       "results/tables/integrity_calibration_per_target.csv"],
-     "python src/brainsafe/figures/thesis_T3_uncertainty_stack.py"),
+     "python src/sai_cns/figures/thesis_T3_uncertainty_stack.py"),
     ("thesis/figures/FigureT4_falsification.png",
      ["inversion/results/VERDICTS.csv", "results/tables/permutation_null.csv",
       "inversion/results/H10_barrier_necessity.csv"],
-     "python src/brainsafe/figures/thesis_T4_falsification.py"),
+     "python src/sai_cns/figures/thesis_T4_falsification.py"),
 
     # ---- calibration sits on the core models --------------------------------------------------
     ("results/tables/calibration.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/models/calibrate.py"),
+     "python src/sai_cns/models/calibrate.py"),
 
     # ---- the binder panel ----------------------------------------------------------------------
     ("models_rf/binder_modes.json", ["data/endpoints/*.csv"],
-     "python src/brainsafe/models/train_binders_hybrid.py"),
+     "python src/sai_cns/models/train_binders_hybrid.py"),
     # ORDERING HAZARD. These four steps all write models_rf/binder_modes.json and each depends on
     # the one before it. Running any of them alone silently reverts the later ones: re-running
     # final_thresholds.py by itself undid the background-specificity tightening for HT1A, HT2A and
@@ -205,7 +206,7 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # tables, precisely because those tables are what this artefact exists to check against.
     ("results/tables/background_specificity_disjoint.csv",
      ["models_rf/*_binder.joblib", "models_rf/binder_modes.json"],
-     "python src/brainsafe/evaluation/background_specificity_disjoint.py"),
+     "python src/sai_cns/evaluation/background_specificity_disjoint.py"),
 
     # ---- the evaluation layer, all of it downstream of the models ------------------------------
     # Declares the external set as well as the model. Both this table and H10 below filter on
@@ -213,18 +214,18 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # figure without anything going red.
     ("results/tables/external_bbb_validation.csv",
      ["models_rf/BBB.joblib", "data/external/processed/external_bbb_test.csv"],
-     "python src/brainsafe/evaluation/external_validation.py"),
+     "python src/sai_cns/evaluation/external_validation.py"),
     ("results/tables/rf_conformal.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/evaluation/rf_conformal_temporal.py"),
+     "python src/sai_cns/evaluation/rf_conformal_temporal.py"),
     # Two of its six checks read the external BBB set directly (the "ranks permeable drugs" and
     # "domain flag separates" checks both draw their comparator from novel_to_model), the same
     # dependency external_validation.py already declares two entries above. Missing here until this
     # pass, which is the same class of gap Finding A closed for the manuscript's own external figure.
     ("results/tables/inversion_validation.csv",
      ["models_rf/BBB.joblib", "data/external/processed/external_bbb_test.csv"],
-     "python src/brainsafe/evaluation/validate_inversion.py"),
+     "python src/sai_cns/evaluation/validate_inversion.py"),
     ("results/tables/integrity_audit.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/evaluation/integrity_audit.py"),
+     "python src/sai_cns/evaluation/integrity_audit.py"),
 
     # The applicability-domain outputs, absent from this graph until 2026-08-26 and stale by six
     # days when a thesis audit compared them with the file next to them. Both were built on
@@ -237,16 +238,16 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # is worth stating: an output that no entry here names is unprotected, whatever else is true
     # of it.
     ("results/tables/applicability_bbb_validation.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/evaluation/applicability_domain.py"),
+     "python src/sai_cns/evaluation/applicability_domain.py"),
     ("results/tables/applicability_coverage.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/evaluation/applicability_domain.py"),
+     "python src/sai_cns/evaluation/applicability_domain.py"),
 
     # Per-target calibration for the binder panel. The headline calibration figure covers the eight
     # isotonically calibrated core classifiers; this covers the 38 Platt-scaled binder endpoints,
     # whose expected calibration error is about five times larger. It is the artefact behind the
     # only honest statement of how well the panel's probabilities are calibrated as a whole.
     ("results/tables/integrity_calibration_per_target.csv", ["models_rf/binder_modes.json"],
-     "python src/brainsafe/evaluation/integrity_audit.py"),
+     "python src/sai_cns/evaluation/integrity_audit.py"),
 
     # Reconciles the four figures this project reports for deployed binder sensitivity. Written
     # after a thesis audit found the registry storing a value computed over every active in the
@@ -255,7 +256,7 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # definitions, because it is a claim about the relationship between them.
     ("results/tables/sensitivity_reconciliation.csv",
      ["models_rf/binder_modes.json", "models_rf/holdout"],
-     "python src/brainsafe/evaluation/sensitivity_reconciliation.py"),
+     "python src/sai_cns/evaluation/sensitivity_reconciliation.py"),
 
 
     # Two supporting analyses that were absent from this graph and had gone stale unnoticed. Both
@@ -263,7 +264,7 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # nothing would have caught them except someone checking file dates by hand. Being outside the
     # graph is exactly what let them drift, which is the defect this checker exists to prevent.
     ("results/tables/feature_block_ablation.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/evaluation/feature_analysis.py"),
+     "python src/sai_cns/evaluation/feature_analysis.py"),
 
     # The falsification suite. Nine hypotheses, four of them refuted, quoted in the technical
     # report and in the manuscript. Four of the original eight had gone a month stale against the
@@ -288,7 +289,7 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # institutional review package. It read a mean AUROC of 0.9765 where the registry holds 0.9113
     # over the same 47 targets. It is now derived from the registry and declared here.
     ("results/tables/binder_vs_measured_inactives.csv", ["models_rf/binder_modes.json"],
-     "python src/brainsafe/evaluation/binder_vs_measured_inactives.py"),
+     "python src/sai_cns/evaluation/binder_vs_measured_inactives.py"),
 
     # The two artefacts the LIVE SERVER quotes on every query, and the two that were outside this
     # graph the longest. Both were found stale by a reviewer-style audit of the deployed interface,
@@ -302,12 +303,12 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # which is precisely why nobody ran it again.
     ("models_rf/endpoint_context.json",
      ["models_rf/BBB.joblib", "models_rf/binder_modes.json"],
-     "python src/brainsafe/build_endpoint_context.py"),
+     "python src/sai_cns/build_endpoint_context.py"),
 
     # temporal_by_domain.csv backs the reliability banner shown above every result, which states the
     # AUROC and rank correlation to expect at the query's own distance from training chemistry.
     ("results/tables/temporal_by_domain.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/analysis/temporal_diagnosis.py"),
+     "python src/sai_cns/analysis/temporal_diagnosis.py"),
 
     # The worked example in section 5.1 of the technical report. It is the output of the deployed
     # models on three named compounds, so it is stale the moment any of them is refitted. Quoting a
@@ -315,7 +316,7 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # drifted, and this one is quoted line by line.
     ("results/tables/worked_example.csv",
      ["models_rf/binder_modes.json", "results/tables/external_novelty_strata.csv"],
-     "python src/brainsafe/analysis/worked_example.py"),
+     "python src/sai_cns/analysis/worked_example.py"),
 
     # The external-validation programme. These refit the panel rather than scoring it, so they do
     # not depend on the fitted models for their result; they depend on binder_modes.json only
@@ -323,17 +324,17 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # endpoint tables, which is what actually invalidates them.
     ("results/tables/external_prospective.csv",
      ["data/endpoints/*.csv", "models_rf/binder_modes.json"],
-     "python src/brainsafe/evaluation/external_prospective.py"),
+     "python src/sai_cns/evaluation/external_prospective.py"),
     ("results/tables/external_prospective_core.csv", ["data/endpoints/*.csv"],
-     "python src/brainsafe/evaluation/external_prospective_core.py"),
+     "python src/sai_cns/evaluation/external_prospective_core.py"),
     ("results/tables/external_cross_source.csv",
      ["data/endpoints/*.csv", "models_rf/binder_modes.json"],
-     "python src/brainsafe/evaluation/external_cross_source.py"),
+     "python src/sai_cns/evaluation/external_cross_source.py"),
     # The stratification is downstream of the compound-level output of both, and is the analysis the
     # headline numbers are meaningless without.
     ("results/tables/external_novelty_strata.csv",
      ["results/tables/external_prospective.csv", "results/tables/external_cross_source.csv"],
-     "python src/brainsafe/evaluation/external_novelty_strata.py"),
+     "python src/sai_cns/evaluation/external_novelty_strata.py"),
 
     # The technical report itself. It was the one generated document outside this graph, and it went
     # stale exactly as the graph exists to prevent: it computes its cross-provenance sensitivity from
@@ -354,53 +355,53 @@ GRAPH: list[tuple[str, list[str], str]] = [
       "results/tables/rf_conformal.csv", "results/tables/rf_cv_summary.csv",
       "results/tables/rf_temporal.csv", "results/tables/scaffold_holdout_results.csv",
       "results/tables/stereochemistry_audit.csv", "results/tables/worked_example.csv"],
-     "python src/brainsafe/analysis/build_technical_report.py"),
+     "python src/sai_cns/analysis/build_technical_report.py"),
 
     # The two analyses written to answer foreseeable reviewer criticisms. Both are quoted verbatim in
     # section 8.2 of the technical report, which is precisely the condition that let earlier
     # supporting analyses drift: quoted in a document, named by no dependency.
     ("results/tables/stereochemistry_audit.csv", ["data/endpoints/*.csv"],
-     "python src/brainsafe/evaluation/stereochemistry_audit.py"),
+     "python src/sai_cns/evaluation/stereochemistry_audit.py"),
     ("results/tables/applicability_measures.csv",
      ["models_rf/ad_reference.pkl", "data/external/processed/external_bbb_test.csv"],
-     "python src/brainsafe/evaluation/applicability_measures.py"),
+     "python src/sai_cns/evaluation/applicability_measures.py"),
     ("results/tables/learning_curve.csv", ["models_rf/BBB.joblib"],
-     "python src/brainsafe/evaluation/learning_curve.py"),
+     "python src/sai_cns/evaluation/learning_curve.py"),
     ("results/tables/noncns_specificity_summary.csv",
      ["models_rf/BBB.joblib", "models_rf/binder_modes.json"],
-     "python src/brainsafe/evaluation/noncns_specificity.py"),
+     "python src/sai_cns/evaluation/noncns_specificity.py"),
     ("results/tables/binder_cv_summary.csv", ["models_rf/binder_modes.json"],
-     "python src/brainsafe/evaluation/binder_cv_per_fold.py"),
+     "python src/sai_cns/evaluation/binder_cv_per_fold.py"),
 
     # The two-step hold-out. This pair is the incident that motivated the whole file: the panel was
     # re-run and the report was not, so the inputs were current and the output was a day stale.
     ("models_rf/holdout", ["models_rf/binder_modes.json"],
-     "python src/brainsafe/evaluation/scaffold_holdout_panel.py"),
+     "python src/sai_cns/evaluation/scaffold_holdout_panel.py"),
     ("results/tables/scaffold_holdout_results.csv", ["models_rf/holdout"],
-     "python src/brainsafe/evaluation/scaffold_holdout_report.py"),
+     "python src/sai_cns/evaluation/scaffold_holdout_report.py"),
 
     # ---- the reviewer package -------------------------------------------------------------------
     ("reviewer_package/model_outputs/TRAINING_MATRIX.csv", ["data/endpoints/*.csv"],
-     "python src/brainsafe/analysis/build_reviewer_matrix.py"),
-    ("reviewer_package/model_outputs/BrainSafe_models_inputs_and_folds.xlsx",
+     "python src/sai_cns/analysis/build_reviewer_matrix.py"),
+    ("reviewer_package/model_outputs/SAI-CNS_models_inputs_and_folds.xlsx",
      ["reviewer_package/model_outputs/TRAINING_MATRIX.csv", "results/tables/rf_cv_folds.csv"],
-     "python src/brainsafe/analysis/build_reviewer_workbook_full.py"),
+     "python src/sai_cns/analysis/build_reviewer_workbook_full.py"),
 
     # ---- figures read the tables ----------------------------------------------------------------
     ("manuscript/figures/Figure3_cv_design.png", ["results/tables/rf_cv_summary.csv"],
-     "python src/brainsafe/figures/fig03_cv_design.py"),
+     "python src/sai_cns/figures/fig03_cv_design.py"),
     ("manuscript/figures/Figure4_pools_and_thresholds.png", ["models_rf/binder_modes.json"],
-     "python src/brainsafe/figures/fig04_pools_and_thresholds.py"),
+     "python src/sai_cns/figures/fig04_pools_and_thresholds.py"),
     ("manuscript/figures/Figure5_negative_class.png", ["results/tables/rf_cv_summary.csv"],
-     "python src/brainsafe/figures/fig05_negative_class.py"),
+     "python src/sai_cns/figures/fig05_negative_class.py"),
     ("manuscript/figures/Figure6_validation.png",
      ["results/tables/calibration.csv", "results/tables/scaffold_holdout_results.csv",
       "results/tables/noncns_specificity_summary.csv",
       "results/tables/external_bbb_validation.csv", "results/tables/inversion_validation.csv"],
-     "python src/brainsafe/figures/fig06_validation.py"),
+     "python src/sai_cns/figures/fig06_validation.py"),
     ("manuscript/figures/Figure7_binder_panel.png",
      ["models_rf/binder_modes.json", "results/tables/background_specificity_disjoint.csv"],
-     "python src/brainsafe/figures/fig07_binder_panel.py"),
+     "python src/sai_cns/figures/fig07_binder_panel.py"),
     # Five figures were outside this graph entirely, and one of them mattered. Figure 8 shows real
     # predictions for eight drugs, so it runs through disease_scores and therefore through the
     # training base rates in endpoint_context.json. That file was corrected on 25 August, and the
@@ -409,42 +410,42 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # but a schematic that quotes a panel size goes stale the same way.
     ("manuscript/figures/Figure8_use_case.png",
      ["models_rf/binder_modes.json", "models_rf/endpoint_context.json"],
-     "python src/brainsafe/figures/fig08_use_case.py"),
+     "python src/sai_cns/figures/fig08_use_case.py"),
     # The separate file NAR's Web Server Issue requires as a submission item. It quotes the panel
     # size and scores a live donepezil query through the same entry point Figure 4 uses, so it goes
     # stale the same way that figure does; replaces figures/graphical_abstract.png, which quoted
     # 64,474 training records against the 228,200 the tables have held since this session began.
     ("manuscript/figures/GraphicalAbstract.png",
      ["models_rf/binder_modes.json", "models_rf/endpoint_context.json"],
-     "python src/brainsafe/figures/fig_graphical_abstract.py"),
+     "python src/sai_cns/figures/fig_graphical_abstract.py"),
     ("manuscript/figures/Figure9_model_atlas.png",
      ["models_rf/binder_modes.json", "results/tables/rf_cv_summary.csv",
       "results/tables/MODEL_INVENTORY.csv"],
-     "python src/brainsafe/analysis/build_model_inventory.py && "
-     "python src/brainsafe/figures/fig09_model_atlas.py"),
+     "python src/sai_cns/analysis/build_model_inventory.py && "
+     "python src/sai_cns/figures/fig09_model_atlas.py"),
     ("manuscript/figures/Figure10_endpoint_selection.png", ["models_rf/binder_modes.json"],
-     "python src/brainsafe/figures/fig10_endpoint_selection.py"),
+     "python src/sai_cns/figures/fig10_endpoint_selection.py"),
     ("manuscript/figures/Figure1_architecture.png",
      ["models_rf/binder_modes.json", "results/tables/rf_cv_folds.csv",
       "results/tables/binder_cv_folds.csv", "results/tables/adme_cv_folds.csv"],
-     "python src/brainsafe/figures/fig01_architecture.py"),
+     "python src/sai_cns/figures/fig01_architecture.py"),
     ("manuscript/figures/Figure2_feature_vector.png", ["models_rf/binder_modes.json"],
-     "python src/brainsafe/figures/fig02_feature_vector.py"),
+     "python src/sai_cns/figures/fig02_feature_vector.py"),
 
     ("manuscript/figures/Figure11_external_validation.png",
      ["results/tables/external_prospective.csv", "results/tables/external_novelty_strata.csv",
       "results/tables/external_cross_source.csv"],
-     "python src/brainsafe/figures/fig11_external_validation.py"),
+     "python src/sai_cns/figures/fig11_external_validation.py"),
 
     # ---- the manuscript is downstream of everything it quotes -----------------------------------
     ("manuscript/tables_generated.md",
      ["results/tables/rf_cv_summary.csv", "models_rf/binder_modes.json"],
-     "python src/brainsafe/analysis/manuscript_tables.py"),
-    ("manuscript/NAR_WebServer_BrainSafe_built.md",
-     ["manuscript/NAR_WebServer_BrainSafe_draft.md", "manuscript/tables_generated.md",
+     "python src/sai_cns/analysis/manuscript_tables.py"),
+    ("manuscript/NAR_WebServer_SAI-CNS_built.md",
+     ["manuscript/NAR_WebServer_SAI-CNS_draft.md", "manuscript/tables_generated.md",
       "manuscript/references_verified.json", "manuscript/references_links.json",
       "manuscript/figures/Figure6_validation.png"],
-     "python src/brainsafe/analysis/build_manuscript.py"),
+     "python src/sai_cns/analysis/build_manuscript.py"),
 
     # The condensed, NAR-length draft states the same headline numbers in its own words, so it can
     # go stale independently of the full draft, and did: it went two full audit passes over the full
@@ -453,7 +454,7 @@ GRAPH: list[tuple[str, list[str], str]] = [
     ("manuscript/NAR_condensed_built.md",
      ["manuscript/NAR_condensed_draft.md", "manuscript/references_verified.json",
       "manuscript/references_links.json"],
-     "python src/brainsafe/analysis/build_manuscript_condensed.py"),
+     "python src/sai_cns/analysis/build_manuscript_condensed.py"),
 
     # Supplementary_Information.docx embeds Figure9_model_atlas.png, Figure6_validation.png and
     # Figure11_external_validation.png as S1-S3; it went stale relative to two of the three, twice,
@@ -461,7 +462,7 @@ GRAPH: list[tuple[str, list[str], str]] = [
     ("manuscript/Supplementary_Information.docx",
      ["manuscript/figures/Figure9_model_atlas.png", "manuscript/figures/Figure6_validation.png",
       "manuscript/figures/Figure11_external_validation.png"],
-     "python src/brainsafe/analysis/build_supplementary_information.py"),
+     "python src/sai_cns/analysis/build_supplementary_information.py"),
 
     # references.md used to be a hand-maintained second copy of the bibliography, numbered by year
     # rather than by citation order, so it silently disagreed with every number actually printed in
@@ -470,9 +471,9 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # forgotten rebuild after any of the three changes into a freshness failure instead of a stale
     # file nobody notices.
     ("manuscript/references.md",
-     ["manuscript/NAR_WebServer_BrainSafe_draft.md", "manuscript/references_verified.json",
+     ["manuscript/NAR_WebServer_SAI-CNS_draft.md", "manuscript/references_verified.json",
       "manuscript/references_links.json"],
-     "python src/brainsafe/analysis/cite.py"),
+     "python src/sai_cns/analysis/cite.py"),
 
     # ENDPOINT_JUSTIFICATION.md and DATA_MANIFEST.md previously described a twelve-endpoint,
     # 61,317-compound panel that predates the binder architecture, for months, because nothing
@@ -571,7 +572,7 @@ def check_manifest() -> dict:
     path = ROOT / CHECKSUMMED
     if not path.exists():
         return {"artefact": CHECKSUMMED, "state": "MISSING", "detail": "no manifest",
-                "rebuild": "python src/brainsafe/models/package_models.py 1.1"}
+                "rebuild": "python src/sai_cns/models/package_models.py 1.1"}
     man = json.loads(path.read_text(encoding="utf-8"))
     files = man.get("files", {})
     ok = bad = missing = 0
@@ -591,7 +592,7 @@ def check_manifest() -> dict:
     return {"artefact": CHECKSUMMED, "state": state,
             "detail": f"{ok} verified, {bad} checksum mismatch, {missing} missing, "
                       f"of {len(files)} entries",
-            "rebuild": "python src/brainsafe/models/package_models.py 1.1"}
+            "rebuild": "python src/sai_cns/models/package_models.py 1.1"}
 
 
 def main(argv=None) -> None:
@@ -603,8 +604,23 @@ def main(argv=None) -> None:
     args = ap.parse_args(argv)
 
     recorded = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
+
+    # A clone of the public repository carries the server and the science, but not the
+    # paper-authoring scripts nor the manuscript/ and docs/ trees they write into. For such a
+    # checkout an entry whose builder AND artefact are both absent describes a pipeline that is
+    # simply not present, and reporting it as MISSING would tell a reader to run a script the
+    # repository does not contain. An entry is still checked whenever either side exists, so a
+    # full working tree sees exactly what it saw before and nothing can hide by deleting itself.
+    def _builder_present(cmd: str) -> bool:
+        m = re.search(r"(\S+\.py)", cmd or "")
+        return not m or (ROOT / m.group(1)).exists()
+
+    graph = [(o, i, c) for (o, i, c) in GRAPH
+             if _builder_present(c) or newest(o)[0] is not None]
+    skipped = len(GRAPH) - len(graph)
+
     current: dict[str, str] = {}
-    for _out, ins, _cmd in GRAPH:
+    for _out, ins, _cmd in graph:
         for src in ins:
             if src not in current:
                 fp = fingerprint(src)
@@ -612,7 +628,7 @@ def main(argv=None) -> None:
                     current[src] = fp
 
     results = []
-    for out, ins, cmd in GRAPH:
+    for out, ins, cmd in graph:
         out_ts, _ = newest(out)
         if out_ts is None:
             results.append({"artefact": out, "state": "MISSING", "detail": "not built",
@@ -689,7 +705,7 @@ def main(argv=None) -> None:
     # pre-commit hook already calls.
     panel_bad = []
     try:
-        sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
+        sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
         import panel
         v = panel.verify()
         panel_bad = [k for k in ("no_model", "no_table", "unregistered", "stale_model", "no_mode",
@@ -700,7 +716,7 @@ def main(argv=None) -> None:
                 print("the panel is not self-consistent:")
                 for k in panel_bad:
                     print(f"    {k:17s} {len(v[k])}: {', '.join(v[k])}")
-                print("    run: python src/brainsafe/panel.py")
+                print("    run: python src/sai_cns/panel.py")
             else:
                 print(f"panel consistent: {v['n_registered']} endpoints, {v['n_deployed']} deployed, "
                       f"registry and fitted models agree")

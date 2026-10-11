@@ -1,0 +1,9345 @@
+{
+ "CCO": {
+  "adme": {
+   "caco2_permeability": -4.5449,
+   "clearance_hepatocyte": 91.1569,
+   "kpuu": 0.819,
+   "lipophilicity": -0.1588,
+   "logbb": -0.1491,
+   "pgp_inhibition": 0.0297,
+   "pgp_substrate": 0.2112,
+   "plasma_protein_binding": 40.4213,
+   "solubility": 1.2562
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.108
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CCO",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0055,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0504,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0472,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0029,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0147,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0159,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.1307,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0157,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0064,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0726,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0561,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0224,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.1305,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0063,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0342,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0083,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0103,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0243,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.014,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0657,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.004,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0128,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0121,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0797,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0113,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0113,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0211,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0035,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0847,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0089,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.144,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.1911,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.5776,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.1927,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.5891,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0153,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.004,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 1.0,
+    "TPSA": 0.011,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 0.0
+   },
+   "max": 6,
+   "score": 3.84
+  },
+  "compound": {
+   "name": "Query compound",
+   "smiles": "CCO"
+  },
+  "descriptors": {
+   "aromatic_rings": 0.0,
+   "clogp": -0.0014,
+   "formal_charge": 0.0,
+   "fraction_csp3": 1.0,
+   "hba": 1.0,
+   "hbd": 1.0,
+   "heavy_atoms": 3.0,
+   "mw": 46.069,
+   "qed": 0.4068,
+   "ring_count": 0.0,
+   "rotatable_bonds": 0.0,
+   "tpsa": 20.23
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9547,
+   "kpuu": 0.819,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 4.449,
+   "D2": 5.835,
+   "HT2A": 4.84,
+   "SERT": 4.561
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.0354,
+   "BACE1": 0.1294,
+   "BBB": 0.9547,
+   "BChE": 0.0247,
+   "GSK3B": 0.101,
+   "MAO_A": 0.1035,
+   "MAO_B": 0.0969,
+   "hERG": 0.164
+  }
+ },
+ "aspirin": {
+  "adme": {
+   "caco2_permeability": -4.5908,
+   "clearance_hepatocyte": 67.0147,
+   "kpuu": 0.1964,
+   "lipophilicity": 0.5285,
+   "logbb": -0.4387,
+   "pgp_inhibition": 0.0857,
+   "pgp_substrate": 0.2338,
+   "plasma_protein_binding": 48.7787,
+   "solubility": -1.7397
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.695
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CC(=O)Oc1ccccc1C(=O)O",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0059,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.011,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.1246,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0036,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0158,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0134,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0195,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.005,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.056,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.028,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0231,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0078,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0045,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0162,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.005,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0059,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0066,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0138,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0347,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0077,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0118,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0558,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0112,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0109,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0209,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0036,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0028,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0086,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.1187,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0054,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0093,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0419,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0069,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.5176,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0762,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0409,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.004,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0072,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0012,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 1.0,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 5.83
+  },
+  "compound": {
+   "name": "Aspirin",
+   "smiles": "CC(=O)OC1=CC=CC=C1C(=O)O"
+  },
+  "descriptors": {
+   "aromatic_rings": 1.0,
+   "clogp": 1.3101,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.1111,
+   "hba": 3.0,
+   "hbd": 1.0,
+   "heavy_atoms": 13.0,
+   "mw": 180.159,
+   "qed": 0.5501,
+   "ring_count": 1.0,
+   "rotatable_bonds": 2.0,
+   "tpsa": 63.6
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.6469,
+   "kpuu": 0.1964,
+   "note": "Some free brain exposure predicted; interpret with caution.",
+   "verdict": "Borderline"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 4.581,
+   "D2": 5.205,
+   "HT2A": 5.634,
+   "SERT": 4.221
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.052,
+   "BACE1": 0.1138,
+   "BBB": 0.6469,
+   "BChE": 0.0285,
+   "GSK3B": 0.1219,
+   "MAO_A": 0.0847,
+   "MAO_B": 0.2582,
+   "hERG": 0.0399
+  }
+ },
+ "atenolol": {
+  "adme": {
+   "caco2_permeability": -5.3604,
+   "clearance_hepatocyte": 21.0035,
+   "kpuu": 0.066,
+   "lipophilicity": -0.0502,
+   "logbb": -0.9713,
+   "pgp_inhibition": 0.1102,
+   "pgp_substrate": 0.2052,
+   "plasma_protein_binding": 35.1477,
+   "solubility": -1.4276
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.121
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CC(C)NCC(O)COc1ccc(CC(N)=O)cc1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0051,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0116,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0281,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0073,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0479,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0098,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0217,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0096,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0066,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0259,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0212,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0079,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0288,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.004,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0099,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0094,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0248,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.013,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0178,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0099,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0284,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0626,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0142,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0081,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0205,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0085,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0059,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0043,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0262,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0168,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0164,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1434,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0061,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.2791,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0271,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0421,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0043,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0102,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0035,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.167,
+    "MW": 1.0,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 0.775
+   },
+   "max": 6,
+   "score": 4.94
+  },
+  "compound": {
+   "name": "Atenolol",
+   "smiles": "CC(C)NCC(O)COc1ccc(CC(N)=O)cc1"
+  },
+  "descriptors": {
+   "aromatic_rings": 1.0,
+   "clogp": 0.4521,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.5,
+   "hba": 4.0,
+   "hbd": 3.0,
+   "heavy_atoms": 19.0,
+   "mw": 266.341,
+   "qed": 0.6377,
+   "ring_count": 1.0,
+   "rotatable_bonds": 8.0,
+   "tpsa": 84.58
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.473,
+   "kpuu": 0.066,
+   "note": "Low predicted free brain exposure (poor penetration or active efflux).",
+   "verdict": "Limited"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 5.639,
+   "D2": 5.711,
+   "HT2A": 5.937,
+   "SERT": 5.274
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.1766,
+   "BACE1": 0.1735,
+   "BBB": 0.473,
+   "BChE": 0.2917,
+   "GSK3B": 0.2249,
+   "MAO_A": 0.0553,
+   "MAO_B": 0.1413,
+   "hERG": 0.0792
+  }
+ },
+ "c1ccccc1O": {
+  "adme": {
+   "caco2_permeability": -4.2701,
+   "clearance_hepatocyte": 38.2324,
+   "kpuu": 0.7729,
+   "lipophilicity": 1.1168,
+   "logbb": 0.0805,
+   "pgp_inhibition": 0.042,
+   "pgp_substrate": 0.1855,
+   "plasma_protein_binding": 35.9466,
+   "solubility": -2.5346
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.212
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "Oc1ccccc1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0056,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0129,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0769,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.005,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0117,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0115,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0615,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0126,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0115,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0948,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0229,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0431,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0077,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.001,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0048,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0165,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.018,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.018,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0154,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0119,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0872,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.003,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0093,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0231,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0797,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0109,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0122,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0176,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0195,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0149,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.1301,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0032,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0076,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0395,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0604,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.6384,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.1611,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.1408,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0147,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0045,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0013,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 1.0,
+    "TPSA": 0.011,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 0.553
+   },
+   "max": 6,
+   "score": 4.4
+  },
+  "compound": {
+   "name": "Query compound",
+   "smiles": "c1ccccc1O"
+  },
+  "descriptors": {
+   "aromatic_rings": 1.0,
+   "clogp": 1.3922,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.0,
+   "hba": 1.0,
+   "hbd": 1.0,
+   "heavy_atoms": 7.0,
+   "mw": 94.113,
+   "qed": 0.5147,
+   "ring_count": 1.0,
+   "rotatable_bonds": 0.0,
+   "tpsa": 20.23
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.4493,
+   "kpuu": 0.7729,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 4.348,
+   "D2": 5.107,
+   "HT2A": 5.776,
+   "SERT": 4.497
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.1753,
+   "BACE1": 0.0356,
+   "BBB": 0.4493,
+   "BChE": 0.006,
+   "GSK3B": 0.101,
+   "MAO_A": 0.1123,
+   "MAO_B": 0.1843,
+   "hERG": 0.1081
+  }
+ },
+ "caffeine": {
+  "adme": {
+   "caco2_permeability": -4.5012,
+   "clearance_hepatocyte": 18.046,
+   "kpuu": 0.1463,
+   "lipophilicity": -0.1046,
+   "logbb": -0.153,
+   "pgp_inhibition": 0.1376,
+   "pgp_substrate": 0.1784,
+   "plasma_protein_binding": 26.8767,
+   "solubility": -0.9831
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.879
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "Cn1c(=O)c2c(ncn2C)n(C)c1=O",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0339,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0084,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0091,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0418,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0123,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.014,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0273,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0043,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0068,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.066,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0203,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0109,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0371,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0178,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0128,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0056,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0114,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0161,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.1107,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0114,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0848,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0099,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0107,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0275,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0036,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0029,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0621,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0096,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0063,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0116,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1404,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0059,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.695,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0195,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0757,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0073,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0313,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.003,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 1.0,
+    "MW": 1.0,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 6.0
+  },
+  "compound": {
+   "name": "Caffeine",
+   "smiles": "Cn1cnc2c1c(=O)n(C)c(=O)n2C"
+  },
+  "descriptors": {
+   "aromatic_rings": 2.0,
+   "clogp": -1.0293,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.375,
+   "hba": 3.0,
+   "hbd": 0.0,
+   "heavy_atoms": 14.0,
+   "mw": 194.194,
+   "qed": 0.5385,
+   "ring_count": 2.0,
+   "rotatable_bonds": 0.0,
+   "tpsa": 61.82
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.8788,
+   "kpuu": 0.1463,
+   "note": "Some free brain exposure predicted; interpret with caution.",
+   "verdict": "Borderline"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 4.636,
+   "D2": 5.438,
+   "HT2A": 5.099,
+   "SERT": 4.854
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.0934,
+   "BACE1": 0.1461,
+   "BBB": 0.8788,
+   "BChE": 0.0285,
+   "GSK3B": 0.1204,
+   "MAO_A": 0.023,
+   "MAO_B": 0.0561,
+   "hERG": 0.0121
+  }
+ },
+ "diazepam": {
+  "adme": {
+   "caco2_permeability": -4.4137,
+   "clearance_hepatocyte": 17.1335,
+   "kpuu": 0.9424,
+   "lipophilicity": 2.7368,
+   "logbb": 0.482,
+   "pgp_inhibition": 0.1663,
+   "pgp_substrate": 0.3073,
+   "plasma_protein_binding": 89.3739,
+   "solubility": -3.7358
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.149
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CN1C(=O)CN=C(c2ccccc2)c2cc(Cl)ccc21",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0132,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0329,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0327,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0045,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0145,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0062,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0054,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0288,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0081,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": true,
+    "probability": 0.8404,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0228,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0063,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.001,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0029,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0085,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0097,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0161,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0137,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0125,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0184,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0126,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0476,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.01,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.018,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0109,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0061,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0068,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0111,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0096,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0079,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0361,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0065,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": true,
+    "probability": 0.8596,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0395,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0222,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0093,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0394,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0013,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 1.0,
+    "MW": 1.0,
+    "TPSA": 0.633,
+    "cLogD (predicted)": 0.632,
+    "cLogP": 0.923,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 5.19
+  },
+  "compound": {
+   "name": "Diazepam",
+   "smiles": "CN1C(=O)CN=C(c2ccccc2)c2cc(Cl)ccc21"
+  },
+  "descriptors": {
+   "aromatic_rings": 2.0,
+   "clogp": 3.1538,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.125,
+   "hba": 2.0,
+   "hbd": 0.0,
+   "heavy_atoms": 20.0,
+   "mw": 284.746,
+   "qed": 0.7916,
+   "ring_count": 3.0,
+   "rotatable_bonds": 1.0,
+   "tpsa": 32.67
+  },
+  "diseases": [
+   {
+    "disease": "Epilepsy",
+    "driver": "GABA-A",
+    "reported": true,
+    "score": 0.5273
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": "GABA-A",
+    "reported": true,
+    "score": 0.3691
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": "GABA-A",
+    "reported": true,
+    "score": 0.3691
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": "TAAR1",
+    "reported": false,
+    "score": 0.1196
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": "MAO-B",
+    "reported": false,
+    "score": 0.0035
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9962,
+   "kpuu": 0.9424,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 3,
+   "n_targets_engaged": 3
+  },
+  "receptors": {
+   "A2A": 5.089,
+   "D2": 5.573,
+   "HT2A": 5.768,
+   "SERT": 5.896
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.1224,
+   "BACE1": 0.2454,
+   "BBB": 0.9962,
+   "BChE": 0.0285,
+   "GSK3B": 0.2449,
+   "MAO_A": 0.5854,
+   "MAO_B": 0.5063,
+   "hERG": 0.1038
+  }
+ },
+ "domperidone": {
+  "adme": {
+   "caco2_permeability": -5.1464,
+   "clearance_hepatocyte": 28.4408,
+   "kpuu": 0.0398,
+   "lipophilicity": 3.2261,
+   "logbb": -0.5913,
+   "pgp_inhibition": 0.4718,
+   "pgp_substrate": 0.7173,
+   "plasma_protein_binding": 91.7804,
+   "solubility": -4.3731
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.916
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "O=c1[nH]c2ccccc2n1CCCN1CCC(n2c(=O)[nH]c3cc(Cl)ccc32)CC1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0049,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0108,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0223,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0102,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0143,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": true,
+    "probability": 0.9587,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.8574,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0549,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.025,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0233,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.005,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0011,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0029,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.198,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": true,
+    "probability": 0.9493,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0527,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": true,
+    "probability": 0.8607,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0209,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0116,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0035,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0121,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0653,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0093,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0087,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0251,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.1029,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0006,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0061,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0576,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1185,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.1751,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.7178,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.007,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0052,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0101,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.5,
+    "MW": 0.529,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 0.387,
+    "cLogP": 0.823,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 4.24
+  },
+  "compound": {
+   "name": "Domperidone",
+   "smiles": "C1CN(CCC1N2C3=C(C=C(C=C3)Cl)NC2=O)CCCN4C5=CC=CC=C5NC4=O"
+  },
+  "descriptors": {
+   "aromatic_rings": 4.0,
+   "clogp": 3.3532,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.3636,
+   "hba": 3.0,
+   "hbd": 2.0,
+   "heavy_atoms": 30.0,
+   "mw": 425.92,
+   "qed": 0.5143,
+   "ring_count": 5.0,
+   "rotatable_bonds": 5.0,
+   "tpsa": 78.82
+  },
+  "diseases": [
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": "D2",
+    "reported": true,
+    "score": 0.5386
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": "5-HT7",
+    "reported": false,
+    "score": 0.0601
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": "5-HT7",
+    "reported": false,
+    "score": 0.0601
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9699,
+   "kpuu": 0.0398,
+   "note": "Low predicted free brain exposure (poor penetration or active efflux).",
+   "verdict": "Limited"
+  },
+  "mechanism_independence": {
+   "correlated_families": {
+    "Serotonin receptors": [
+     "5-HT2A",
+     "5-HT7"
+    ]
+   },
+   "n_independent_mechanisms": 2,
+   "n_targets_engaged": 3
+  },
+  "receptors": {
+   "A2A": 5.791,
+   "D2": 8.145,
+   "HT2A": 7.297,
+   "SERT": 6.774
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.3217,
+   "BACE1": 0.4999,
+   "BBB": 0.9699,
+   "BChE": 0.2349,
+   "GSK3B": 0.341,
+   "MAO_A": 0.1123,
+   "MAO_B": 0.1503,
+   "hERG": 0.8244
+  }
+ },
+ "donepezil": {
+  "adme": {
+   "caco2_permeability": -4.9272,
+   "clearance_hepatocyte": 53.1574,
+   "kpuu": 0.8297,
+   "lipophilicity": 2.5915,
+   "logbb": 0.6187,
+   "pgp_inhibition": 0.7042,
+   "pgp_substrate": 0.6078,
+   "plasma_protein_binding": 61.3734,
+   "solubility": -4.4595
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.724
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "COc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccccc3)CC1)C2",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0013,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.005,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0155,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0145,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.605,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0235,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0057,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0143,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0271,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0085,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0089,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0619,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0133,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0129,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0572,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0167,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.003,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0119,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0725,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.009,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0101,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0251,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.015,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0029,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.003,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0007,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0037,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0907,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": true,
+    "probability": 0.9948,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.7852,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0086,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0052,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 1.0,
+    "MW": 0.861,
+    "TPSA": 0.939,
+    "cLogD (predicted)": 0.704,
+    "cLogP": 0.319,
+    "most basic pKa (predicted)": 0.651
+   },
+   "max": 6,
+   "score": 4.47
+  },
+  "compound": {
+   "name": "Donepezil",
+   "smiles": "COc1cc2c(cc1OC)C(=O)C(CC1CCN(Cc3ccccc3)CC1)C2"
+  },
+  "descriptors": {
+   "aromatic_rings": 2.0,
+   "clogp": 4.3611,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.4583,
+   "hba": 4.0,
+   "hbd": 0.0,
+   "heavy_atoms": 28.0,
+   "mw": 379.5,
+   "qed": 0.7475,
+   "ring_count": 4.0,
+   "rotatable_bonds": 6.0,
+   "tpsa": 38.77
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": "AChE",
+    "reported": true,
+    "score": 0.9907
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": "AChE",
+    "reported": true,
+    "score": 0.9907
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": "Sigma-1",
+    "reported": true,
+    "score": 0.7058
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": "Sigma-1",
+    "reported": true,
+    "score": 0.5293
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9907,
+   "kpuu": 0.8297,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 2,
+   "n_targets_engaged": 2
+  },
+  "receptors": {
+   "A2A": 5.908,
+   "D2": 6.935,
+   "HT2A": 6.414,
+   "SERT": 5.128
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 1.0,
+   "BACE1": 0.5955,
+   "BBB": 0.9907,
+   "BChE": 0.2552,
+   "GSK3B": 0.1331,
+   "MAO_A": 0.0237,
+   "MAO_B": 0.0348,
+   "hERG": 0.7342
+  }
+ },
+ "fluoxetine": {
+  "adme": {
+   "caco2_permeability": -4.7597,
+   "clearance_hepatocyte": 98.5444,
+   "kpuu": 0.7172,
+   "lipophilicity": 1.8982,
+   "logbb": 0.7322,
+   "pgp_inhibition": 0.5071,
+   "pgp_substrate": 0.2891,
+   "plasma_protein_binding": 92.0582,
+   "solubility": -2.9584
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.014
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CNCCC(Oc1ccc(C(F)(F)F)cc1)c1ccccc1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0013,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0065,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0141,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0123,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0069,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0078,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.1611,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0079,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0104,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0192,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0158,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.005,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0012,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0029,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0062,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0672,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0268,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0143,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.015,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": true,
+    "probability": 0.9956,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.014,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": true,
+    "probability": 0.3051,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0171,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0071,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0246,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0028,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0036,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": true,
+    "probability": 0.9984,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0399,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0564,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.7637,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0528,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0273,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0049,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.001,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 1.0,
+    "TPSA": 0.063,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 0.283,
+    "most basic pKa (predicted)": 0.641
+   },
+   "max": 6,
+   "score": 3.82
+  },
+  "compound": {
+   "name": "Fluoxetine",
+   "smiles": "CNCCC(Oc1ccc(C(F)(F)F)cc1)c1ccccc1"
+  },
+  "descriptors": {
+   "aromatic_rings": 2.0,
+   "clogp": 4.435,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.2941,
+   "hba": 2.0,
+   "hbd": 1.0,
+   "heavy_atoms": 22.0,
+   "mw": 309.331,
+   "qed": 0.8518,
+   "ring_count": 2.0,
+   "rotatable_bonds": 6.0,
+   "tpsa": 21.26
+  },
+  "diseases": [
+   {
+    "disease": "Depression / anxiety",
+    "driver": "SERT",
+    "reported": true,
+    "score": 0.9853
+   },
+   {
+    "disease": "ADHD",
+    "driver": "NET",
+    "reported": true,
+    "score": 0.8822
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": "MAO-B",
+    "reported": true,
+    "score": 0.4519
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9913,
+   "kpuu": 0.7172,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {
+    "Monoamine transporters": [
+     "SERT",
+     "NET"
+    ]
+   },
+   "n_independent_mechanisms": 3,
+   "n_targets_engaged": 4
+  },
+  "receptors": {
+   "A2A": 5.008,
+   "D2": 6.137,
+   "HT2A": 6.769,
+   "SERT": 7.94
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.4665,
+   "BACE1": 0.2675,
+   "BBB": 0.9913,
+   "BChE": 0.4149,
+   "GSK3B": 0.2342,
+   "MAO_A": 0.1872,
+   "MAO_B": 0.7304,
+   "hERG": 0.4651
+  }
+ },
+ "gabapentin": {
+  "adme": {
+   "caco2_permeability": -4.6072,
+   "clearance_hepatocyte": 35.1049,
+   "kpuu": 0.1319,
+   "lipophilicity": 0.3378,
+   "logbb": -0.2953,
+   "pgp_inhibition": 0.0346,
+   "pgp_substrate": 0.3074,
+   "plasma_protein_binding": 49.5563,
+   "solubility": -0.263
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.038
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "NCC1(CC(=O)O)CCCCC1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0068,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0313,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0029,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.027,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0152,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0215,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0316,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0227,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0081,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.1227,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0377,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0109,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0152,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0059,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0489,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.016,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0071,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0175,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0288,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.007,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0256,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0214,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0524,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.013,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0096,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0245,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0066,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0142,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0024,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.2179,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0075,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.008,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.013,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1362,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0233,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.7173,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0271,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.1259,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0078,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0013,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.5,
+    "MW": 1.0,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 5.5
+  },
+  "compound": {
+   "name": "Gabapentin",
+   "smiles": "C1CCC(CC1)(CC(=O)O)CN"
+  },
+  "descriptors": {
+   "aromatic_rings": 0.0,
+   "clogp": 1.3703,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.8889,
+   "hba": 2.0,
+   "hbd": 2.0,
+   "heavy_atoms": 12.0,
+   "mw": 171.24,
+   "qed": 0.6737,
+   "ring_count": 1.0,
+   "rotatable_bonds": 3.0,
+   "tpsa": 63.32
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.7058,
+   "kpuu": 0.1319,
+   "note": "Some free brain exposure predicted; interpret with caution.",
+   "verdict": "Borderline"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 4.709,
+   "D2": 5.658,
+   "HT2A": 6.139,
+   "SERT": 4.988
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.0323,
+   "BACE1": 0.1138,
+   "BBB": 0.7058,
+   "BChE": 0.0285,
+   "GSK3B": 0.1759,
+   "MAO_A": 0.031,
+   "MAO_B": 0.0601,
+   "hERG": 0.0263
+  }
+ },
+ "haloperidol": {
+  "adme": {
+   "caco2_permeability": -4.7718,
+   "clearance_hepatocyte": 24.7577,
+   "kpuu": 0.7258,
+   "lipophilicity": 2.8139,
+   "logbb": 1.1133,
+   "pgp_inhibition": 0.6605,
+   "pgp_substrate": 0.3101,
+   "plasma_protein_binding": 88.7472,
+   "solubility": -4.1318
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.0
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0013,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0098,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0138,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0163,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": true,
+    "probability": 0.9933,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": true,
+    "probability": 0.9978,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0204,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.016,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0285,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.2014,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0304,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0011,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0029,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.7232,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": true,
+    "probability": 0.9866,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": true,
+    "probability": 0.8508,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0243,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.002,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0067,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.015,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.1011,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0118,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0167,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0071,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.1852,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0069,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0004,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.2539,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0848,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": true,
+    "probability": 0.9947,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.7451,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0124,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0068,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0075,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.001,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 0.887,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 0.593,
+    "cLogP": 0.287,
+    "most basic pKa (predicted)": 0.885
+   },
+   "max": 6,
+   "score": 4.49
+  },
+  "compound": {
+   "name": "Haloperidol",
+   "smiles": "O=C(CCCN1CCC(O)(c2ccc(Cl)cc2)CC1)c1ccc(F)cc1"
+  },
+  "descriptors": {
+   "aromatic_rings": 2.0,
+   "clogp": 4.4256,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.381,
+   "hba": 3.0,
+   "hbd": 1.0,
+   "heavy_atoms": 26.0,
+   "mw": 375.871,
+   "qed": 0.7593,
+   "ring_count": 3.0,
+   "rotatable_bonds": 6.0,
+   "tpsa": 40.54
+  },
+  "diseases": [
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": "D2",
+    "reported": true,
+    "score": 0.9216
+   },
+   {
+    "disease": "Addiction",
+    "driver": "D3",
+    "reported": true,
+    "score": 0.733
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": "Sigma-1",
+    "reported": true,
+    "score": 0.7062
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": "Sigma-1",
+    "reported": true,
+    "score": 0.5296
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": "5-HT7",
+    "reported": false,
+    "score": 0.0163
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9927,
+   "kpuu": 0.7258,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {
+    "Dopamine D2-like": [
+     "D2",
+     "D3"
+    ]
+   },
+   "n_independent_mechanisms": 3,
+   "n_targets_engaged": 4
+  },
+  "receptors": {
+   "A2A": 5.633,
+   "D2": 8.276,
+   "HT2A": 7.31,
+   "SERT": 6.862
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.4558,
+   "BACE1": 0.4544,
+   "BBB": 0.9927,
+   "BChE": 0.2153,
+   "GSK3B": 0.2342,
+   "MAO_A": 0.0716,
+   "MAO_B": 0.2388,
+   "hERG": 0.8879
+  }
+ },
+ "ibuprofen": {
+  "adme": {
+   "caco2_permeability": -4.3512,
+   "clearance_hepatocyte": 39.1663,
+   "kpuu": 0.6924,
+   "lipophilicity": 1.0641,
+   "logbb": -0.1995,
+   "pgp_inhibition": 0.1018,
+   "pgp_substrate": 0.2716,
+   "plasma_protein_binding": 66.4486,
+   "solubility": -3.5453
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.394
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CC(C)Cc1ccc(C(C)C(=O)O)cc1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0073,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0141,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0605,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0243,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0062,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0256,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.192,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0106,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0199,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0206,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0235,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0055,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0149,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0062,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0052,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0041,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0235,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0247,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0152,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0494,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0083,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0242,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0129,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0125,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0214,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0091,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0067,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0568,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0007,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0037,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0073,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.013,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0728,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0838,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.631,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.1206,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.1361,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0119,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0012,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 1.0,
+    "TPSA": 0.865,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 0.963,
+    "most basic pKa (predicted)": 0.753
+   },
+   "max": 6,
+   "score": 5.41
+  },
+  "compound": {
+   "name": "Ibuprofen",
+   "smiles": "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O"
+  },
+  "descriptors": {
+   "aromatic_rings": 1.0,
+   "clogp": 3.0732,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.4615,
+   "hba": 1.0,
+   "hbd": 1.0,
+   "heavy_atoms": 15.0,
+   "mw": 206.285,
+   "qed": 0.8216,
+   "ring_count": 1.0,
+   "rotatable_bonds": 4.0,
+   "tpsa": 37.3
+  },
+  "diseases": [
+   {
+    "disease": "Depression / anxiety",
+    "driver": "MAO-A",
+    "reported": false,
+    "score": 0.0596
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9761,
+   "kpuu": 0.6924,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 1,
+   "n_targets_engaged": 1
+  },
+  "receptors": {
+   "A2A": 4.634,
+   "D2": 5.19,
+   "HT2A": 6.658,
+   "SERT": 5.087
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.0289,
+   "BACE1": 0.0637,
+   "BBB": 0.9761,
+   "BChE": 0.0932,
+   "GSK3B": 0.1684,
+   "MAO_A": 0.2965,
+   "MAO_B": 0.2843,
+   "hERG": 0.0506
+  }
+ },
+ "ketamine": {
+  "adme": {
+   "caco2_permeability": -4.2844,
+   "clearance_hepatocyte": 35.6563,
+   "kpuu": 1.3319,
+   "lipophilicity": 1.8194,
+   "logbb": 0.523,
+   "pgp_inhibition": 0.0667,
+   "pgp_substrate": 0.2713,
+   "plasma_protein_binding": 49.7749,
+   "solubility": -1.7358
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.875
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CNC1(c2ccccc2Cl)CCCCC1=O",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0067,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0068,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0049,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0437,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0183,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0087,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0118,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.1951,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0051,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0203,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0235,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0097,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.006,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0012,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0035,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0079,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0188,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0072,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0101,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0145,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0372,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0061,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.1407,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0126,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.027,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0117,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0127,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0204,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.011,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0308,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0807,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0077,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0071,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.1057,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0619,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0681,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": true,
+    "probability": 0.8345,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.1727,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0797,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.021,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0067,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 1.0,
+    "TPSA": 0.455,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 5.29
+  },
+  "compound": {
+   "name": "Ketamine",
+   "smiles": "CNC1(CCCCC1=O)C2=CC=CC=C2Cl"
+  },
+  "descriptors": {
+   "aromatic_rings": 1.0,
+   "clogp": 2.8978,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.4615,
+   "hba": 2.0,
+   "hbd": 1.0,
+   "heavy_atoms": 16.0,
+   "mw": 237.73,
+   "qed": 0.8572,
+   "ring_count": 2.0,
+   "rotatable_bonds": 2.0,
+   "tpsa": 29.1
+  },
+  "diseases": [
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": "TAAR1",
+    "reported": false,
+    "score": 0.0162
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.983,
+   "kpuu": 1.3319,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 5.448,
+   "D2": 5.31,
+   "HT2A": 6.207,
+   "SERT": 6.399
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.1693,
+   "BACE1": 0.1316,
+   "BBB": 0.983,
+   "BChE": 0.0932,
+   "GSK3B": 0.1898,
+   "MAO_A": 0.1978,
+   "MAO_B": 0.3146,
+   "hERG": 0.0399
+  }
+ },
+ "levodopa": {
+  "adme": {
+   "caco2_permeability": -6.1354,
+   "clearance_hepatocyte": 27.5128,
+   "kpuu": 0.0849,
+   "lipophilicity": -0.3277,
+   "logbb": -0.6931,
+   "pgp_inhibition": 0.0659,
+   "pgp_substrate": 0.316,
+   "plasma_protein_binding": 57.0808,
+   "solubility": -1.4328
+  },
+  "antioxidant": {
+   "signal": 0.7649,
+   "value": 4.861
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "NC(Cc1ccc(O)c(O)c1)C(=O)O",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0078,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0024,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0104,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0627,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0049,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0144,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0141,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0668,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0061,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0116,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0745,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0322,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0097,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0188,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.005,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0056,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0363,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0078,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.005,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0067,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.027,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0358,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0127,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0051,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0477,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0354,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0125,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0101,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0586,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.027,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0435,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0523,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0011,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0066,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0082,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1234,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0057,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.2821,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0212,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0374,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0046,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.0,
+    "MW": 1.0,
+    "TPSA": 0.541,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 4.54
+  },
+  "compound": {
+   "name": "Levodopa",
+   "smiles": "C1=CC(=C(C=C1C[C@@H](C(=O)O)N)O)O"
+  },
+  "descriptors": {
+   "aromatic_rings": 1.0,
+   "clogp": 0.0522,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.2222,
+   "hba": 4.0,
+   "hbd": 4.0,
+   "heavy_atoms": 14.0,
+   "mw": 197.19,
+   "qed": 0.5125,
+   "ring_count": 1.0,
+   "rotatable_bonds": 3.0,
+   "tpsa": 103.78
+  },
+  "diseases": [
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": "antioxidant",
+    "reported": true,
+    "score": 0.356
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": "antioxidant",
+    "reported": false,
+    "score": 0.1424
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": "antioxidant",
+    "reported": false,
+    "score": 0.1424
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.4654,
+   "kpuu": 0.0849,
+   "note": "Low predicted free brain exposure (poor penetration or active efflux).",
+   "verdict": "Limited"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 5.134,
+   "D2": 5.952,
+   "HT2A": 5.71,
+   "SERT": 4.079
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.0412,
+   "BACE1": 0.1193,
+   "BBB": 0.4654,
+   "BChE": 0.1375,
+   "GSK3B": 0.1859,
+   "MAO_A": 0.1242,
+   "MAO_B": 0.1236,
+   "hERG": 0.0174
+  }
+ },
+ "loratadine": {
+  "adme": {
+   "caco2_permeability": -5.0284,
+   "clearance_hepatocyte": 49.1527,
+   "kpuu": 0.4232,
+   "lipophilicity": 3.4083,
+   "logbb": -0.1199,
+   "pgp_inhibition": 0.6885,
+   "pgp_substrate": 0.539,
+   "plasma_protein_binding": 92.1712,
+   "solubility": -4.8951
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.278
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CCOC(=O)N1CCC(=C2c3ccc(Cl)cc3CCc3cccnc32)CC1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0065,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0018,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0154,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0032,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0128,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0164,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.021,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0046,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.008,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0073,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0408,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.041,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0115,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0083,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.001,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0033,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.015,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0202,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0081,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0315,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0032,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.003,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0049,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0429,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0821,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0094,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0053,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0167,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0067,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0074,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0093,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0008,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0104,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0099,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0607,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0157,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": true,
+    "probability": 0.8512,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.012,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0089,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0084,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0898,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 1.0,
+    "MW": 0.836,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 0.296,
+    "cLogP": 0.056,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 4.19
+  },
+  "compound": {
+   "name": "Loratadine",
+   "smiles": "CCOC(=O)N1CCC(=C2C3=C(CCC4=C2N=CC=C4)C=C(C=C3)Cl)CC1"
+  },
+  "descriptors": {
+   "aromatic_rings": 2.0,
+   "clogp": 4.8878,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.3636,
+   "hba": 3.0,
+   "hbd": 0.0,
+   "heavy_atoms": 27.0,
+   "mw": 382.891,
+   "qed": 0.7049,
+   "ring_count": 4.0,
+   "rotatable_bonds": 1.0,
+   "tpsa": 42.43
+  },
+  "diseases": [
+   {
+    "disease": "Depression / anxiety",
+    "driver": "MAO-A",
+    "reported": false,
+    "score": 0.0768
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": "TAAR1",
+    "reported": false,
+    "score": 0.0637
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.7446,
+   "kpuu": 0.4232,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 2,
+   "n_targets_engaged": 2
+  },
+  "receptors": {
+   "A2A": 5.461,
+   "D2": 6.264,
+   "HT2A": 5.99,
+   "SERT": 7.014
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.2944,
+   "BACE1": 0.3871,
+   "BBB": 0.7446,
+   "BChE": 0.2016,
+   "GSK3B": 0.3203,
+   "MAO_A": 0.3365,
+   "MAO_B": 0.3184,
+   "hERG": 0.6478
+  }
+ },
+ "memantine": {
+  "adme": {
+   "caco2_permeability": -4.4456,
+   "clearance_hepatocyte": 69.8891,
+   "kpuu": 2.2333,
+   "lipophilicity": 0.8849,
+   "logbb": 0.4175,
+   "pgp_inhibition": 0.0492,
+   "pgp_substrate": 0.2891,
+   "plasma_protein_binding": 63.891,
+   "solubility": -2.7385
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.83
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CC12CC3CC(C)(C1)CC(N)(C3)C2",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0055,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.002,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.013,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0021,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0227,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0182,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0101,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0199,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0974,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0054,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0786,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0999,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0191,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0121,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0011,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0036,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0175,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0904,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0298,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0349,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.015,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.1148,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.1333,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0097,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0926,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0109,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0119,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0283,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0063,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0117,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0024,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0329,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0007,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0033,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0086,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.2303,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1702,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.5141,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.8248,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": true,
+    "probability": 0.4002,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.4466,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.1825,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0054,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 1.0,
+    "TPSA": 0.301,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 0.0
+   },
+   "max": 6,
+   "score": 4.13
+  },
+  "compound": {
+   "name": "Memantine",
+   "smiles": "CC12CC3CC(C1)(CC(C3)(C2)N)C"
+  },
+  "descriptors": {
+   "aromatic_rings": 0.0,
+   "clogp": 2.6941,
+   "formal_charge": 0.0,
+   "fraction_csp3": 1.0,
+   "hba": 1.0,
+   "hbd": 1.0,
+   "heavy_atoms": 13.0,
+   "mw": 179.307,
+   "qed": 0.6076,
+   "ring_count": 4.0,
+   "rotatable_bonds": 0.0,
+   "tpsa": 26.02
+  },
+  "diseases": [
+   {
+    "disease": "Addiction",
+    "driver": "alpha3beta4-nAChR",
+    "reported": false,
+    "score": 0.1101
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": "alpha3beta4-nAChR",
+    "reported": false,
+    "score": 0.0629
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9369,
+   "kpuu": 2.2333,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 1,
+   "n_targets_engaged": 1
+  },
+  "receptors": {
+   "A2A": 4.48,
+   "D2": 5.353,
+   "HT2A": 6.268,
+   "SERT": 5.844
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.3792,
+   "BACE1": 0.2094,
+   "BBB": 0.9369,
+   "BChE": 0.0256,
+   "GSK3B": 0.1784,
+   "MAO_A": 0.2158,
+   "MAO_B": 0.2198,
+   "hERG": 0.032
+  }
+ },
+ "metformin": {
+  "adme": {
+   "caco2_permeability": -5.5787,
+   "clearance_hepatocyte": 21.4191,
+   "kpuu": 0.0257,
+   "lipophilicity": -0.5278,
+   "logbb": -0.8437,
+   "pgp_inhibition": 0.0914,
+   "pgp_substrate": 0.2792,
+   "plasma_protein_binding": 40.634,
+   "solubility": -0.2526
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.04
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CN(C)C(=N)N=C(N)N",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0105,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0406,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0889,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0049,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.015,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.025,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0799,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0084,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0776,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0585,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0378,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.1574,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0063,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0485,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0131,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0068,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0689,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0209,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0618,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0063,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0141,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.021,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0838,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0144,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0104,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0312,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0048,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0055,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0739,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.002,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0119,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0069,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0117,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.2034,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0732,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.3311,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0473,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.1279,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0069,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0069,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0021,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.167,
+    "MW": 1.0,
+    "TPSA": 0.95,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 0.285
+   },
+   "max": 6,
+   "score": 4.4
+  },
+  "compound": {
+   "name": "Metformin",
+   "smiles": "CN(C)C(=N)N=C(N)N"
+  },
+  "descriptors": {
+   "aromatic_rings": 0.0,
+   "clogp": -1.2438,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.5,
+   "hba": 1.0,
+   "hbd": 3.0,
+   "heavy_atoms": 9.0,
+   "mw": 129.167,
+   "qed": 0.2819,
+   "ring_count": 0.0,
+   "rotatable_bonds": 0.0,
+   "tpsa": 91.49
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.3337,
+   "kpuu": 0.0257,
+   "note": "Low predicted free brain exposure (poor penetration or active efflux).",
+   "verdict": "Limited"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 4.798,
+   "D2": 5.796,
+   "HT2A": 4.829,
+   "SERT": 4.405
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.0364,
+   "BACE1": 0.2014,
+   "BBB": 0.3337,
+   "BChE": 0.0247,
+   "GSK3B": 0.1351,
+   "MAO_A": 0.076,
+   "MAO_B": 0.1308,
+   "hERG": 0.0823
+  }
+ },
+ "morphine": {
+  "adme": {
+   "caco2_permeability": -4.7224,
+   "clearance_hepatocyte": 69.9165,
+   "kpuu": 0.7959,
+   "lipophilicity": 0.8224,
+   "logbb": -0.2021,
+   "pgp_inhibition": 0.074,
+   "pgp_substrate": 0.3572,
+   "plasma_protein_binding": 33.441,
+   "solubility": -2.0243
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 4.273
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CN1CCC23c4c5ccc(O)c4OC2C(O)C=CC3C1C5",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0046,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.014,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0133,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0117,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.035,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0763,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0089,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0053,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0413,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0336,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0083,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0012,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0101,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0072,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0054,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.015,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0128,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0028,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0102,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0382,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0494,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0105,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0094,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0207,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": true,
+    "probability": 0.9859,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": true,
+    "probability": 0.9904,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0109,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0041,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0045,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0221,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1139,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0373,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.7072,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0251,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0294,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0126,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.5,
+    "MW": 1.0,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 0.732
+   },
+   "max": 6,
+   "score": 5.23
+  },
+  "compound": {
+   "name": "Morphine",
+   "smiles": "CN1CCC23c4c5ccc(O)c4OC2C(O)C=CC3C1C5"
+  },
+  "descriptors": {
+   "aromatic_rings": 1.0,
+   "clogp": 1.1981,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.5294,
+   "hba": 4.0,
+   "hbd": 2.0,
+   "heavy_atoms": 21.0,
+   "mw": 285.343,
+   "qed": 0.7033,
+   "ring_count": 5.0,
+   "rotatable_bonds": 0.0,
+   "tpsa": 52.93
+  },
+  "diseases": [
+   {
+    "disease": "Chronic pain",
+    "driver": "mu-opioid",
+    "reported": true,
+    "score": 0.9741
+   },
+   {
+    "disease": "Addiction",
+    "driver": "mu-opioid",
+    "reported": true,
+    "score": 0.8767
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": "kappa-opioid",
+    "reported": true,
+    "score": 0.4974
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9985,
+   "kpuu": 0.7959,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {
+    "Opioid": [
+     "kappa-opioid",
+     "mu-opioid"
+    ]
+   },
+   "n_independent_mechanisms": 1,
+   "n_targets_engaged": 2
+  },
+  "receptors": {
+   "A2A": 5.549,
+   "D2": 6.991,
+   "HT2A": 5.86,
+   "SERT": 5.783
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.2892,
+   "BACE1": 0.4742,
+   "BBB": 0.9985,
+   "BChE": 0.2,
+   "GSK3B": 0.3614,
+   "MAO_A": 0.0509,
+   "MAO_B": 0.0496,
+   "hERG": 0.0498
+  }
+ },
+ "nicotine": {
+  "adme": {
+   "caco2_permeability": -4.2992,
+   "clearance_hepatocyte": 56.6001,
+   "kpuu": 3.3326,
+   "lipophilicity": 0.6348,
+   "logbb": 0.317,
+   "pgp_inhibition": 0.1023,
+   "pgp_substrate": 0.2416,
+   "plasma_protein_binding": 45.2163,
+   "solubility": 0.491
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.931
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CN1CCCC1c1cccnc1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0027,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0103,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0201,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0035,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0157,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0767,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.1356,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.1417,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0058,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0173,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0304,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0225,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.1199,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.001,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.0763,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0613,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0101,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0664,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0148,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0407,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0028,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0813,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.015,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0466,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0096,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0103,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0216,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0179,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0143,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.003,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0498,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0024,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0041,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": true,
+    "probability": 0.0693,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.1076,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1188,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0703,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.8167,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.183,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": true,
+    "probability": 0.932,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": true,
+    "probability": 0.8923,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0105,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0031,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 1.0,
+    "MW": 1.0,
+    "TPSA": 0.0,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 5.0
+  },
+  "compound": {
+   "name": "Nicotine",
+   "smiles": "CN1CCC[C@H]1C2=CN=CC=C2"
+  },
+  "descriptors": {
+   "aromatic_rings": 1.0,
+   "clogp": 1.8483,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.5,
+   "hba": 2.0,
+   "hbd": 0.0,
+   "heavy_atoms": 12.0,
+   "mw": 162.236,
+   "qed": 0.6262,
+   "ring_count": 2.0,
+   "rotatable_bonds": 1.0,
+   "tpsa": 16.13
+  },
+  "diseases": [
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": "alpha7-nAChR",
+    "reported": true,
+    "score": 0.6224
+   },
+   {
+    "disease": "Addiction",
+    "driver": "alpha4beta2-nAChR",
+    "reported": true,
+    "score": 0.5463
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": "alpha7-nAChR",
+    "reported": true,
+    "score": 0.389
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": "RIPK1",
+    "reported": false,
+    "score": 0.0162
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": "RIPK1",
+    "reported": false,
+    "score": 0.0141
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": "RIPK1",
+    "reported": false,
+    "score": 0.0122
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9927,
+   "kpuu": 3.3326,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {
+    "Neuronal nicotinic": [
+     "alpha4beta2-nAChR",
+     "alpha7-nAChR"
+    ]
+   },
+   "n_independent_mechanisms": 1,
+   "n_targets_engaged": 2
+  },
+  "receptors": {
+   "A2A": 4.589,
+   "D2": 6.499,
+   "HT2A": 5.989,
+   "SERT": 5.478
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.1324,
+   "BACE1": 0.1336,
+   "BBB": 0.9927,
+   "BChE": 0.0649,
+   "GSK3B": 0.2216,
+   "MAO_A": 0.131,
+   "MAO_B": 0.2427,
+   "hERG": 0.0402
+  }
+ },
+ "propranolol": {
+  "adme": {
+   "caco2_permeability": -4.5184,
+   "clearance_hepatocyte": 114.194,
+   "kpuu": 0.554,
+   "lipophilicity": 1.1823,
+   "logbb": 0.4341,
+   "pgp_inhibition": 0.0837,
+   "pgp_substrate": 0.2101,
+   "plasma_protein_binding": 81.9743,
+   "solubility": -3.1913
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.92
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "CC(C)NCC(O)COc1cccc2ccccc12",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0076,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0081,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0145,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0052,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0308,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.0049,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.0088,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0274,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0071,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0219,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0396,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0099,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0033,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0011,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": false,
+    "probability": 0.6959,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": false,
+    "probability": 0.0154,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0078,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": false,
+    "probability": 0.0102,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0131,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.013,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0828,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.3246,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.016,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0384,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0117,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0076,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0148,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0045,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0039,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0188,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0019,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0044,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.003,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.674,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.0422,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.0229,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.6809,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.1003,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.017,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0122,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0089,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.5,
+    "MW": 1.0,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 1.0,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 0.288
+   },
+   "max": 6,
+   "score": 4.79
+  },
+  "compound": {
+   "name": "Propranolol",
+   "smiles": "CC(C)NCC(COC1=CC=CC2=CC=CC=C21)O"
+  },
+  "descriptors": {
+   "aromatic_rings": 2.0,
+   "clogp": 2.5775,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.375,
+   "hba": 3.0,
+   "hbd": 2.0,
+   "heavy_atoms": 19.0,
+   "mw": 259.349,
+   "qed": 0.8375,
+   "ring_count": 2.0,
+   "rotatable_bonds": 6.0,
+   "tpsa": 41.49
+  },
+  "diseases": [
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.6077,
+   "kpuu": 0.554,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {},
+   "n_independent_mechanisms": 0,
+   "n_targets_engaged": 0
+  },
+  "receptors": {
+   "A2A": 5.641,
+   "D2": 5.284,
+   "HT2A": 6.572,
+   "SERT": 6.567
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.1992,
+   "BACE1": 0.1383,
+   "BBB": 0.6077,
+   "BChE": 0.2163,
+   "GSK3B": 0.2342,
+   "MAO_A": 0.1165,
+   "MAO_B": 0.2953,
+   "hERG": 0.1026
+  }
+ },
+ "quetiapine": {
+  "adme": {
+   "caco2_permeability": -4.871,
+   "clearance_hepatocyte": 74.241,
+   "kpuu": 0.6116,
+   "lipophilicity": 2.2545,
+   "logbb": 0.5622,
+   "pgp_inhibition": 0.7176,
+   "pgp_substrate": 0.4298,
+   "plasma_protein_binding": 87.8398,
+   "solubility": -3.713
+  },
+  "antioxidant": {
+   "signal": 0.0,
+   "value": 3.88
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "OCCOCCN1CCN(C2=Nc3ccccc3Sc3ccccc32)CC1",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0053,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.0016,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0082,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.0124,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0017,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0121,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": false,
+    "probability": 0.8983,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.961,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0071,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0233,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0217,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.0046,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0335,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": true,
+    "probability": 0.9841,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": true,
+    "probability": 0.9768,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0541,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": true,
+    "probability": 0.9819,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0139,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0035,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0076,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0123,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0489,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0097,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0038,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0135,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0067,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0015,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0024,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0007,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.002,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0037,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0346,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1456,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.801,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.7594,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0115,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.0054,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0052,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0011,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 0.833,
+    "MW": 0.832,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 0.873,
+    "cLogP": 1.0,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 5.54
+  },
+  "compound": {
+   "name": "Quetiapine",
+   "smiles": "C1CN(CCN1CCOCCO)C2=NC3=CC=CC=C3SC4=CC=CC=C42"
+  },
+  "descriptors": {
+   "aromatic_rings": 2.0,
+   "clogp": 2.856,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.381,
+   "hba": 6.0,
+   "hbd": 1.0,
+   "heavy_atoms": 27.0,
+   "mw": 383.517,
+   "qed": 0.8049,
+   "ring_count": 4.0,
+   "rotatable_bonds": 5.0,
+   "tpsa": 48.3
+  },
+  "diseases": [
+   {
+    "disease": "Depression / anxiety",
+    "driver": "5-HT7",
+    "reported": true,
+    "score": 0.6113
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": "5-HT7",
+    "reported": true,
+    "score": 0.6113
+   },
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": "5-HT2A",
+    "reported": true,
+    "score": 0.6054
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9907,
+   "kpuu": 0.6116,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {
+    "Serotonin receptors": [
+     "5-HT2A",
+     "5-HT1A",
+     "5-HT7"
+    ]
+   },
+   "n_independent_mechanisms": 2,
+   "n_targets_engaged": 4
+  },
+  "receptors": {
+   "A2A": 6.091,
+   "D2": 6.69,
+   "HT2A": 7.128,
+   "SERT": 5.345
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.2203,
+   "BACE1": 0.3694,
+   "BBB": 0.9907,
+   "BChE": 0.2391,
+   "GSK3B": 0.3418,
+   "MAO_A": 0.3685,
+   "MAO_B": 0.1308,
+   "hERG": 0.3457
+  }
+ },
+ "risperidone": {
+  "adme": {
+   "caco2_permeability": -4.9261,
+   "clearance_hepatocyte": 46.8202,
+   "kpuu": 0.6796,
+   "lipophilicity": 2.4501,
+   "logbb": -0.1825,
+   "pgp_inhibition": 0.7786,
+   "pgp_substrate": 0.7113,
+   "plasma_protein_binding": 83.2518,
+   "solubility": -4.2816
+  },
+  "antioxidant": {
+   "signal": 0.3346,
+   "value": 4.515
+  },
+  "applicability_domain": {
+   "confidence": "high",
+   "max_tanimoto": 1.0,
+   "nearest_analogue": "Cc1nc2n(c(=O)c1CCN1CCC(c3noc4cc(F)ccc34)CC1)CCCC2",
+   "tier": "In domain"
+  },
+  "binders": {
+   "A1": {
+    "engaged": false,
+    "probability": 0.0045,
+    "threshold": 0.8083
+   },
+   "A2A": {
+    "engaged": false,
+    "probability": 0.002,
+    "threshold": 0.8888
+   },
+   "CB1": {
+    "engaged": false,
+    "probability": 0.0055,
+    "threshold": 0.2842
+   },
+   "CGRP": {
+    "engaged": false,
+    "probability": 0.0024,
+    "threshold": 0.3414
+   },
+   "COX2": {
+    "engaged": false,
+    "probability": 0.013,
+    "threshold": 0.7353
+   },
+   "CSF1R": {
+    "engaged": false,
+    "probability": 0.0021,
+    "threshold": 0.8466
+   },
+   "Cav3_2": {
+    "engaged": false,
+    "probability": 0.0125,
+    "threshold": 0.3697
+   },
+   "D2": {
+    "engaged": true,
+    "probability": 0.9779,
+    "threshold": 0.9072
+   },
+   "D3": {
+    "engaged": false,
+    "probability": 0.873,
+    "threshold": 0.9715
+   },
+   "DAT": {
+    "engaged": false,
+    "probability": 0.0046,
+    "threshold": 0.2168
+   },
+   "DHODH": {
+    "engaged": false,
+    "probability": 0.0056,
+    "threshold": 0.1749
+   },
+   "GABA_A": {
+    "engaged": false,
+    "probability": 0.0266,
+    "threshold": 0.661
+   },
+   "GBA1": {
+    "engaged": false,
+    "probability": 0.0377,
+    "threshold": 0.1869
+   },
+   "GluN2B": {
+    "engaged": false,
+    "probability": 0.008,
+    "threshold": 0.9645
+   },
+   "H3": {
+    "engaged": false,
+    "probability": 0.0575,
+    "threshold": 0.6119
+   },
+   "HDAC1": {
+    "engaged": false,
+    "probability": 0.0009,
+    "threshold": 0.7473
+   },
+   "HDAC6": {
+    "engaged": false,
+    "probability": 0.0026,
+    "threshold": 0.8341
+   },
+   "HT1A": {
+    "engaged": true,
+    "probability": 0.9691,
+    "threshold": 0.9623
+   },
+   "HT2A": {
+    "engaged": true,
+    "probability": 0.997,
+    "threshold": 0.9016
+   },
+   "HT6": {
+    "engaged": false,
+    "probability": 0.0858,
+    "threshold": 0.5723
+   },
+   "HT7": {
+    "engaged": true,
+    "probability": 0.991,
+    "threshold": 0.8472
+   },
+   "KEAP1": {
+    "engaged": false,
+    "probability": 0.0138,
+    "threshold": 0.7793
+   },
+   "LRRK2": {
+    "engaged": false,
+    "probability": 0.0043,
+    "threshold": 0.3909
+   },
+   "MT1": {
+    "engaged": false,
+    "probability": 0.0022,
+    "threshold": 0.9509
+   },
+   "NET": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.5999
+   },
+   "NLRP3": {
+    "engaged": false,
+    "probability": 0.0182,
+    "threshold": 0.3645
+   },
+   "Nav1_5": {
+    "engaged": false,
+    "probability": 0.0184,
+    "threshold": 0.233
+   },
+   "Nav1_6": {
+    "engaged": false,
+    "probability": 0.0109,
+    "threshold": 0.9442
+   },
+   "Nav1_7": {
+    "engaged": false,
+    "probability": 0.0034,
+    "threshold": 0.8426
+   },
+   "Nav1_8": {
+    "engaged": false,
+    "probability": 0.0084,
+    "threshold": 0.5971
+   },
+   "OPRK1": {
+    "engaged": false,
+    "probability": 0.0118,
+    "threshold": 0.917
+   },
+   "OPRM1": {
+    "engaged": false,
+    "probability": 0.009,
+    "threshold": 0.6077
+   },
+   "OX1": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.7468
+   },
+   "OX2": {
+    "engaged": false,
+    "probability": 0.0023,
+    "threshold": 0.6773
+   },
+   "P2X7": {
+    "engaged": false,
+    "probability": 0.0053,
+    "threshold": 0.999
+   },
+   "PDE10A": {
+    "engaged": false,
+    "probability": 0.0042,
+    "threshold": 0.8717
+   },
+   "PDE4B": {
+    "engaged": false,
+    "probability": 0.0025,
+    "threshold": 0.3472
+   },
+   "RIPK1": {
+    "engaged": false,
+    "probability": 0.0073,
+    "threshold": 0.05
+   },
+   "SERT": {
+    "engaged": false,
+    "probability": 0.0171,
+    "threshold": 0.744
+   },
+   "SIRT1": {
+    "engaged": false,
+    "probability": 0.1996,
+    "threshold": 0.4686
+   },
+   "Sigma1": {
+    "engaged": false,
+    "probability": 0.011,
+    "threshold": 0.9526
+   },
+   "TAAR1": {
+    "engaged": false,
+    "probability": 0.7511,
+    "threshold": 0.8305
+   },
+   "a3b4nAChR": {
+    "engaged": false,
+    "probability": 0.0073,
+    "threshold": 0.2792
+   },
+   "a4b2nAChR": {
+    "engaged": false,
+    "probability": 0.007,
+    "threshold": 0.7822
+   },
+   "a7nAChR": {
+    "engaged": false,
+    "probability": 0.0257,
+    "threshold": 0.5022
+   },
+   "mGluR5": {
+    "engaged": false,
+    "probability": 0.008,
+    "threshold": 0.8704
+   },
+   "mTOR": {
+    "engaged": false,
+    "probability": 0.0014,
+    "threshold": 0.2188
+   }
+  },
+  "caveats": [
+   "Research triage tool. Not for medical, diagnostic or treatment use.",
+   "Homologous targets are engaged together by the same ligands, so the number of engaged targets overstates the number of independent observations. Across 400 approved drugs 36 targets ever fire but span only 14 independent directions.",
+   "A silent result is not evidence of inactivity. Deployed sensitivity has a median of 0.77 across the panel and falls to 0.26 at the strictest endpoints.",
+   "The BBB term multiplies every disease equally and cannot change which disease ranks first; it is an exposure filter, not a discriminator."
+  ],
+  "cns_mpo": {
+   "components": {
+    "HBD": 1.0,
+    "MW": 0.639,
+    "TPSA": 1.0,
+    "cLogD (predicted)": 0.775,
+    "cLogP": 0.705,
+    "most basic pKa (predicted)": 1.0
+   },
+   "max": 6,
+   "score": 5.12
+  },
+  "compound": {
+   "name": "Risperidone",
+   "smiles": "CC1=C(C(=O)N2CCCCC2=N1)CCN3CCC(CC3)C4=NOC5=C4C=CC(=C5)F"
+  },
+  "descriptors": {
+   "aromatic_rings": 3.0,
+   "clogp": 3.5904,
+   "formal_charge": 0.0,
+   "fraction_csp3": 0.5217,
+   "hba": 5.0,
+   "hbd": 0.0,
+   "heavy_atoms": 30.0,
+   "mw": 410.493,
+   "qed": 0.6577,
+   "ring_count": 5.0,
+   "rotatable_bonds": 4.0,
+   "tpsa": 64.16
+  },
+  "diseases": [
+   {
+    "disease": "Psychosis / schizophrenia",
+    "driver": "5-HT2A",
+    "reported": true,
+    "score": 0.7619
+   },
+   {
+    "disease": "Depression / anxiety",
+    "driver": "5-HT7",
+    "reported": true,
+    "score": 0.6471
+   },
+   {
+    "disease": "Sleep / wakefulness",
+    "driver": "5-HT7",
+    "reported": true,
+    "score": 0.6471
+   },
+   {
+    "disease": "Neuroprotection / oxidative stress",
+    "driver": "antioxidant",
+    "reported": true,
+    "score": 0.3288
+   },
+   {
+    "disease": "Alzheimer's disease",
+    "driver": "antioxidant",
+    "reported": false,
+    "score": 0.1315
+   },
+   {
+    "disease": "Parkinson's disease",
+    "driver": "antioxidant",
+    "reported": false,
+    "score": 0.1315
+   },
+   {
+    "disease": "Cognition (cholinergic)",
+    "driver": "AChE",
+    "reported": false,
+    "score": 0.0484
+   },
+   {
+    "disease": "Amyotrophic lateral sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Huntington's disease",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Addiction",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "ADHD",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Chronic pain",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Epilepsy",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Migraine",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Multiple sclerosis",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   },
+   {
+    "disease": "Neuroinflammation",
+    "driver": null,
+    "reported": false,
+    "score": 0.0
+   }
+  ],
+  "exposure": {
+   "bbb_probability": 0.9825,
+   "kpuu": 0.6796,
+   "note": "Predicted to reach a meaningful free concentration in the brain.",
+   "verdict": "Favourable"
+  },
+  "mechanism_independence": {
+   "correlated_families": {
+    "Serotonin receptors": [
+     "5-HT2A",
+     "5-HT1A",
+     "5-HT7"
+    ]
+   },
+   "n_independent_mechanisms": 2,
+   "n_targets_engaged": 4
+  },
+  "receptors": {
+   "A2A": 6.324,
+   "D2": 7.97,
+   "HT2A": 8.863,
+   "SERT": 6.05
+  },
+  "sai_cns_version": "1.0",
+  "screening_mode": "standard",
+  "targets": {
+   "AChE": 0.6158,
+   "BACE1": 0.7131,
+   "BBB": 0.9825,
+   "BChE": 0.4119,
+   "GSK3B": 0.4096,
+   "MAO_A": 0.0413,
+   "MAO_B": 0.3538,
+   "hERG": 0.8938
+  }
+ }
+}

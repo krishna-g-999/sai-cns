@@ -40,9 +40,9 @@ _*.py
 # ...except the three model entry points. They are not scratch: they are the only
 # recorded way Nav1_7, OX1/OX2, TAAR1, GluA2 and Nav1_1 were produced, and ignoring
 # them meant those models could not be regenerated from a clone at all.
-!src/brainsafe/models/_train_nav17.py
-!src/brainsafe/models/_train_ox.py
-!src/brainsafe/models/_train_small.py
+!src/sai_cns/models/_train_nav17.py
+!src/sai_cns/models/_train_ox.py
+!src/sai_cns/models/_train_small.py
 scratchpad/
 .DS_Store
 
@@ -52,7 +52,7 @@ new_improvements_extracted/
 run_order_extracted/
 run_order.zip
 manuscript_final/
-BrainSafe_Supplementary/
+SAI-CNS_Supplementary/
 
 # Claude Code local settings
 .claude/
@@ -73,7 +73,7 @@ archive/legacy/app/erc_ml.json
 docs/app_preview.html
 docs/about_preview.html
 
-# Read-across index (regenerable via src/brainsafe/build_readacross_index.py)
+# Read-across index (regenerable via src/sai_cns/build_readacross_index.py)
 models_rf/readacross_index.pkl
 
 # Inversion analysis intermediate logs (results CSVs and REPORT.md are tracked)
@@ -128,20 +128,86 @@ FOR_GUIDES_REVIEW/
 # can run it without anything about the unpublished manuscript being visible. Every path below
 # still exists in full on disk; git simply stops tracking it. Removed from every past commit too,
 # via git filter-repo, on 2026-09-20.
-manuscript/
-docs/
-thesis/
-presentation/
-supplementary/
-figures/
-AUDIT_PACKAGE/
-archive/
-reviewer_package/
-validation/
-results/
-# anchored to the repository root: an unanchored 'data/' also matched
-# src/brainsafe/data/, so new source files there were silently untracked
+#
+# Every rule below is ANCHORED with a leading slash. Unanchored, a bare name matches a directory
+# of that name at ANY depth, and two of these were doing real damage: 'figures/' also matched
+# src/sai_cns/figures/ and 'docs/' matched src/sai_cns/docs/, so a NEW source file in either would
+# have been silently untracked and would never have reached the public repository. The 18 scripts
+# already in src/sai_cns/figures/ survived only because ignore rules do not apply to files git
+# already tracks, which is luck rather than design. Anchoring removes the trap.
+#
+# manuscript_nar_clean/ and comments/ are new here. They were matched by NO rule at all, so both
+# finished manuscripts, the cover letter and the reviewer comments would have been published by
+# any `git add -A`.
+/manuscript/
+/manuscript_nar_clean/
+/comments/
+/docs/
+/thesis/
+/presentation/
+/supplementary/
+/figures/
+/AUDIT_PACKAGE/
+/archive/
+/reviewer_package/
+/validation/
+/results/
 /data/
-inversion/
-audit/
-repro/
+/inversion/
+/audit/
+/repro/
+
+# ---- Internal bookkeeping: kept on this machine, not on the public repository ----
+# None of these is needed to run the server or to reproduce the models. They are inventories of
+# this working tree, which is not what an evaluator is being asked to evaluate, and the archive
+# inventory in particular indexes superseded material that is deliberately not published.
+/ARCHIVE_MANIFEST.csv
+/REPOSITORY_INVENTORY.csv
+/SCRIPT_INDEX.csv
+/.regen_backup_path
+# Brand assets app.py does not name. It loads sai_cns_mark.png, sai_cns_mark_180.png and
+# sssihl_logo.png, and nothing else in assets/ is referenced anywhere.
+/assets/sai_net_logo.png
+/assets/sai_net_logo_original_green.png
+
+# ---- Paper-authoring tooling: kept on this machine, not on the public repository ----
+# These build the manuscript, the reviewer and audit packages and the technical report. They
+# produce the paper, not the tool and not its science, and nothing in REPRODUCE.md asks a reader
+# to run any of them. Checked before removal: the only imports among them are internal to this
+# set (cite.py by the manuscript builders, report_reference_docx.py by technical_report_docx.py),
+# so nothing that stays behind depends on anything that goes.
+#
+# The scientific analyses in the same directory deliberately STAY: build_master_validation.py,
+# build_master_inputs_and_external.py, the figures_*/figure_* validation plots, per_endpoint_report.py,
+# temporal_diagnosis.py, variance_decomposition.py and worked_example.py are the evidence behind
+# the paper rather than the paper itself.
+/src/sai_cns/analysis/add_reference_links.py
+/src/sai_cns/analysis/build_audit_package.py
+/src/sai_cns/analysis/build_manuscript.py
+/src/sai_cns/analysis/build_manuscript_condensed.py
+/src/sai_cns/analysis/build_manuscript_print_preview.py
+/src/sai_cns/analysis/build_manuscript_with_figure.py
+/src/sai_cns/analysis/build_model_inventory.py
+/src/sai_cns/analysis/build_review_folder.py
+/src/sai_cns/analysis/build_reviewer_matrix.py
+/src/sai_cns/analysis/build_reviewer_package.py
+/src/sai_cns/analysis/build_reviewer_workbook.py
+/src/sai_cns/analysis/build_reviewer_workbook_full.py
+/src/sai_cns/analysis/build_supplementary_information.py
+/src/sai_cns/analysis/build_technical_report.py
+/src/sai_cns/analysis/check_manuscript_numbers.py
+/src/sai_cns/analysis/cite.py
+/src/sai_cns/analysis/manuscript_tables.py
+/src/sai_cns/analysis/reorganise_repository.py
+/src/sai_cns/analysis/report_reference_docx.py
+/src/sai_cns/analysis/technical_report_docx.py
+/src/sai_cns/analysis/verify_references.py
+/src/sai_cns/analysis/verify_references_strict.py
+
+# ---- Brand toolkit: kept on this machine, not on the public repository ----
+# logo/ holds the mark's sources and make_logo.py, which regenerates the icon and lockup set.
+# Nothing in the repository references logo/ at all: app.py loads assets/sai_cns_mark.png,
+# assets/sai_cns_mark_180.png and assets/sssihl_logo.png, and those three stay. The generated
+# icon set here duplicates them. Brand sources are not needed to run or to reproduce the tool.
+/logo/
+/assets/sai_cns_mark.svg

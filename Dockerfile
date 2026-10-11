@@ -1,4 +1,4 @@
-# BrainSafe AI web server.
+# SAI-CNS web server.
 #
 # Pinned to python:3.13-slim because the deployed estimators were fitted under scikit-learn 1.8.0 on
 # that line; see requirements.txt for why the pin matters. The image installs dependencies in a
@@ -44,7 +44,7 @@ COPY assets/ ./assets/
 #                                        cannot answer
 #
 # The download verifies the archive checksum and every extracted file, so a corrupted layer cannot
-# reach a user. BRAINSAFE_SKIP_MODEL_FETCH then stops the running server repeating the check.
+# reach a user. SAI_CNS_SKIP_MODEL_FETCH then stops the running server repeating the check.
 #
 # SKIP_MODEL_FETCH exists for continuous integration, which needs to know that the Dockerfile and
 # the dependency set are sound but has no published archive to fetch from and no use for 0.84 GB of
@@ -56,15 +56,15 @@ RUN if [ "$SKIP_MODEL_FETCH" = "1" ]; then \
     else \
         python model_fetch.py && rm -f .model_fetch.lock; \
     fi
-ENV BRAINSAFE_SKIP_MODEL_FETCH=1
+ENV SAI_CNS_SKIP_MODEL_FETCH=1
 
 # Run as an unprivileged user. The application only ever reads from disk.
 #
 # The user id is 1000 rather than an arbitrary high number because Hugging Face Spaces runs every
 # container as uid 1000, and a mismatch produces permission errors on the model directory that
 # surface only after a slow image build. Any other host is indifferent to the number.
-RUN useradd --create-home --uid 1000 brainsafe && chown -R brainsafe:brainsafe /app
-USER brainsafe
+RUN useradd --create-home --uid 1000 sai_cns && chown -R sai_cns:sai_cns /app
+USER sai_cns
 
 # 8501 serves the interface, 8000 the REST API. Both are started by serve.py in one container
 # because they share a single copy of the loaded models; running them as separate containers would

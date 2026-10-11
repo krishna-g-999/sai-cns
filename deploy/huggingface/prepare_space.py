@@ -8,7 +8,7 @@ no benefit.
 This copies the runtime set, writes the Space card and the git-LFS rules, and reports the size. It
 does not push: pushing is a credentialled act and belongs to whoever owns the Space.
 
-Run:  python deploy/huggingface/prepare_space.py --out ../brainsafe-space
+Run:  python deploy/huggingface/prepare_space.py --out ../sai-cns-space
 """
 from __future__ import annotations
 
@@ -155,7 +155,7 @@ def main(argv=None) -> None:
     # behind, and model_fetch.ensure_models() refuses to serve predictions when a manifest entry is
     # absent. That is the correct behaviour: a server that quietly loads whatever it finds returns
     # answers that are wrong in ways nothing reports. The wrong fix is to disable the check with
-    # BRAINSAFE_SKIP_MODEL_FETCH, which removes the integrity guarantee for every file including the
+    # SAI_CNS_SKIP_MODEL_FETCH, which removes the integrity guarantee for every file including the
     # ones that did travel. The right fix is to describe the shipped set accurately, so the check
     # still verifies every model the Space actually serves.
     manifest = json.loads((ROOT / "models_manifest.json").read_text(encoding="utf-8"))
@@ -188,7 +188,7 @@ def main(argv=None) -> None:
     print("\nNext, from inside that directory:")
     print("    git lfs install")
     print("    git add .gitattributes && git commit -m 'Track model files with LFS'")
-    print("    git add -A && git commit -m 'BrainSafe AI'")
+    print("    git add -A && git commit -m 'SAI-CNS'")
     print("    git push")
     print("\nTrack LFS before adding the models, or the push is rejected for file size.")
 

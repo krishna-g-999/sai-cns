@@ -152,7 +152,7 @@ def main(argv=None) -> None:
     if not args.apply:
         print("\nreport only; nothing was written. Re-run with --apply to recompress in place.")
     else:
-        print("\nRewritten. Regenerate the manifest: python src/brainsafe/models/package_models.py 1.1")
+        print("\nRewritten. Regenerate the manifest: python src/sai_cns/models/package_models.py 1.1")
 
 
 if __name__ == "__main__":

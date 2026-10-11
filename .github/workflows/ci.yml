@@ -58,7 +58,7 @@ jobs:
       - name: Unit tests with coverage on the scientific core
         run: >
           python -m pytest tests/ -v
-          --cov=src/brainsafe/features --cov=src/brainsafe/models
+          --cov=src/sai_cns/features --cov=src/sai_cns/models
           --cov-report=term-missing --cov-report=xml
         shell: bash
 
@@ -78,11 +78,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the image
-        # No push and no model fetch: BRAINSAFE_SKIP_MODEL_FETCH is set inside the image, and the
+        # No push and no model fetch: SAI_CNS_SKIP_MODEL_FETCH is set inside the image, and the
         # build-time fetch needs a published archive URL that does not exist yet. Building proves
         # the Dockerfile and the dependency set are sound.
-        run: docker build --build-arg SKIP_MODEL_FETCH=1 -t brainsafe-ai:ci .
+        run: docker build --build-arg SKIP_MODEL_FETCH=1 -t sai-cns:ci .
         continue-on-error: true
 
       - name: Report image size
-        run: docker images brainsafe-ai:ci || true
+        run: docker images sai-cns:ci || true

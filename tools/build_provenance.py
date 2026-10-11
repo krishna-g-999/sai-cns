@@ -49,13 +49,13 @@ LAYERS = [
 
 # Sources upstream of everything, recorded because the chain has to start somewhere real.
 RAW = [
-    ("ChEMBL", "data/_chembl_cache/", "src/brainsafe/data/fetch_endpoints.py",
+    ("ChEMBL", "data/_chembl_cache/", "src/sai_cns/data/fetch_endpoints.py",
      "measured activities and censored bounds, cached as retrieved"),
-    ("BindingDB", "data/_bindingdb_cache/", "src/brainsafe/data/fetch_bindingdb.py",
+    ("BindingDB", "data/_bindingdb_cache/", "src/sai_cns/data/fetch_bindingdb.py",
      "measured binding affinities"),
-    ("B3DB", "data/endpoints/BBB.csv", "src/brainsafe/data/fetch_endpoints.py",
+    ("B3DB", "data/endpoints/BBB.csv", "src/sai_cns/data/fetch_endpoints.py",
      "blood-brain barrier labels, plus FDA-curated approved drugs"),
-    ("Therapeutics Data Commons / MoleculeNet", "data/adme/", "src/brainsafe/adme/fetch_adme.py",
+    ("Therapeutics Data Commons / MoleculeNet", "data/adme/", "src/sai_cns/adme/fetch_adme.py",
      "measured ADME and exposure endpoints"),
 ]
 

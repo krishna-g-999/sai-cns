@@ -38,7 +38,7 @@ from rdkit import Chem, RDLogger
 RDLogger.DisableLog("rdApp.*")
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 from features.featurize import featurize, feature_names, parent_mol  # noqa: E402
 
 OUT_VECTORS = ROOT / "results" / "tables" / "master_feature_vectors.csv"

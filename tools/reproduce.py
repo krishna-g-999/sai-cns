@@ -34,7 +34,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PY = sys.executable
-SRC = "src/brainsafe"
+SRC = "src/sai_cns"
 
 FIGURES = [f"{SRC}/figures/fig{n}.py" for n in (
     "01_architecture", "02_feature_vector", "03_cv_design", "04_pools_and_thresholds",

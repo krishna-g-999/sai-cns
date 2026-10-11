@@ -15,7 +15,7 @@ The repository's virtualenv is deliberately left on the path. site-packages live
 repository directory, so removing everything under it would fail the import for a reason that has
 nothing to do with whether the Space is self-contained.
 
-Run:  python deploy/huggingface/verify_space.py ../brainsafe-ai
+Run:  python deploy/huggingface/verify_space.py ../sai-cns
 """
 from __future__ import annotations
 
@@ -42,10 +42,10 @@ def main() -> int:
         return 2
 
     os.chdir(space)
-    ban = {repo, repo / "src", repo / "src" / "brainsafe"}
+    ban = {repo, repo / "src", repo / "src" / "sai_cns"}
     sys.path = [p for p in sys.path if not p or Path(p).resolve() not in ban]
     sys.path.insert(0, str(space))
-    sys.path.insert(0, str(space / "src" / "brainsafe"))
+    sys.path.insert(0, str(space / "src" / "sai_cns"))
     print(f"working directory : {space}")
     print("the repository's source roots are not on the path\n")
 

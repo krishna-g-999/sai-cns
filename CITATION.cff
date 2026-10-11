@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If you use BrainSafe AI, please cite this software and the associated manuscript."
-title: "BrainSafe AI: a calibrated, exposure-gated web server for multi-endpoint prediction of small-molecule action in the human brain"
+message: "If you use SAI-CNS, please cite this software and the associated manuscript."
+title: "SAI-CNS: A Calibrated, Exposure-Gated Web Server for Small-Molecule Target Engagement and Pharmacokinetics in the Human Brain"
 authors:
   - given-names: "Krishnasalini"
     family-names: "Gunanathan"
@@ -21,8 +21,8 @@ authors:
 version: 1.0.0
 date-released: 2026-07-19
 license: MIT
-repository-code: "https://github.com/krishna-g-999/brainsafe-ai"
-url: "https://huggingface.co/spaces/Krishnag999/brainsafe-ai"
+repository-code: "https://github.com/krishna-g-999/sai-cns"
+url: "https://huggingface.co/spaces/Krishnag999/sai-cns"
 keywords: [QSAR, blood-brain barrier, conformal prediction, cheminformatics, CNS, ChEMBL, exposure gating]
 references:
   - type: database

@@ -1,4 +1,4 @@
-"""BrainSafe AI REST API: programmatic access to the same models the web interface serves.
+"""SAI-CNS REST API: programmatic access to the same models the web interface serves.
 
 Built on the standard library rather than a web framework, for two reasons. The practical one is that
 this deployment environment cannot install FastAPI: the network appliance blocks pydantic_core as an
@@ -59,7 +59,7 @@ def _fingerprint():
 
 def doc():
     return {
-        "name": "BrainSafe AI", "version": app.APP_VERSION,
+        "name": "SAI-CNS", "version": app.APP_VERSION,
         "description": "Multi-endpoint prediction of small-molecule effects on the human brain. "
                        "Research decision-support for prioritisation and hypothesis generation. "
                        "Not for medical, diagnostic or treatment decisions.",
@@ -83,7 +83,7 @@ def doc():
             "independent_mechanisms": "engaged targets grouped by homology. Homologues are engaged "
                                       "together, so this is the number to weigh, not the raw count",
         },
-        "source": "https://github.com/krishna-g-999/brainsafe-ai",
+        "source": "https://github.com/krishna-g-999/sai-cns",
     }
 
 
@@ -123,7 +123,7 @@ def predict_one(q):
 
 class Handler(BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
-    server_version = f"BrainSafeAI/{app.APP_VERSION}"
+    server_version = f"SAI-CNS/{app.APP_VERSION}"
 
     def log_message(self, fmt, *a):   # quieter than the default, and no client addresses recorded
         sys.stderr.write(f"{self.command} {self.path.split('?')[0]} {fmt % a}\n")
@@ -181,11 +181,38 @@ class Handler(BaseHTTPRequestHandler):
             if not isinstance(items, list) or not items:
                 return self._send({"error": "body must be {'compounds': [ ... ]}"}, 400)
             dropped = max(0, len(items) - MAX_BATCH)
-            rows = []
+            m = models()
+
+            # Resolve first, then score every resolved compound in ONE vectorised pass, then build
+            # the rows. Looping batch_row without `pre` would call each of the seventy estimators
+            # once per compound and pay scikit-learn's per-call overhead every time, which measures
+            # about fifty times slower. This mirrors render_batch in app.py deliberately: the two
+            # batch paths must return the same numbers, so they take the same route to them.
+            resolved = []
             for it in items[:MAX_BATCH]:
                 smi, name, err = app.resolve_query(str(it))
-                rows.append({"input": it, "status": err} if err
-                            else app.batch_row(smi, name, models()))
+                resolved.append((it, smi, name, err))
+
+            canon = []
+            for _it, smi, _nm, err in resolved:
+                if err:
+                    canon.append(None); continue
+                mol = app.Chem.MolFromSmiles(smi)
+                canon.append(app.Chem.MolToSmiles(mol) if mol is not None else None)
+
+            scorable = [c for c in canon if c is not None]
+            preds = app.predict_all_batch(scorable, m) if scorable else []
+            by_smiles = dict(zip(scorable, preds))
+
+            rows = []
+            for (it, smi, name, err), cs in zip(resolved, canon):
+                if err:
+                    rows.append({"input": it, "status": err})
+                elif cs is None:
+                    rows.append({"input": it, "smiles": smi, "status": "unparseable"})
+                else:
+                    rows.append(app.batch_row(smi, name, m, pre=by_smiles.get(cs)))
+
             return self._send({"n_requested": len(items), "n_returned": len(rows),
                                "n_dropped_over_limit": dropped, "results": rows})
         except Exception:
@@ -196,7 +223,7 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
     srv = ThreadingHTTPServer(("0.0.0.0", port), Handler)
-    print(f"BrainSafe AI API on http://0.0.0.0:{port}  (GET / for documentation)", flush=True)
+    print(f"SAI-CNS API on http://0.0.0.0:{port}  (GET / for documentation)", flush=True)
     try:
         srv.serve_forever()
     except KeyboardInterrupt:

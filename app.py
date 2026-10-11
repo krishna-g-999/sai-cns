@@ -1,4 +1,4 @@
-"""BrainSafe AI: interactive predictor (validated RF + ADME/exposure models).
+"""SAI-CNS: interactive predictor (validated RF + ADME/exposure models).
 
 A single-page Streamlit app over the deployed random-forest models: target engagement (calibrated
 probabilities), receptor potency, an hERG safety flag, the ADME / exposure (ADMET) panel, the
@@ -7,8 +7,8 @@ per-disease target-engagement scores, a compound-target-disease network, and an 
 confidence with the nearest measured analogue. Every number is a model output on measured public data
 (228,200 records); this is a research triage tool, not a clinical or diagnostic device.
 
-Visual identity (navy + gold, SAI-Net / SSSIHL) matches the earlier BrainSafe app; the science is the
-current validated model set. Run:  streamlit run app.py
+Visual identity (navy + gold, SAI-Net / SSSIHL) matches the earlier SAI-CNS app; the science is the
+current validated model set, now published under the name SAI-CNS. Run:  streamlit run app.py
 """
 from __future__ import annotations
 
@@ -40,9 +40,9 @@ except (ImportError, OSError):
     _DRAW_AVAILABLE = False
 
 ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 import panel as _panel  # noqa: E402
-from features.featurize import featurize_one, feature_names  # noqa: E402
+from features.featurize import featurize, featurize_one, feature_names  # noqa: E402
 
 MODELS = ROOT / "models_rf"
 ASSETS = ROOT / "assets"
@@ -278,7 +278,7 @@ MECH_LABEL = {"AChE": "AChE", "BChE": "BChE", "BACE1": "BACE1", "GSK3B": "GSK-3�
               "Nav1_1": "Nav1.1", "NFKB1": "NF-kB p105/p50", "NR3C1": "glucocorticoid receptor",
               "NRF2": "NRF2"}
 
-# ---- BrainSafe visual identity (navy + gold, matching the earlier app) ----
+# ---- SAI-CNS visual identity (navy + gold, matching the earlier app) ----
 NAVY   = "#0D2137"
 NAVY_DK = "#071626"
 NAVY_MD = "#1A3A5C"
@@ -436,6 +436,68 @@ def predict_all(smiles, m):
         out["adme"][ep] = 10 ** v if tf == "10^" else v
     out["descriptors"] = {name: float(v) for name, v in zip(_DESC_NAMES, x[-12:])}
     return out
+
+
+def predict_all_batch(smiles_list, m, chunk=512):
+    """predict_all for many compounds at once, returning one dict per input or None.
+
+    Identical arithmetic to predict_all, which it is checked against: a random forest scores each
+    row independently, so stacking N rows into one matrix and calling each estimator once gives the
+    same numbers as calling it N times with one row.
+
+    What changes is the overhead. The per-compound path pays scikit-learn's call dispatch, array
+    validation and tree-traversal setup once per estimator PER COMPOUND, which is about seventy
+    times per compound across the panel. Batched, that cost is paid seventy times for the whole
+    run. Measured on this panel the per-compound path runs at about 4.1 s/compound, which puts a
+    300-compound batch, the limit the interface advertises, at roughly twenty minutes; long enough
+    that a reviewer running a test set would hit a timeout before seeing a result.
+
+    Compounds that fail to featurise keep their place in the output as None, so the caller can zip
+    results back to inputs without tracking indices.
+    """
+    smiles_list = list(smiles_list)
+    results = [None] * len(smiles_list)
+
+    for start in range(0, len(smiles_list), chunk):
+        block = smiles_list[start:start + chunk]
+        X, mask = featurize(block)
+        if X is None or len(X) == 0:
+            continue
+        mask = np.asarray(mask)
+        idx = np.flatnonzero(mask)                 # positions within this block that parsed
+        n = len(idx)
+        if n == 0:
+            continue
+
+        cols = {}
+        for ep in TARGET_CLASSIFIERS:
+            cols[("targets", ep)] = m[ep].predict_proba(X)[:, 1]
+        for ep in RECEPTOR_REGRESSORS:
+            cols[("receptors", ep)] = m[ep].predict(X)
+            if f"{ep}_binder" in m:
+                cols[("receptor_binder", ep)] = m[f"{ep}_binder"].predict_proba(X)[:, 1]
+        for ep in BINDER_TARGETS:
+            if f"{ep}_binder" in m:
+                cols[("receptor_binder", ep)] = m[f"{ep}_binder"].predict_proba(X)[:, 1]
+        anti = m["antioxidant_DPPH"].predict(X)
+        adme_cols = {}
+        for ep, (_, _, tf) in ADME.items():
+            v = (m[f"adme_{ep}"].predict_proba(X)[:, 1] if tf == "proba"
+                 else m[f"adme_{ep}"].predict(X))
+            adme_cols[ep] = (10 ** v) if tf == "10^" else v
+
+        for j in range(n):
+            out = {"targets": {}, "receptors": {}, "receptor_binder": {}, "adme": {},
+                   "descriptors": {}}
+            for (grp, ep), arr in cols.items():
+                out[grp][ep] = float(arr[j])
+            out["antioxidant"] = float(anti[j])
+            for ep, arr in adme_cols.items():
+                out["adme"][ep] = float(arr[j])
+            out["descriptors"] = {name: float(v)
+                                  for name, v in zip(_DESC_NAMES, X[j][-12:])}
+            results[start + int(idx[j])] = out
+    return results
 
 
 @st.cache_data(show_spinner=False)
@@ -1065,7 +1127,7 @@ def inject_css():
             background:#FFFFFF; border-radius:18px; padding:8px;
             border:1px solid rgba(240,165,0,.55);
             box-shadow:0 0 20px rgba(240,165,0,.22), 0 4px 14px rgba(0,0,0,.40); }}
-        /* Matched to the BrainSafe mark opposite it: same white plate, same corner radius, so the
+        /* Matched to the SAI-CNS mark opposite it: same white plate, same corner radius, so the
            two read as a pair rather than as two unrelated badges. Slightly smaller, because it is
            the institutional credit and not the identity of the tool. */
         .header-inst {{ height:96px; width:96px; border-radius:18px;
@@ -1317,11 +1379,14 @@ def inject_css():
 
 
 def render_header():
-    logo = _b64(ASSETS / "sai_net_logo.png")
+    # The SAI-CNS mark: a barrier with a single channel through it, and one compound in the
+    # channel. The wordmark is set as HTML text below, so the header carries the mark alone rather
+    # than a second copy of the name.
+    logo = _b64(ASSETS / "sai_cns_mark.png")
     inst = _b64(ASSETS / "sssihl_logo.png")
     logo_html = (f'<img class="header-logo" src="data:image/png;base64,{logo}"/>' if logo else
                  f'<div class="header-logo" style="display:flex;align-items:center;justify-content:center;'
-                 f'background:{NAVY_MD};color:{GOLD};font-size:2rem;font-weight:800;">B</div>')
+                 f'background:{NAVY_MD};color:{GOLD};font-size:2rem;font-weight:800;">S</div>')
     inst_html = f'<div class="header-div"></div><img class="header-inst" src="data:image/png;base64,{inst}"/>' if inst else ""
     # Counted from what is actually served, not written by hand. This list named eight endpoints,
     # all of them core classifiers, and omitted the 43-endpoint binder panel entirely, so the
@@ -1339,13 +1404,13 @@ def render_header():
           {logo_html}
           <div class="header-div"></div>
           <div class="header-textblk">
-            <div class="header-title">Brain<span>Safe</span> AI</div>
+            <div class="header-title">SAI<span>-CNS</span></div>
             <div class="header-sub">Calibrated, exposure-gated prediction of small-molecule action in the human brain</div>
             <div class="header-tags">{tagbar}</div>
           </div>
           {inst_html}
         </div></div>
-        <div class="preview-banner"><b>Research preview: pending peer review.</b> BrainSafe AI is a
+        <div class="preview-banner"><b>Research preview: pending peer review.</b> SAI-CNS is a
         computational decision-support tool for research prioritisation and hypothesis generation. It predicts
         <i>molecular target engagement and physicochemical properties</i>, not clinical efficacy, and has not
         undergone wet-lab or clinical validation. Not for medical, diagnostic, or treatment decisions.</div>
@@ -1353,7 +1418,7 @@ def render_header():
         Free to use without registration, for any purpose including commercial, under the
         <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT licence</a>.
         Source, trained models and every validation artefact:
-        <a href="https://github.com/krishna-g-999/brainsafe-ai" target="_blank" rel="noopener">github.com/krishna-g-999/brainsafe-ai</a>.
+        <a href="https://github.com/krishna-g-999/sai-cns" target="_blank" rel="noopener">github.com/krishna-g-999/sai-cns</a>.
         Underlying data retain their own licences (ChEMBL CC BY-SA 3.0, BindingDB, B3DB, Therapeutics
         Data Commons, MoleculeNet; pathway annotations from KEGG, Reactome and IUPHAR/BPS).
         Submitted structures are processed in memory and are not stored, logged or shared.</div>
@@ -2382,7 +2447,7 @@ def result_json(smiles, name, r):
     kpuu = r["adme"]["kpuu"]
     label, _colour, note = verdict(kpuu, bbb)
     return {
-        "brainsafe_version": APP_VERSION,
+        "sai_cns_version": APP_VERSION,
         "screening_mode": "high-precision" if screening_mode() else "standard",
         "compound": {"name": name, "smiles": smiles},
         "exposure": {"bbb_probability": round(bbb, 4), "kpuu": round(kpuu, 4),
@@ -2553,7 +2618,7 @@ def build_html_report(smiles, name, r):
 
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BrainSafe AI report: {esc(name)}</title><style>
+<title>SAI-CNS report: {esc(name)}</title><style>
 *{{box-sizing:border-box}}
 body{{font-family:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
  color:{INK};margin:0;padding:38px 30px 60px;background:#fff;line-height:1.55;
@@ -2586,7 +2651,7 @@ ul{{margin:6px 0 0 18px;padding:0}} li{{margin:3px 0;font-size:.86rem}}
 .foot{{margin-top:34px;padding-top:16px;border-top:1px solid #E6ECF5;font-size:.72rem;color:{MUTE}}}
 @media print{{body{{padding:0}} .fig,.top{{break-inside:avoid}}}}
 </style></head><body><div class="wrap">
-<h1>BrainSafe <span>AI</span></h1>
+<h1>SAI <span>CNS</span></h1>
 <p class="sub">Multi-endpoint prediction of small-molecule effects on the human brain</p>
 <div class="top">
   <img src="{img}" alt="structure of {esc(name)}" width="300" height="250">
@@ -2621,7 +2686,7 @@ condition ranks first. It is an exposure filter, not a discriminator.</li>
 <li>The tool ranks mechanisms. It does not predict clinical efficacy, and it has not undergone
 wet-lab or clinical validation.</li>
 </ul>
-<div class="foot">BrainSafe AI version {APP_VERSION}, {"high-precision" if screening_mode() else "standard"}
+<div class="foot">SAI-CNS version {APP_VERSION}, {"high-precision" if screening_mode() else "standard"}
 screening mode. Calibrated random-forest models trained on measured public bioactivity and ADME data
 (228,200 records; 169,341 unique compounds). Research decision-support for prioritisation and
 hypothesis generation only. Not for medical, diagnostic or treatment decisions.</div>
@@ -2644,21 +2709,21 @@ def render_exports(smiles, name, r):
     with c1:
         st.download_button("Data table (CSV)",
                            result_frame(smiles, name, r).to_csv(index=False).encode("utf-8"),
-                           file_name=f"brainsafe_{slug}.csv", mime="text/csv",
+                           file_name=f"sai_cns_{slug}.csv", mime="text/csv",
                            use_container_width=True,
                            help="Every endpoint as one tidy row per prediction, with units and the "
                                 "training context needed to interpret it.")
     with c2:
         st.download_button("Full report (HTML)",
                            build_html_report(smiles, name, r).encode("utf-8"),
-                           file_name=f"brainsafe_{slug}_report.html", mime="text/html",
+                           file_name=f"sai_cns_{slug}_report.html", mime="text/html",
                            use_container_width=True,
                            help="Self-contained page with the structure, both figures and every "
                                 "table. Opens offline in any browser and prints to PDF.")
     with c3:
         st.download_button("Structured (JSON)",
                            json.dumps(result_json(smiles, name, r), indent=2).encode("utf-8"),
-                           file_name=f"brainsafe_{slug}.json", mime="application/json",
+                           file_name=f"sai_cns_{slug}.json", mime="application/json",
                            use_container_width=True,
                            help="Machine-readable result with thresholds, provenance and the "
                                 "caveats that must travel with the numbers.")
@@ -2667,7 +2732,7 @@ def render_exports(smiles, name, r):
         i = svg.find("<svg")
         st.download_button("Network figure (SVG)",
                            (svg[i:svg.rfind("</svg>") + 6] if i >= 0 else svg).encode("utf-8"),
-                           file_name=f"brainsafe_{slug}_network.svg", mime="image/svg+xml",
+                           file_name=f"sai_cns_{slug}_network.svg", mime="image/svg+xml",
                            use_container_width=True,
                            help="Vector figure at any size, for a manuscript or a slide.")
     st.markdown('</div>', unsafe_allow_html=True)
@@ -2677,13 +2742,18 @@ def render_exports(smiles, name, r):
 BATCH_LIMIT = 300
 
 
-def batch_row(smiles, name, models):
-    """One summary row per compound. Deliberately narrow: the columns a triage decision needs."""
+def batch_row(smiles, name, models, pre=None):
+    """One summary row per compound. Deliberately narrow: the columns a triage decision needs.
+
+    `pre` is an already-computed prediction for this compound, which the batch screen supplies so
+    that a run of N compounds costs one vectorised pass rather than N single-row passes. Passing
+    None preserves the original behaviour exactly.
+    """
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return {"input": name, "smiles": smiles, "status": "unparseable"}
     cs = Chem.MolToSmiles(mol)
-    r = predict_all(cs, models)
+    r = pre if pre is not None else predict_all(cs, models)
     if r is None:
         return {"input": name, "smiles": cs, "status": "not featurizable"}
     bbb, neuro, dz = disease_scores(r)
@@ -2757,12 +2827,36 @@ def render_batch():
     dropped = max(0, len(entries) - BATCH_LIMIT)
     entries = entries[:BATCH_LIMIT]
     models = load_models()
-    rows, prog = [], st.progress(0.0, text=f"Screening {len(entries)} compounds")
+    prog = st.progress(0.0, text=f"Resolving {len(entries)} compounds")
+    resolved = []
     for i, e in enumerate(entries, 1):
         smi, nm, err = resolve_query(e)
-        rows.append({"input": e, "smiles": e, "status": err} if err
-                    else batch_row(smi, nm, models))
-        prog.progress(i / len(entries), text=f"Screening {i} of {len(entries)}")
+        resolved.append((e, smi, nm, err))
+        prog.progress(0.35 * i / len(entries), text=f"Resolving {i} of {len(entries)}")
+
+    # One vectorised pass over everything that resolved. Scoring each compound separately costs
+    # roughly fifty times more, which at the 300-compound limit is the difference between about
+    # twenty seconds and about twenty minutes.
+    prog.progress(0.4, text=f"Scoring {sum(1 for r in resolved if not r[3])} compounds")
+    canon = []
+    for _e, smi, _nm, err in resolved:
+        if err:
+            canon.append(None); continue
+        mol = Chem.MolFromSmiles(smi)
+        canon.append(Chem.MolToSmiles(mol) if mol is not None else None)
+    scorable = [c for c in canon if c is not None]
+    preds = predict_all_batch(scorable, models) if scorable else []
+    by_smiles = dict(zip(scorable, preds))
+
+    prog.progress(0.75, text="Building profiles")
+    rows = []
+    for (e, smi, nm, err), cs in zip(resolved, canon):
+        if err:
+            rows.append({"input": e, "smiles": e, "status": err})
+        elif cs is None:
+            rows.append({"input": e, "smiles": smi, "status": "unparseable"})
+        else:
+            rows.append(batch_row(smi, nm, models, pre=by_smiles.get(cs)))
     prog.empty()
 
     df = pd.DataFrame(rows)
@@ -2774,7 +2868,7 @@ def render_batch():
         st.success(f"{ok} of {len(entries)} compounds profiled.")
 
     st.download_button("Download results (CSV)", df.to_csv(index=False).encode("utf-8"),
-                       file_name="brainsafe_batch.csv", mime="text/csv", type="primary")
+                       file_name="sai_cns_batch.csv", mime="text/csv", type="primary")
     st.dataframe(df, use_container_width=True, hide_index=True,
                  column_config={"smiles": st.column_config.TextColumn("SMILES", width="medium")})
     st.markdown('<div class="bs-note" style="margin-top:10px">Rank on the mechanisms and the '
@@ -3148,7 +3242,7 @@ def render_about():
     """One page in one order: what it answers, how it was built and tested, what bounds it.
 
     Rebuilt because the previous version rendered the glossary, the coverage card and the model
-    comparison, then began again with a second "About BrainSafe AI" block repeating what the tool
+    comparison, then began again with a second "About SAI-CNS" block repeating what the tool
     does and how it was trained. A reader met the same material twice, in different words and with
     different numbers, and the second set was three years of panel growth out of date.
     """
@@ -3157,10 +3251,10 @@ def render_about():
     def val(key, fmt="{:.3f}", dash="not available"):
         return fmt.format(f[key]) if key in f else dash
 
-    st.markdown('<div class="about-h">About Brain<span>Safe</span> AI</div>', unsafe_allow_html=True)
+    st.markdown('<div class="about-h">About SAI<span>-CNS</span></div>', unsafe_allow_html=True)
     st.markdown(
         '<p class="bs-note" style="font-size:.95rem;margin:-6px 0 18px">'
-        'BrainSafe AI answers four questions about a small molecule in one pass: can it reach the '
+        'SAI-CNS answers four questions about a small molecule in one pass: can it reach the '
         'brain, what does it engage there, what does that mechanism touch, and what would stop it '
         'being a drug. Every endpoint is trained on measured experimental values, never on '
         'qualitative annotation, and every prediction carries its own uncertainty.</p>',
@@ -3250,7 +3344,7 @@ def render_about():
     st.markdown(
         '<div class="bs-card"><div class="bs-h">Intended use'
         '<span class="bs-h-sub">what a result from this server is, and what it is not</span></div>'
-        '<div class="bs-note">BrainSafe AI predicts molecular target '
+        '<div class="bs-note">SAI-CNS predicts molecular target '
         'engagement and physicochemical properties. It does not predict clinical efficacy, and it '
         'does not distinguish an agonist from an antagonist: both bind, and the models are trained '
         'on binding. Disease-level scores are a route from a mechanism to the conditions that '
@@ -3266,7 +3360,7 @@ def render_about():
         st.markdown("""
         ### 100 Years of Selfless Service
         This offering celebrates **100 years of selfless service and unconditional love to society** by
-        **Bhagawan Sri Sathya Sai Baba** (1926-2011). BrainSafe AI is part of the **SAI-Net** initiative at the
+        **Bhagawan Sri Sathya Sai Baba** (1926-2011). SAI-CNS is part of the **SAI-Net** initiative at the
         **Sri Sathya Sai Institute of Higher Learning (SSSIHL)**, Prasanthi Nilayam.
         """)
         st.markdown("""
@@ -3276,7 +3370,7 @@ def render_about():
         &#8220;True knowledge is that which makes man work for the welfare of humanity.&#8221;</p>
         <cite style="color:#1A3A5C">Bhagawan Sri Sathya Sai Baba</cite></div>
         """, unsafe_allow_html=True)
-    st.markdown('<div class="bs-foot">Repository: https://github.com/krishna-g-999/brainsafe-ai '
+    st.markdown('<div class="bs-foot">Repository: https://github.com/krishna-g-999/sai-cns '
                 '&middot; See CITATION.cff for how to cite. Research use, pending peer review.</div>',
                 unsafe_allow_html=True)
 
@@ -3526,15 +3620,15 @@ def render_legal():
         '<div class="bs-card" style="margin-top:14px"><div class="bs-h">Code and data</div>'
         '<div class="bs-note">Source code, the curated knowledge graph, every validation artefact '
         'and the scripts that regenerate each table and figure are at '
-        '<a href="https://github.com/krishna-g-999/brainsafe-ai">'
-        'github.com/krishna-g-999/brainsafe-ai</a> under the MIT licence. '
+        '<a href="https://github.com/krishna-g-999/sai-cns">'
+        'github.com/krishna-g-999/sai-cns</a> under the MIT licence. '
         '<code>CITATION.cff</code> gives the citation and <code>REPRODUCE.md</code> regenerates the '
         'results from one command. Trained estimators are deposited separately with a manifest '
         'recording the SHA-256 of the archive and of every file inside it, so a download is '
         'verified rather than trusted. Any screening run is downloadable as CSV from the Batch '
         'Screening tab.</div></div>'
         '<div class="bs-card" style="margin-top:14px"><div class="bs-h">Contact</div>'
-        '<div class="bs-note">BrainSafe AI is developed under the SAI-Net '
+        '<div class="bs-note">SAI-CNS is developed under the SAI-Net '
         'initiative at the Sri Sathya Sai Institute of Higher Learning, Prasanthi Nilayam, India. '
         'Questions, corrections and bug reports are best raised as issues in the repository, where '
         'they stay visible alongside the code they concern.</div></div>',
@@ -3542,7 +3636,7 @@ def render_legal():
     st.markdown(
         '<div class="bs-card" style="margin-top:14px"><div class="bs-h">Status</div>'
         '<div class="bs-note">Research preview, pending peer review. '
-        'BrainSafe AI is a computational decision-support tool for research prioritisation and '
+        'SAI-CNS is a computational decision-support tool for research prioritisation and '
         'hypothesis generation. It predicts molecular target engagement and physicochemical '
         'properties, not clinical efficacy, and has not undergone wet-lab or clinical validation. '
         'It is not for medical, diagnostic or treatment decisions.</div></div>',
@@ -3603,7 +3697,9 @@ def render_report(smiles, name="Compound"):
 
 
 def main():
-    st.set_page_config(page_title="BrainSafe AI | SAI-Net", page_icon="🧠",
+    _icon = ASSETS / "sai_cns_mark_180.png"
+    st.set_page_config(page_title="SAI-CNS | SAI-Net",
+                       page_icon=str(_icon) if _icon.exists() else "🧠",
                        layout="wide", initial_sidebar_state="collapsed")
     inject_css()
     render_header()

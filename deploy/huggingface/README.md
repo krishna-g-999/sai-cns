@@ -1,5 +1,5 @@
 ---
-title: BrainSafe AI
+title: SAI-CNS
 emoji: 🧠
 colorFrom: yellow
 colorTo: indigo
@@ -10,7 +10,7 @@ license: mit
 short_description: BBB-gated prediction of small-molecule action in the brain
 ---
 
-# BrainSafe AI
+# SAI-CNS
 
 Predicts, from a SMILES string or a compound name, whether a small molecule reaches the human brain,
 what it engages there, what conditions that mechanism touches, and what would stop it being a drug.

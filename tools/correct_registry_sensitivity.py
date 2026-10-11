@@ -40,7 +40,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REG = ROOT / "models_rf" / "binder_modes.json"
 RECON = ROOT / "results" / "tables" / "sensitivity_reconciliation.csv"
 
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 import panel  # noqa: E402
 
 UNTOUCHED = ["threshold", "background_fpr_at_threshold", "auroc_vs_measured_inactives",

@@ -1,4 +1,4 @@
-# Deploying BrainSafe AI to Google Cloud Run
+# Deploying SAI-CNS to Google Cloud Run
 
 Cloud Run is the right home for this server. Streamlit Community Cloud refused it on memory, and
 Hugging Face now requires a paid plan for Docker Spaces on new accounts. Cloud Run lets you set the
@@ -43,7 +43,7 @@ Open https://console.cloud.google.com, confirm the project selector shows
 In it:
 
 ```bash
-git clone https://github.com/krishna-g-999/brainsafe-ai.git && cd brainsafe-ai
+git clone https://github.com/krishna-g-999/brainsafe-ai.git && cd sai-cns
 ```
 
 Then go to step 3. The clone carries no model binaries, which is intended: the build downloads and
@@ -77,11 +77,11 @@ gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregi
 From the project directory. In Cloud Shell you are already there after the clone; locally:
 
 ```bash
-cd D:\BRAINSAFE_AI
+cd D:\SAI_CNS
 ```
 
 ```bash
-gcloud run deploy brainsafe-ai --source . --region asia-south1 --allow-unauthenticated --memory 4Gi --cpu 2 --timeout 300 --port 8501 --max-instances 3
+gcloud run deploy sai-cns --source . --region asia-south1 --allow-unauthenticated --memory 4Gi --cpu 2 --timeout 300 --port 8501 --max-instances 3
 ```
 
 Answer `y` if it offers to create an Artifact Registry repository.
@@ -104,7 +104,7 @@ verifies the 0.79 GB model archive from Zenodo. Later deploys reuse cached layer
 
 ## 5. Check it
 
-The deploy prints a URL like `https://brainsafe-ai-<hash>-el.a.run.app`.
+The deploy prints a URL like `https://sai-cns-<hash>-el.a.run.app`.
 
 ```bash
 curl -fsS https://<your-url>/_stcore/health
@@ -126,10 +126,10 @@ Read the build log link the command prints. The two likely causes:
 Cloud Run exposes one port per service, like the other hosts. Deploy a second service for the API:
 
 ```bash
-gcloud run deploy brainsafe-api --source . --region asia-south1 --allow-unauthenticated --memory 4Gi --cpu 2 --timeout 300 --port 8501 --max-instances 2 --set-env-vars BRAINSAFE_API_ONLY=1
+gcloud run deploy sai_cns-api --source . --region asia-south1 --allow-unauthenticated --memory 4Gi --cpu 2 --timeout 300 --port 8501 --max-instances 2 --set-env-vars SAI_CNS_API_ONLY=1
 ```
 
-`BRAINSAFE_API_ONLY=1` makes `serve.py` hand the published port to the API instead of the interface.
+`SAI_CNS_API_ONLY=1` makes `serve.py` hand the published port to the API instead of the interface.
 
 ## Why the models are fetched during the build
 

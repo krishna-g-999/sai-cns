@@ -27,8 +27,8 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
-sys.path.insert(0, str(ROOT / "src" / "brainsafe" / "data"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns" / "data"))
 from data.activity_labels import (ACTIVE_CUT, INACTIVE_CUT,                # noqa: E402
                                   bound_settles_inactive, label_from)
 from features.featurize import N_FEATURES                                  # noqa: E402
@@ -118,6 +118,59 @@ class TestBackgroundPools(unittest.TestCase):
             roles[role_of(s)] += 1
         for role, n in roles.items():
             self.assertGreater(n, 0, f"no compound landed in the {role} pool")
+
+    def test_the_salt_is_the_one_every_threshold_was_measured_against(self):
+        """The salt is data, not branding. Renaming it silently invalidates the thresholds.
+
+        _band hashes "{salt}:{smiles}", so the salt decides which pool every background compound
+        lands in: which compounds supply decoys, which set each threshold, and which measure the
+        false-positive rate that threshold is reported against. Those three pools must stay
+        disjoint and must stay fixed, because "thresholds measured on a pool disjoint from the one
+        that set them" is a claim about THESE pools.
+
+        Change the salt and the code still runs, the partition is still disjoint, and every number
+        in final_thresholds.csv and every background false-positive rate quietly stops describing
+        the data they were computed from. Nothing else in this suite pins the value: when the salt
+        was mutated during an audit, the only failure came from the degeneracy test above, and that
+        was luck, not coverage.
+
+        The string contains the project's former name. It is deliberately NOT renamed with the rest
+        of the project: a repo-wide find-and-replace of the old name is exactly the change this
+        test exists to stop.
+        """
+        import inspect
+
+        from models.pools import _band
+        salt = inspect.signature(_band).parameters["salt"].default
+        self.assertEqual(
+            salt, "brainsafe-background-v1",
+            "the background-pool salt has changed. Every deployed threshold and every background "
+            "false-positive rate was measured against the pools this exact string produces. If "
+            "this was a rename, revert it. If the pools are genuinely being rebuilt, re-derive "
+            "every threshold and every rate, then update this test in the same commit.")
+
+    def test_a_different_salt_would_move_compounds_between_pools(self):
+        """Demonstrates the cost, so the test above reads as a real constraint rather than fussiness."""
+        import hashlib
+
+        def band(smiles: str, salt: str) -> int:
+            digest = hashlib.blake2b(f"{salt}:{smiles}".encode("utf-8"), digest_size=8).digest()
+            return int.from_bytes(digest, "big") % 100
+
+        def role_for(b: int) -> str:
+            # the same cumulative banding role_of applies, derived from SHARES rather than repeated
+            edge = 0
+            for name, share in SHARES.items():
+                edge += share
+                if b < edge:
+                    return name
+            return list(SHARES)[-1]
+
+        rng = np.random.default_rng(SEED)
+        smis = ["C" * (1 + int(rng.integers(1, 25))) for _ in range(400)]
+        moved = sum(role_of(s) != role_for(band(s, "some-other-salt")) for s in smis)
+        self.assertGreater(moved, len(smis) // 10,
+                           "a changed salt should reshuffle a large share of the background library")
 
 
 class TestCensoredLabelRule(unittest.TestCase):
@@ -222,7 +275,7 @@ class TestTheLabelRuleHasOneDefinition(unittest.TestCase):
     """
 
     def test_no_other_module_declares_the_cuts(self):
-        src = ROOT / "src" / "brainsafe"
+        src = ROOT / "src" / "sai_cns"
         pattern = re.compile(r"^\s*(ACTIVE_CUT|INACTIVE_CUT)\s*[:,=]", re.M)
         offenders = []
         for path in src.rglob("*.py"):
@@ -325,8 +378,8 @@ class TestEveryEndpointIsRetrainable(unittest.TestCase):
             spec.loader.exec_module(mod)
             return mod
 
-        self.hybrid = load("_h", "src/brainsafe/models/train_binders_hybrid.py")
-        self.holdout = load("_q", "src/brainsafe/models/train_measured_label_holdout.py")
+        self.hybrid = load("_h", "src/sai_cns/models/train_binders_hybrid.py")
+        self.holdout = load("_q", "src/sai_cns/models/train_measured_label_holdout.py")
 
     def test_every_binder_endpoint_is_claimed_by_exactly_one_trainer(self):
         a, b = set(self.hybrid._targets()), set(self.holdout._targets())

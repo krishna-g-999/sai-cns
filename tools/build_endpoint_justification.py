@@ -20,7 +20,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 
 OUT = ROOT / "docs" / "ENDPOINT_JUSTIFICATION.md"
 

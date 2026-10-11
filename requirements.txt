@@ -1,4 +1,4 @@
-# BrainSafe AI core dependencies (versions used in this work).
+# SAI-CNS core dependencies (versions used in this work).
 #
 # These are the versions in brainsafe_env, the environment that serves the application and under
 # which the deployed estimators were fitted; scikit-learn records its own version inside the pickles,
@@ -7,7 +7,7 @@
 # were compared between 1.8.0 and 1.9.0 and agreed exactly except for one value differing by 1e-12.
 # Install the pinned version regardless, so the deployed configuration is the validated one.
 #
-# Verify an environment with:  python src/brainsafe/evaluation/app_health.py
+# Verify an environment with:  python src/sai_cns/evaluation/app_health.py
 rdkit==2026.03.2
 scikit-learn==1.8.0
 numpy==2.4.6

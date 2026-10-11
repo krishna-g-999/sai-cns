@@ -3,7 +3,7 @@
   "version": "1.0",
   "created": "2026-08-10",
   "describes": "raw ChEMBL, BindingDB and PubChem responses behind data/endpoints/",
-  "archive": "brainsafe_source_caches_v1.0.tar.gz",
+  "archive": "sai_cns_source_caches_v1.0.tar.gz",
   "archive_bytes": 4548761,
   "archive_sha256": "408cb275e331b99de71f229789a70fc302c980537d5a954f1f7d03102addbfd8",
   "n_files": 77,

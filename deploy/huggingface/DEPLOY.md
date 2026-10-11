@@ -1,4 +1,4 @@
-# Deploying BrainSafe AI to a free public URL
+# Deploying SAI-CNS to a free public URL
 
 The constraint is the panel. It is roughly 0.85 GB of fitted estimators on disk after compression,
 and a warmed process holds **2.57 GB resident**: 2.31 GB once every model is loaded, rising to 2.57 GB
@@ -43,7 +43,7 @@ Do this first, or the upload is three times larger than it needs to be.
 ```bash
 python tools/compress_models.py            # report what would be saved, change nothing
 python tools/compress_models.py --apply    # recompress in place, verifying each file
-python src/brainsafe/models/package_models.py 1.1   # regenerate the manifest
+python src/sai_cns/models/package_models.py 1.1   # regenerate the manifest
 ```
 
 joblib writes an uncompressed pickle unless asked otherwise. The binder models were saved with
@@ -76,7 +76,7 @@ Create it through the client instead, which sets the SDK explicitly:
 
 ```bash
 brainsafe_env/Scripts/hf.exe auth login          # paste a Write token; it is stored, not typed into git
-brainsafe_env/Scripts/hf.exe repo create brainsafe-ai --repo-type space --space_sdk docker
+brainsafe_env/Scripts/hf.exe repo create sai-cns --repo-type space --space_sdk docker
 ```
 
 `--space_sdk streamlit` is no longer accepted by the Hub and `docker` requires PRO, as set out
@@ -90,7 +90,7 @@ your personal account, so creating under an organisation is a deliberate change 
 And **hardware defaults to ZeroGPU**, which is a GPU tier with different constraints and is wrong
 for this application: it needs CPU Basic, 2 vCPU and 16 GB, against a measured 2.57 GB resident.
 
-The URL is then `https://huggingface.co/spaces/<owner>/brainsafe-ai`. That is the address for the
+The URL is then `https://huggingface.co/spaces/<owner>/sai-cns`. That is the address for the
 manuscript.
 
 **On whether to use an organisation at all.** A public Space is readable by the entire internet, so
@@ -111,8 +111,8 @@ repositories. Copy it; it is shown once.
 **4. Clone the Space and fill it.**
 
 ```bash
-git clone https://huggingface.co/spaces/<org>/brainsafe-ai
-python deploy/huggingface/prepare_space.py --out brainsafe-ai
+git clone https://huggingface.co/spaces/<org>/sai-cns
+python deploy/huggingface/prepare_space.py --out sai-cns
 ```
 
 `prepare_space.py` copies only what answers a query: the app, `src/`, `assets/`, `results/`,
@@ -131,7 +131,7 @@ streamlit version this project validates against; it is 1.58.0 today.
 **Verify the assembled directory before pushing.**
 
 ```bash
-python deploy/huggingface/verify_space.py brainsafe-ai
+python deploy/huggingface/verify_space.py sai-cns
 ```
 
 This runs the app with the Space as the working directory and the repository's source roots removed
@@ -155,10 +155,10 @@ the push. Once a binary is in a commit, adding LFS afterwards does not fix that 
 has to be redone.
 
 ```bash
-cd brainsafe-ai
+cd sai-cns
 git lfs install
 git add .gitattributes && git commit -m "Track model files with LFS"
-git add -A && git commit -m "BrainSafe AI"
+git add -A && git commit -m "SAI-CNS"
 git push
 ```
 
@@ -180,7 +180,7 @@ scientific stack is large.
 log opens with "102 of 252 model files missing". The app runs correctly regardless. To keep the log
 clean, add a Space variable under Settings, Variables and secrets:
 
-    BRAINSAFE_SKIP_MODEL_FETCH = 1
+    SAI_CNS_SKIP_MODEL_FETCH = 1
 
 ## If the login fails with CERTIFICATE_VERIFY_FAILED
 
@@ -279,7 +279,7 @@ the measured recall at that distance. If the recall row is missing, the novelty-
 travel and `verify_space.py` was skipped.
 
 **The URL goes in the manuscript.** NAR requires the server address in the abstract. It is currently
-`[SERVER URL TO BE SUPPLIED]` in `manuscript/NAR_WebServer_BrainSafe_draft.md`, and the manuscript
+`[SERVER URL TO BE SUPPLIED]` in `manuscript/NAR_WebServer_SAI-CNS_draft.md`, and the manuscript
 must be rebuilt after it is filled in.
 
 ## The alternative, if the Space memory is ever a problem

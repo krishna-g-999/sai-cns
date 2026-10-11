@@ -18,7 +18,7 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 
 
 def main() -> None:
@@ -41,7 +41,7 @@ def main() -> None:
 
     ref_list = "\n".join(f"- **{r.hypothesis}** — {r.headline}" for r in refuted.itertuples())
 
-    text = f"""# BrainSafe AI: submission package
+    text = f"""# SAI-CNS: submission package
 
 Prepared {datetime.now().strftime('%d %B %Y')} for institutional review, ahead of a proposal to the
 *Nucleic Acids Research* Web Server Issue.

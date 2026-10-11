@@ -1,6 +1,6 @@
 {
   "data/endpoints/*.csv": "sha256:f40f936a56773cf07496f10a923711ed7c6863b1097278e57e9346cb9df9a40e",
-  "manuscript/NAR_WebServer_BrainSafe_draft.md": "sha256:4877cf981958b43ba8e5db616421a0fcb114cc29a92bf9f8f9d64402c7614d07",
+  "manuscript/NAR_WebServer_SAI-CNS_draft.md": "sha256:4877cf981958b43ba8e5db616421a0fcb114cc29a92bf9f8f9d64402c7614d07",
   "manuscript/figures/Figure6_validation.png": "sha256:8719b1be7d2f3d53eb8438e0a9de014b2728e4e02900a74839ec0511ae05eee2",
   "manuscript/references_verified.json": "sha256:7d7dab7b0254b0cc89d65d2d79df07fc21d3684cd6038e0dedfadbc6055d2ab1",
   "manuscript/tables_generated.md": "sha256:c70ded56c945da9ee5cdd742d525d44d6fde5fad91b632a15bde3edb191ee5c8",

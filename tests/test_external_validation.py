@@ -28,8 +28,8 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
-sys.path.insert(0, str(ROOT / "src" / "brainsafe" / "evaluation"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns" / "evaluation"))
 
 from models import train_binders_hybrid as TR                              # noqa: E402
 from evaluation import external_prospective as EP                          # noqa: E402

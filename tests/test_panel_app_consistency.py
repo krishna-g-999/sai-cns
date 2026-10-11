@@ -25,8 +25,8 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "src" / "brainsafe"))
-sys.path.insert(0, str(ROOT / "src" / "brainsafe" / "figures"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
+sys.path.insert(0, str(ROOT / "src" / "sai_cns" / "figures"))
 
 import panel  # noqa: E402
 
@@ -98,7 +98,7 @@ class TestManuscriptCountsMatchThePanel(unittest.TestCase):
         # documents stating the same counts is two places for one of them to fall behind.
         cls.text = "\n".join(
             (ROOT / "manuscript" / f).read_text(encoding="utf-8")
-            for f in ("NAR_WebServer_BrainSafe_draft.md", "NAR_condensed_draft.md")
+            for f in ("NAR_WebServer_SAI-CNS_draft.md", "NAR_condensed_draft.md")
             if (ROOT / "manuscript" / f).exists())
         if not cls.text:
             # manuscript/ is not part of this repository (it lives in the private working copy
@@ -188,12 +188,12 @@ class TestReliabilityGateIsStatedConsistently(unittest.TestCase):
     definition in panel.py and these tests fail if a literal copy of it reappears anywhere.
     """
 
-    GATE_HOLDERS = ["src/brainsafe/models/final_thresholds.py",
-                    "src/brainsafe/models/calibrate_background_specificity.py",
-                    "src/brainsafe/models/calibrate_binder_thresholds.py",
-                    "src/brainsafe/models/train_binders_hybrid.py",
-                    "src/brainsafe/models/train_measured_label_holdout.py",
-                    "src/brainsafe/figures/fig10_endpoint_selection.py",
+    GATE_HOLDERS = ["src/sai_cns/models/final_thresholds.py",
+                    "src/sai_cns/models/calibrate_background_specificity.py",
+                    "src/sai_cns/models/calibrate_binder_thresholds.py",
+                    "src/sai_cns/models/train_binders_hybrid.py",
+                    "src/sai_cns/models/train_measured_label_holdout.py",
+                    "src/sai_cns/figures/fig10_endpoint_selection.py",
                     "app.py"]
 
     def test_no_script_keeps_its_own_copy_of_the_gate(self):
@@ -252,7 +252,7 @@ class TestReportedTablesAgreeWithRegistry(unittest.TestCase):
     writes the table (tools/check_freshness.py:110). A byte-identical copy ships in the submission
     package, so the disagreement was visible to reviewers before it was visible to us.
 
-    Refresh with src/brainsafe/evaluation/refresh_background_specificity.py.
+    Refresh with src/sai_cns/evaluation/refresh_background_specificity.py.
     """
 
     def _rows(self):
@@ -304,7 +304,7 @@ class TestPipelineDiagramMatchesThePipeline(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.gen = (ROOT / "src" / "brainsafe" / "analysis"
+        cls.gen = (ROOT / "src" / "sai_cns" / "analysis"
                    / "build_technical_report.py").read_text(encoding="utf-8")
         cls.s1 = cls.gen.split("Stage 1:")[1].split("Stage 2:")[0]
         # Stage 2 runs from its heading to the end of its mermaid fence, not to the next section:
@@ -319,7 +319,7 @@ class TestPipelineDiagramMatchesThePipeline(unittest.TestCase):
 
     def test_stage_one_has_no_decoy_logic(self):
         """rebuild_endpoints.py contains no Tanimoto, decoy or 0.35 anywhere."""
-        src = (ROOT / "src" / "brainsafe" / "data"
+        src = (ROOT / "src" / "sai_cns" / "data"
                / "rebuild_endpoints.py").read_text(encoding="utf-8").lower()
         for token in ("tanimoto", "decoy", "0.35"):
             self.assertNotIn(token, src, f"rebuild_endpoints.py now mentions {token}")
@@ -327,7 +327,7 @@ class TestPipelineDiagramMatchesThePipeline(unittest.TestCase):
                              f"stage 1 shows {token}, which belongs to the binder trainer")
 
     def test_stage_two_states_the_binder_cut_and_decoy_rule(self):
-        active_p = self._const("src/brainsafe/models/train_binders_hybrid.py", "ACTIVE_P")
+        active_p = self._const("src/sai_cns/models/train_binders_hybrid.py", "ACTIVE_P")
         self.assertIn(f"pChEMBL >= {active_p}", self.s2)
         self.assertIn("Tanimoto 0.35", self.s2)
 
@@ -369,7 +369,7 @@ class TestFingerprintIsNotDescribedAsCollisionFree(unittest.TestCase):
     of the project were never compared.
     """
 
-    FILES = ["src/brainsafe/features/featurize.py", "docs/METHODS.md",
+    FILES = ["src/sai_cns/features/featurize.py", "docs/METHODS.md",
              "submission_package/04_TECHNICAL_REPORT/methods.md"]
 
     def test_no_document_claims_the_encoding_is_collision_free(self):
@@ -412,7 +412,7 @@ class TestFingerprintIsNotDescribedAsCollisionFree(unittest.TestCase):
         if not p.exists():
             self.skipTest("results/tables/fingerprint_collisions.csv is not present in this checkout")
         d = pd.read_csv(p).set_index("measure")
-        text = (ROOT / "src" / "brainsafe" / "features" / "featurize.py").read_text(encoding="utf-8")
+        text = (ROOT / "src" / "sai_cns" / "features" / "featurize.py").read_text(encoding="utf-8")
         for key in ("distinct atomic environments", "environments per occupied bit, median",
                     "environments per occupied bit, max"):
             v = int(d.loc[key, "value"])

@@ -39,7 +39,7 @@ def main() -> None:
     uniq = pd.read_csv(ROOT / "results" / "tables" / "unique_compound_count.csv")
     uniq_note = {r["measure"]: (r["value"], r["note"]) for _, r in uniq.iterrows()}
 
-    fig_scripts = sorted(p.name for p in (ROOT / "src" / "brainsafe" / "figures").glob("fig*.py"))
+    fig_scripts = sorted(p.name for p in (ROOT / "src" / "sai_cns" / "figures").glob("fig*.py"))
 
     today = datetime.now().strftime("%Y-%m-%d")
 
@@ -52,8 +52,8 @@ imputed. Regenerate any file by running the script named beside it. Counts below
 
 This replaces an earlier version of this document built around `data/processed/compound_library.csv`,
 a 61,317-compound, thirteen-endpoint snapshot from before the panel grew to its current scope. That
-file and the scripts that built it (`src/brainsafe/data/build_compound_library.py`,
-`src/brainsafe/viz/make_figures.py`) still exist on disk but are no longer part of the deployed
+file and the scripts that built it (`src/sai_cns/data/build_compound_library.py`,
+`src/sai_cns/viz/make_figures.py`) still exist on disk but are no longer part of the deployed
 pipeline; nothing below points to them.
 
 ## The training data
@@ -78,16 +78,16 @@ pipeline; nothing below points to them.
   ({uniq_note['SMILES strings collapsed by this standardisation'][0]:,} SMILES strings were salts,
   tautomers or charge states of a compound already counted) — this is the compound count the
   manuscript's training-data paragraph states.
-  Computed by `src/brainsafe/evaluation/unique_compound_count.py`;
+  Computed by `src/sai_cns/evaluation/unique_compound_count.py`;
   full breakdown in `results/tables/unique_compound_count.csv`.
 - **Provenance per endpoint** (how many compounds from each source, actives/inactives):
   `results/tables/endpoint_rebuild_provenance.csv`.
 - **Recovery of the negative class from censored bounds**, and its effect on class balance per
   endpoint: `results/tables/expansion_inactives.csv`, built by
-  `src/brainsafe/data/recover_expansion_inactives.py`.
+  `src/sai_cns/data/recover_expansion_inactives.py`.
 - **The actual numeric input every model trains on.** A SMILES string and a label are what the
   endpoint tables above store; the 1,036-column vector a model actually receives
-  (`src/brainsafe/features/featurize.py`) is computed on the fly and was not previously written to
+  (`src/sai_cns/features/featurize.py`) is computed on the fly and was not previously written to
   any file. `results/tables/master_feature_vectors.csv` (one row per distinct compound, keyed by
   InChIKey) and `results/tables/master_training_usage.csv` (one row per endpoint-compound pair
   actually used, joinable to the vectors on `inchikey`) make it inspectable directly, built by
@@ -106,13 +106,13 @@ pipeline; nothing below points to them.
 
 ## Background specificity and applicability domain
 
-- **`models_rf/ad_reference.pkl`** and **`src/brainsafe/models/pools.py`** - the background library,
+- **`models_rf/ad_reference.pkl`** and **`src/sai_cns/models/pools.py`** - the background library,
   partitioned into three disjoint pools by a stable hash of the canonical structure (one supplies
   decoys, one sets thresholds, one measures the false-positive rate), so a compound's pool is a
   property of the molecule rather than of run order.
 - **`results/tables/background_specificity_disjoint.csv`** - the background false-positive rate at
   the currently deployed threshold, measured on the evaluation pool, for every deployed binder
-  endpoint. Built by `src/brainsafe/evaluation/background_specificity_disjoint.py`; this is the
+  endpoint. Built by `src/sai_cns/evaluation/background_specificity_disjoint.py`; this is the
   figure the manuscript's Methods section quotes.
 - **`results/tables/inversion_validation.csv`** - the applicability-domain adversarial check.
 
@@ -144,7 +144,7 @@ pipeline; nothing below points to them.
 ## Figures
 
 - **`manuscript/figures/*.png`** (and `.pdf`) - built by the scripts in
-  `src/brainsafe/figures/` ({len(fig_scripts)} scripts:
+  `src/sai_cns/figures/` ({len(fig_scripts)} scripts:
   {', '.join(s.replace('.py', '') for s in fig_scripts)}), each reading the results tables named in
   its own docstring rather than a value typed into the script. `style.py` in the same directory is
   the single shared colour palette, font and layout convention every figure uses.

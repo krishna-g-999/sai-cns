@@ -1,4 +1,4 @@
-# Deploying BrainSafe AI
+# Deploying SAI-CNS
 
 The server is a single container running two things that share one copy of the loaded models: the
 Streamlit interface on `$PORT` (default 8501) and the REST API on `$API_PORT` (default 8000).
@@ -10,7 +10,7 @@ is written so that it is a single command or a single form.
 ## What must be true before you deploy
 
 ```bash
-brainsafe_env/Scripts/python.exe src/brainsafe/evaluation/app_health.py
+brainsafe_env/Scripts/python.exe src/sai_cns/evaluation/app_health.py
 ```
 
 Twenty checks, exit code 0 required. It verifies that every declared dependency resolves at its
@@ -28,12 +28,12 @@ model files are handled by git-lfs rather than needing separate hosting.
 2. Add the Space as a remote and push:
 
 ```bash
-git remote add space https://huggingface.co/spaces/<your-user>/brainsafe-ai
+git remote add space https://huggingface.co/spaces/<your-user>/sai-cns
 git push space main
 ```
 
 The `Dockerfile` is used as-is. Spaces sets `$PORT`, which `serve.py` reads. The URL becomes
-`https://<your-user>-brainsafe-ai.hf.space` and goes in the manuscript.
+`https://<your-user>-sai-cns.hf.space` and goes in the manuscript.
 
 ### The model files, which are the real obstacle
 
@@ -41,7 +41,7 @@ The `Dockerfile` is used as-is. Spaces sets `$PORT`, which `serve.py` reads. The
 binaries**. A clone cannot run the server. This is a larger problem than not having a URL and must be
 solved before any deployment succeeds.
 
-The binaries are now 0.78 GB, down from 1.8 GB: `src/brainsafe/models/compress_models.py`
+The binaries are now 0.78 GB, down from 1.8 GB: `src/sai_cns/models/compress_models.py`
 recompressed every model and verified per model that predictions are unchanged, checking the round
 trip against each estimator's own run-to-run variation rather than demanding bit equality, because
 these forests are not bit-deterministic between calls.
@@ -64,10 +64,10 @@ Two ways to get them to the host, in order of preference:
    gigabyte of git storage. It also gives the manuscript a citable model archive.
 
    ```bash
-   python src/brainsafe/models/package_models.py 1.0
+   python src/sai_cns/models/package_models.py 1.0
    ```
 
-   That writes `dist/brainsafe_models_v1.0.tar.gz` (0.79 GB) and `models_manifest.json`, which
+   That writes `dist/sai_cns_models_v1.0.tar.gz` (0.79 GB) and `models_manifest.json`, which
    records the archive's SHA-256 and the size and checksum of all 195 files inside it. The manifest
    is committed; the archive is not.
 
@@ -82,7 +82,7 @@ Two ways to get them to the host, in order of preference:
    Tested end to end: fetch into an empty tree restored and verified all 195 files; a second run was
    a 1.3-second no-op; corrupting one file caused it to be detected and repaired.
 
-   `BRAINSAFE_SKIP_MODEL_FETCH=1` disables it for an image that bakes the models in.
+   `SAI_CNS_SKIP_MODEL_FETCH=1` disables it for an image that bakes the models in.
 
 ## Option 2: Streamlit Community Cloud (free, simplest, interface only)
 
@@ -101,13 +101,24 @@ API is not served. Acceptable if you only need the interface reviewed.
 ## Option 3: any container host (Render, Railway, Fly.io, Cloud Run)
 
 ```bash
-docker build -t brainsafe-ai .
-docker run -p 8501:8501 -p 8000:8000 brainsafe-ai
+docker build -t sai-cns .
+docker run -p 8501:8501 -p 8000:8000 sai-cns
 ```
 
-Then push the image to the host's registry. All four read `$PORT`. Give the instance at least 2 GB of
-memory: the models are about 1 GB resident and the applicability-domain index adds several hundred
-megabytes.
+Then push the image to the host's registry. All four read `$PORT`. Give the instance **at least 4 GB
+of memory**. Measured on a warm server, resident set size is 2.35 GB: 164 MB for the interpreter and
+imports, 2,059 MB for the 69 deployed estimators, 128 MB for the applicability-domain index, and
+about 1 MB of working memory per query. A 2 GB instance will be killed during model loading, and a
+3 GB instance leaves no headroom for concurrent sessions.
+
+This figure is the single most important constraint on where the server can run. It rules out every
+free tier built for small apps: Cloudflare Workers caps an isolate at 128 MB, Render's free web
+service at 512 MB, and Streamlit Community Cloud at 2.7 GB, which is below the point at which
+loading completes with room to serve. Hosts that fit are Hugging Face Spaces on CPU basic (16 GB),
+Cloud Run or any container host configured with 4 GB, and Cloudflare Containers at `standard-1`
+(4 GiB) or larger. Note that a 4 GB instance kept warm around the clock exceeds the always-free
+allowance of every metered host, so continuous hosting at this footprint is a paid arrangement
+unless the host gives the memory away, as Hugging Face does on CPU basic.
 
 ## After deploying
 
@@ -120,7 +131,7 @@ curl -fsS https://<your-url>:8000/health
 
 Then put the URL in three places, all of which currently read `[URL]`:
 
-- `manuscript/NAR_WebServer_BrainSafe_draft.md`, the Abstract and the Data availability section
+- `manuscript/NAR_WebServer_SAI-CNS_draft.md`, the Abstract and the Data availability section
 - `README.md`
 - the `source` field returned by `GET /` on the API
 

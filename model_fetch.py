@@ -18,7 +18,7 @@ Behaviour, in order:
   3. otherwise download the archive from the first URL that works, verify it, extract, and verify
      every extracted file
 
-Set BRAINSAFE_SKIP_MODEL_FETCH=1 to bypass entirely, for an image that already carries the models.
+Set SAI_CNS_SKIP_MODEL_FETCH=1 to bypass entirely, for an image that already carries the models.
 """
 from __future__ import annotations
 
@@ -78,13 +78,29 @@ def _download(url, dest, expect_bytes, log):
     return dest.stat().st_size
 
 
+def _flag(name):
+    """Read SAI_CNS_<name>, falling back to the former BRAINSAFE_<name>.
+
+    The project was renamed, but a deployment configured before the rename sets the old variable.
+    Dropping the fallback would not fail loudly: the flag would simply read as unset, and on a host
+    that already carries the models that means re-verifying 150 checksums on every start-up, or
+    worse, deciding they are missing and trying to download them. Accepting both names costs two
+    lines and removes a class of silent misconfiguration.
+    """
+    for var in (f"SAI_CNS_{name}", f"BRAINSAFE_{name}"):
+        v = os.environ.get(var, "").strip().lower()
+        if v:
+            return v in ("1", "true", "yes")
+    return False
+
+
 def ensure_models(verbose=True):
     """Returns True if the models are present and verified, False if they could not be obtained."""
     def log(m):
         if verbose:
             print(f"[model_fetch] {m}", flush=True)
 
-    if os.environ.get("BRAINSAFE_SKIP_MODEL_FETCH", "").lower() in ("1", "true", "yes"):
+    if _flag("SKIP_MODEL_FETCH"):
         return True
     if not MANIFEST.exists():
         return True                      # development tree; not ours to manage
