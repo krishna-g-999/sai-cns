@@ -43,7 +43,7 @@ Open https://console.cloud.google.com, confirm the project selector shows
 In it:
 
 ```bash
-git clone https://github.com/krishna-g-999/brainsafe-ai.git && cd sai-cns
+git clone https://github.com/krishna-g-999/sai-cns.git && cd sai-cns
 ```
 
 Then go to step 3. The clone carries no model binaries, which is intended: the build downloads and

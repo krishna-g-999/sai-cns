@@ -45,18 +45,17 @@ DOCS = ROOT / "docs"
 # Names that must not survive into the package. The check runs on the rendered text of every
 # output, not on the sources, because it is the output a guide opens.
 FORBIDDEN = [
-    (re.compile(r"SAI-CNS", re.I), "the superseded product name"),
+    (re.compile(r"BrainSafe", re.I), "the superseded product name"),
 ]
 
 # Occurrences that are correct and must not be "fixed". Each is removed from the text before the
 # forbidden check runs, so the gate stays strict everywhere else. Anything added here needs a
 # reason that survives being read out loud.
 ALLOWED = [
-    (re.compile(r"github\.com/krishna-g-999/brainsafe-ai"),
-     "the GitHub repository that actually exists. krishna-g-999/sai-cns returns 404, and a "
-     "manuscript must not advertise a URL that does not resolve. Update this the day the "
-     "repository is renamed, not before."),
-    (re.compile(r"src/sai_cns\b"),
+    # The GitHub URL no longer needs a waiver. The repository was renamed to
+    # krishna-g-999/sai-cns on 2026-10-11, so the published address no longer carries the
+    # superseded name; the old one still resolves, as a 301 redirect.
+    (re.compile(r"src/brainsafe\b"),
      "a historical path inside the decisions log, which records the repository layout as it was "
      "when that decision was taken. Rewriting it would falsify the record."),
 ]

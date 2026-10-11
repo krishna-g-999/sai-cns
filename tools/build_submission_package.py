@@ -225,7 +225,7 @@ def main() -> None:
 
 Built {datetime.now().strftime("%Y-%m-%d %H:%M")} by `tools/build_submission_package.py`.
 Everything here is a copy; the source of truth is the working repository
-(https://github.com/krishna-g-999/brainsafe-ai), and every file below regenerates from it with the
+(https://github.com/krishna-g-999/sai-cns), and every file below regenerates from it with the
 command named in the technical documents. Nothing in this package is hand-edited.
 
 ## Start here

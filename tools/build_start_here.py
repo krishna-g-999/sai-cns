@@ -47,7 +47,7 @@ Prepared {datetime.now().strftime('%d %B %Y')} for institutional review, ahead o
 *Nucleic Acids Research* Web Server Issue.
 
 **Live server:** https://huggingface.co/spaces/Krishnag999/brainsafe-ai
-**Source:** https://github.com/krishna-g-999/brainsafe-ai
+**Source:** https://github.com/krishna-g-999/sai-cns
 **Licence:** MIT for the code. Data retain their sources' licences.
 
 ---

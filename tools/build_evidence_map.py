@@ -137,7 +137,7 @@ The fitted estimators are 0.85 GB and are omitted unless the package was built w
 `07_MODELS/models_manifest_with_checksums.json` lists every one of them with a SHA-256, so their
 presence and integrity can be checked without shipping them. They are also public at
 https://huggingface.co/spaces/Krishnag999/brainsafe-ai and
-https://github.com/krishna-g-999/brainsafe-ai.
+https://github.com/krishna-g-999/sai-cns.
 
 Raw API caches, the archived earlier versions of the project, and the Python virtual environment are
 omitted. None is quoted anywhere and together they are several gigabytes.

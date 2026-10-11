@@ -29,7 +29,7 @@ training chemistry, which falls from 0.86 for close analogues to 0.16 for a genu
 A silent endpoint is therefore reported with the weight it deserves rather than as evidence of
 inactivity.
 
-- **Source, validation artefacts and reproduction:** https://github.com/krishna-g-999/brainsafe-ai
+- **Source, validation artefacts and reproduction:** https://github.com/krishna-g-999/sai-cns
 - **Licence:** MIT for the code. Underlying data retain their sources' licences (ChEMBL CC BY-SA 3.0,
   BindingDB, B3DB, Therapeutics Data Commons, MoleculeNet; pathway annotations from KEGG, Reactome
   and IUPHAR/BPS, whose terms restrict some redistribution).
