@@ -10,16 +10,22 @@ from __future__ import annotations
 
 import glob
 import pickle
+import sys
 from pathlib import Path
 
 import pandas as pd
 from rdkit import Chem, RDLogger
-from rdkit.Chem import rdFingerprintGenerator
+
+# The one definition of the applicability-domain fingerprint lives beside this file. The path
+# insert has to precede the import, which is the sort of thing that works on the author's machine
+# and fails on a clean checkout.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ad_fingerprint as adfp  # noqa: E402
 
 RDLogger.DisableLog("rdApp.*")
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "models_rf" / "ad_reference.pkl"
-_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+_GEN = adfp.generator()
 
 
 def main():
@@ -39,9 +45,11 @@ def main():
             continue
         keep.append(s)
         fps.append(_GEN.GetFingerprint(m))
+    # The spec travels with the fingerprints. A reference built with one fingerprint and queried
+    # with another returns similarities that are wrong rather than missing, and wrong silently.
     with OUT.open("wb") as fh:
-        pickle.dump((keep, fps), fh, protocol=pickle.HIGHEST_PROTOCOL)
-    print(f"wrote {OUT} with {len(keep)} reference fingerprints")
+        pickle.dump((keep, fps, adfp.SPEC), fh, protocol=pickle.HIGHEST_PROTOCOL)
+    print(f"wrote {OUT} with {len(keep)} reference fingerprints, spec {adfp.SPEC}")
 
 
 if __name__ == "__main__":

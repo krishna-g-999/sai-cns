@@ -309,7 +309,12 @@ ADVERSE = "#6B21A8"  # limited exposure / safety liability / out of domain
 BLUE   = "#1D4ED8"   # engagement accent
 
 _DESC_NAMES = feature_names()[-12:]
-_AD_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+# The applicability-domain fingerprint is defined once, in src/sai_cns/ad_fingerprint.py, and
+# imported here rather than restated. It used to be restated in twelve places, all of them
+# stereochemistry-blind, which is how a stereoisomer of a reference compound came to be reported
+# as that compound at maximum similarity.
+import ad_fingerprint as _adfp  # noqa: E402
+_AD_GEN = _adfp.generator()
 
 
 # --------------------------------- models / inference ---------------------------------
@@ -355,12 +360,34 @@ def load_models():
 
 @st.cache_resource
 def load_ad_reference():
-    """(smiles, fingerprints) of measured training chemistry for the applicability domain."""
+    """(smiles, fingerprints) of measured training chemistry for the applicability domain.
+
+    The reference carries the fingerprint spec it was built with, and a mismatch against the spec
+    this process would query it with is refused rather than tolerated. Querying a reference with a
+    different fingerprint does not fail: it returns similarities that are quietly wrong, which is
+    the worst of the available outcomes.
+    """
     path = MODELS / "ad_reference.pkl"
     if not path.exists():
         return None
     with path.open("rb") as fh:
-        return pickle.load(fh)
+        obj = pickle.load(fh)
+    # A two-element reference predates the spec field, which means it was necessarily built with
+    # the legacy stereochemistry-blind fingerprint. That is a known state, not an unknown one, so
+    # it is read as LEGACY_SPEC rather than refused.
+    if len(obj) == 3:
+        ref_smiles, ref_fps, spec = obj
+    else:
+        ref_smiles, ref_fps = obj[0], obj[1]
+        spec = _adfp.LEGACY_SPEC
+    if spec != _adfp.SPEC:
+        st.error(f"The applicability-domain reference was built with fingerprint '{spec}' but this "
+                 f"server computes '{_adfp.SPEC}'. Querying a reference with a different "
+                 f"fingerprint returns similarities that are wrong rather than missing, so the "
+                 f"domain is disabled. Rebuild it with src/sai_cns/build_ad_reference.py and "
+                 f"republish the model archive; see src/sai_cns/ad_fingerprint.py.")
+        return None
+    return ref_smiles, ref_fps
 
 
 @st.cache_resource
