@@ -1847,7 +1847,17 @@ def render_receptors(r):
             "pK<sub>i</sub> is shown only for compounds called binders, as potency among binders. "
             "The numeric pK<sub>i</sub> and the antioxidant value are weak priors rather than affinity "
             "predictions: on a temporal (future-compound) split these regressions reach only R&sup2; 0.01 "
-            "to 0.34, so read them qualitatively."
+            "to 0.34, so read them qualitatively. "
+            "<b>Read the predicted pK<sub>i</sub> as an upper bound.</b> Measured against 291 "
+            "compounds that are absent from the training set and from the applicability-domain "
+            "reference, and that this panel calls binders, the predicted value runs "
+            "<b>1.04 log units too potent on average</b> (mean absolute error 1.05), a factor of "
+            "about eleven. The over-prediction does not shrink for compounds close to known "
+            "chemistry: it is roughly constant across the whole similarity range (Spearman "
+            "&minus;0.07 between error and distance), so a high applicability-domain score is no "
+            "protection against it. Rank order is better preserved than the absolute value "
+            "(Spearman 0.19 to 0.28 against measured potency), so use these numbers to order "
+            "compounds, not to estimate affinity."
             if has_binder else
             "Receptor potency models are trained on binder-only assays; interpret the value as a weak prior "
             "rather than a definitive binding call.")
