@@ -304,8 +304,16 @@ class TestPipelineDiagramMatchesThePipeline(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.gen = (ROOT / "src" / "sai_cns" / "analysis"
-                   / "build_technical_report.py").read_text(encoding="utf-8")
+        # The technical-report generator is an internal authoring script and is excluded from the
+        # published repository, so on a fresh clone and in CI it is simply absent. Skip rather than
+        # error there, the same way the integration suite skips when models_rf/ holds no binaries:
+        # a missing authoring tool is the normal state of a published checkout, not a defect.
+        gen_path = ROOT / "src" / "sai_cns" / "analysis" / "build_technical_report.py"
+        if not gen_path.exists():
+            raise unittest.SkipTest(
+                "src/sai_cns/analysis/build_technical_report.py absent; "
+                "the diagram check runs only in the working repository")
+        cls.gen = gen_path.read_text(encoding="utf-8")
         cls.s1 = cls.gen.split("Stage 1:")[1].split("Stage 2:")[0]
         # Stage 2 runs from its heading to the end of its mermaid fence, not to the next section:
         # everything after that fence is unrelated prose that would swamp a negative assertion.
