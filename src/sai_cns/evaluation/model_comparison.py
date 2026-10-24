@@ -83,7 +83,10 @@ def regressors():
         "HistGradientBoosting": HistGradientBoostingRegressor(max_iter=400, learning_rate=0.06,
                                                               random_state=SEED),
         "kNN read-across": KNeighborsRegressor(n_neighbors=5, metric="jaccard", n_jobs=-1),
-        "LogisticRegression": make_pipeline(StandardScaler(), Ridge(alpha=1.0,
+        # Labelled by what it is. This key read "LogisticRegression" while the estimator is
+        # Ridge, so results/tables/model_comparison.csv and anything quoting it named the wrong
+        # baseline for the regression task. Regenerate that table to pick up the corrected name.
+        "Ridge": make_pipeline(StandardScaler(), Ridge(alpha=1.0,
                                                                     random_state=SEED)),
     }
 
