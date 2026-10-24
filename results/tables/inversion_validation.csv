@@ -1,7 +1,7 @@
 check,result,detail
-"No test compound is feature-identical to a training compound (MAO_A, BBB)",PASS,"worst fold shares 0 compound(s) with its training set (want 0); before deduplication the same folds would share 4, which is the leak deduplication exists to remove"
+"No test compound is feature-identical to a training compound (MAO_A, BBB)",PASS,"worst fold shares 0 compound(s) with its training set (want 0); before deduplication the same folds would share 5, which is the leak deduplication exists to remove"
 No duplicate compound survives into training,PASS,"0 duplicate rows reach a model; 15,104 exist in the tables before deduplication (worst BBB at 3,773), which is correct chemistry, since stereoisomers are distinct compounds the stereo-blind featuriser cannot separate"
-Reproducible retrain (MAO_A scaffold AUROC),PASS,retrained 0.906 vs reported 0.906
+Reproducible retrain (MAO_A scaffold AUROC),PASS,retrained 0.904 vs reported 0.906
 Predictions are not constant (BBB over 200 drugs),PASS,"probability std 0.293, range 0.01-0.99"
 "BBB ranks permeable drugs above non-permeable ones (external, unseen)",PASS,"n=227 (165 permeable), AUROC 0.767, Mann-Whitney p=3.12e-10"
-The domain flag separates non-drug-like chemistry from unseen drugs,PASS,"median max-similarity: unseen drugs 0.57 vs non-drug-like 0.47 (n=25), Mann-Whitney p=1.82e-03; only 20% of non-drug-like structures fall below the AD_THRESHOLD of 0.3. Controls are restricted to chemistry genuinely absent from the reference: 28 of the original controls are measured compounds in the library, where in-domain is correct"
+The domain flag separates non-drug-like chemistry from unseen drugs,PASS,"median max-similarity: unseen drugs 0.56 vs non-drug-like 0.47 (n=25), Mann-Whitney p=2.49e-03; only 20% of non-drug-like structures fall below the AD_THRESHOLD of 0.3. Controls are restricted to chemistry genuinely absent from the reference: 28 of the original controls are measured compounds in the library, where in-domain is correct"

@@ -28,9 +28,14 @@ from __future__ import annotations
 
 import hashlib
 import pickle
+import sys
 from pathlib import Path
 
 import pandas as pd
+
+# The applicability-domain reference has one guarded accessor; see ad_fingerprint.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "sai_cns"))
+import ad_fingerprint as _adfp  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[3]
 M = ROOT / "models_rf"
@@ -85,8 +90,7 @@ def background_pools(with_fingerprints: bool = False):
             f"{AD_REFERENCE.relative_to(ROOT).as_posix()} is missing; build it with "
             "src/sai_cns/build_ad_reference.py before training binders."
         )
-    with AD_REFERENCE.open("rb") as fh:
-        smiles, fps = pickle.load(fh)
+    smiles, fps = _adfp.load_reference(AD_REFERENCE)
 
     pools: dict[str, list] = {r: [] for r in ROLES}
     fp_pools: dict[str, list] = {r: [] for r in ROLES}

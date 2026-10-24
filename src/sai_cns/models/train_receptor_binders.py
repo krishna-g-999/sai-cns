@@ -43,7 +43,13 @@ ACTIVE_PCHEMBL = 7.0
 DECOY_RATIO = 3
 ACTIVE_HOLDOUT = 0.20
 TANIMOTO_MAX = 0.35
-_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+# One definition of the applicability-domain fingerprint. A private copy here compared
+# actives against reference fingerprints built with a different definition; see
+# src/sai_cns/ad_fingerprint.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "sai_cns"))
+import ad_fingerprint as _adfp  # noqa: E402
+
+_GEN = _adfp.generator()
 rng = np.random.default_rng(42)
 
 

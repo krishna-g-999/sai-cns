@@ -355,7 +355,14 @@ class TestPipelineDiagramMatchesThePipeline(unittest.TestCase):
                 continue
             p = pd.to_numeric(d["pchembl"], errors="coerce")
             n += int(((pd.to_numeric(d["label"], errors="coerce") == 1) & (p >= 6.0) & (p < 7.0)).sum())
-        self.assertIn(f"{n:,}", self.gen,
+        # The count used to be a literal in the generator, so this asserted against the source.
+        # It is now computed by the generator at build time, which is the stronger guarantee: it
+        # cannot drift when an endpoint is added, which is exactly how it drifted before. So the
+        # assertion moves to the rendered document, which is what a reader actually sees.
+        report = ROOT / "docs" / "TECHNICAL_REPORT.md"
+        if not report.exists():
+            self.skipTest("docs/TECHNICAL_REPORT.md absent; run the generator first")
+        self.assertIn(f"{n:,}", report.read_text(encoding="utf-8"),
                       "the stated count of actives between the two cuts is not what the tables hold")
 
     @staticmethod

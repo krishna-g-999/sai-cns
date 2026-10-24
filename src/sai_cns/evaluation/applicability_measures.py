@@ -51,7 +51,12 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 OUT = ROOT / "results" / "tables" / "applicability_measures.csv"
 
-_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+# The applicability-domain fingerprint has one definition, and this file previously
+# carried a fourteenth private copy of it. A reference built with one fingerprint and
+# queried with another returns similarities that are wrong rather than missing.
+import ad_fingerprint as _adfp  # noqa: E402
+
+_GEN = _adfp.generator()
 
 # The adversarial set from validate_inversion.py: chemistry no CNS panel should claim to place.
 ALIEN = [
@@ -98,7 +103,14 @@ def measures(fp, ref) -> dict:
 
 def main() -> None:
     with (ROOT / "models_rf" / "ad_reference.pkl").open("rb") as fh:
-        _smiles, ref = pickle.load(fh)
+        obj = pickle.load(fh)
+    # A three-element reference carries the fingerprint spec it was built with; a two-element one
+    # predates the spec field and was necessarily built stereochemistry-blind.
+    _smiles, ref = obj[0], obj[1]
+    spec = obj[2] if len(obj) == 3 else _adfp.LEGACY_SPEC
+    if spec != _adfp.SPEC:
+        raise SystemExit(f"the reference was built with '{spec}' but this script computes "
+                         f"'{_adfp.SPEC}'; rebuild it with src/sai_cns/build_ad_reference.py")
     print(f"reference chemistry: {len(ref):,} measured compounds")
 
     ext = pd.read_csv(ROOT / "data" / "external" / "processed" / "external_bbb_test.csv")

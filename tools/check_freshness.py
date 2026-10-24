@@ -166,8 +166,17 @@ GRAPH: list[tuple[str, list[str], str]] = [
      "python src/sai_cns/figures/thesis_T4_falsification.py"),
 
     # ---- calibration sits on the core models --------------------------------------------------
-    ("results/tables/calibration.csv", ["models_rf/BBB.joblib"],
-     "python src/sai_cns/models/calibrate.py"),
+    # The generator is a declared input, not just the rebuild command. This table was built on
+    # 2026-08-19 and the expected-calibration-error function was corrected on 2026-10-24; with only
+    # models_rf/BBB.joblib declared, correcting the metric could not make the table stale, so the
+    # README went on quoting a figure computed with the broken metric. The out-of-fold predictions
+    # it actually reads are declared too. Any entry here whose generator changed since its output
+    # was built has the same blind spot.
+    ("results/tables/calibration.csv",
+     ["models_rf/BBB.joblib", "src/sai_cns/models/calibrate.py",
+      "data/processed/cv_predictions/*_random_oof.csv"],
+     "python tools/recompute_calibration_ece.py --write   (calibrate.py also refits the eight "
+     "deployment models, which moves their checksums)"),
 
     # ---- the binder panel ----------------------------------------------------------------------
     ("models_rf/binder_modes.json", ["data/endpoints/*.csv"],
@@ -221,8 +230,13 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # "domain flag separates" checks both draw their comparator from novel_to_model), the same
     # dependency external_validation.py already declares two entries above. Missing here until this
     # pass, which is the same class of gap Finding A closed for the manuscript's own external figure.
+    # ad_reference.pkl belongs here: this check measures similarity against the deployed
+    # applicability-domain reference, so a rebuilt reference makes its numbers stale. The
+    # dependency was undeclared until the chirality-aware reference was published, at which point
+    # the artefact went stale silently while the graph reported everything current.
     ("results/tables/inversion_validation.csv",
-     ["models_rf/BBB.joblib", "data/external/processed/external_bbb_test.csv"],
+     ["models_rf/BBB.joblib", "data/external/processed/external_bbb_test.csv",
+      "models_rf/ad_reference.pkl"],
      "python src/sai_cns/evaluation/validate_inversion.py"),
     ("results/tables/integrity_audit.csv", ["models_rf/BBB.joblib"],
      "python src/sai_cns/evaluation/integrity_audit.py"),
@@ -362,6 +376,38 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # supporting analyses drift: quoted in a document, named by no dependency.
     ("results/tables/stereochemistry_audit.csv", ["data/endpoints/*.csv"],
      "python src/sai_cns/evaluation/stereochemistry_audit.py"),
+    # The three applicability-domain artefacts are DERIVED, and until now this graph named
+    # ad_reference.pkl only as an input while naming ad_per_endpoint.pkl and readacross_index.pkl
+    # nowhere at all. This file states the governing rule itself: an output that no entry here
+    # names is unprotected, whatever else is true of it. All three are built from the endpoint and
+    # ADME tables and from the fingerprint definition, so adding an endpoint table or changing the
+    # fingerprint makes all three stale. Leaving them undeclared is what allowed the per-endpoint
+    # domain and the read-across index to be served for weeks built with one fingerprint and
+    # queried with another, which reported morphine, a compound that is in the index, at a maximum
+    # similarity of 0.53 against a true 1.00.
+    ("models_rf/ad_reference.pkl",
+     ["data/endpoints/*.csv", "data/adme/*.csv", "src/sai_cns/ad_fingerprint.py"],
+     "python src/sai_cns/build_ad_reference.py"),
+    ("models_rf/ad_per_endpoint.pkl",
+     ["data/endpoints/*.csv", "models_rf/binder_modes.json",
+      "src/sai_cns/ad_fingerprint.py"],
+     "python src/sai_cns/build_ad_per_endpoint.py"),
+    ("models_rf/readacross_index.pkl",
+     ["data/endpoints/*.csv", "src/sai_cns/ad_fingerprint.py"],
+     "python src/sai_cns/build_readacross_index.py"),
+    # specificity_background_comparison.csv carries the server's headline caveat, specificity 0.925
+    # on the curated library against 0.8817 on 15,000 unseen compounds. It had no generator anywhere
+    # in the tree and no entry here, and it is cited as the source for those figures by the thesis
+    # and the viva notes. Its two similarity columns were measured with the stereochemistry-blind
+    # fingerprint; when the fingerprint changed, the manuscripts, the thesis and the viva notes were
+    # all updated to the re-measured median of 0.400 and 49.4 per cent below Tanimoto 0.40, and the
+    # table they cite was not, so anyone checking the citation found 0.417 and 43.3 per cent. This
+    # is the same failure mode the comment above describes: quoted in a document, named by no
+    # dependency. The firing columns do not depend on the reference and are not recomputed.
+    ("results/tables/specificity_background_comparison.csv",
+     ["results/tables/background_pubchem_other.csv", "models_rf/ad_reference.pkl",
+      "src/sai_cns/ad_fingerprint.py"],
+     "python tools/recompute_background_ad.py --write"),
     ("results/tables/applicability_measures.csv",
      ["models_rf/ad_reference.pkl", "data/external/processed/external_bbb_test.csv"],
      "python src/sai_cns/evaluation/applicability_measures.py"),
@@ -567,12 +613,31 @@ def stamp(ts) -> str:
     return dt.datetime.fromtimestamp(ts).strftime("%Y-%m-%d %H:%M") if ts else "missing"
 
 
+def _repackage_command() -> str:
+    """The repackage command, with the NEXT version rather than a hardcoded one.
+
+    This was written as a literal "package_models.py 1.1". Following it once the manifest had
+    moved to 1.2 would have rewritten models_manifest.json back to 1.1 and written a v1.1 archive
+    over the v1.2 one, which is the opposite of what a remediation line should do. The version is
+    read from the manifest and incremented.
+    """
+    path = ROOT / CHECKSUMMED
+    nxt = "1.1"
+    try:
+        v = str(json.loads(path.read_text(encoding="utf-8")).get("version", "1.0"))
+        major, _, minor = v.partition(".")
+        nxt = f"{int(major)}.{int(minor or 0) + 1}"
+    except Exception:
+        pass
+    return f"python src/sai_cns/models/package_models.py {nxt}"
+
+
 def check_manifest() -> dict:
     """Verify every checksum the manifest records, which is stronger than any timestamp."""
     path = ROOT / CHECKSUMMED
     if not path.exists():
         return {"artefact": CHECKSUMMED, "state": "MISSING", "detail": "no manifest",
-                "rebuild": "python src/sai_cns/models/package_models.py 1.1"}
+                "rebuild": "python src/sai_cns/models/package_models.py 1.0"}
     man = json.loads(path.read_text(encoding="utf-8"))
     files = man.get("files", {})
     ok = bad = missing = 0
@@ -592,7 +657,7 @@ def check_manifest() -> dict:
     return {"artefact": CHECKSUMMED, "state": state,
             "detail": f"{ok} verified, {bad} checksum mismatch, {missing} missing, "
                       f"of {len(files)} entries",
-            "rebuild": "python src/sai_cns/models/package_models.py 1.1"}
+            "rebuild": _repackage_command()}
 
 
 def main(argv=None) -> None:

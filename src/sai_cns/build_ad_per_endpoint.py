@@ -7,6 +7,7 @@ endpoint's chemistry) rather than only a single global one. Writes models_rf/ad_
 from __future__ import annotations
 
 import pickle
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -16,17 +17,30 @@ from rdkit.Chem import rdFingerprintGenerator
 RDLogger.DisableLog("rdApp.*")
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "models_rf" / "ad_per_endpoint.pkl"
-_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+# One definition of the applicability-domain fingerprint. A private copy here was built
+# stereochemistry-blind while app.py queried it chirality-aware, which returned
+# similarities that were wrong rather than missing. See src/sai_cns/ad_fingerprint.py.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ad_fingerprint as _adfp  # noqa: E402
 
-ENDPOINTS = {ep: "endpoints" for ep in [
-    "BBB", "AChE", "BChE", "BACE1", "GSK3B", "MAO_A", "MAO_B", "hERG",
-    "D2", "A2A", "HT2A", "SERT",
-    "HT1A", "HT6", "HT7", "H3", "DAT", "NET", "Sigma1", "CB1",
-    "OPRK1", "OPRM1", "D3", "A1", "a7nAChR", "LRRK2",
-    "NLRP3", "P2X7", "COX2", "CSF1R", "PDE10A", "HDAC1", "HDAC6", "GluN2B",
-    "mGluR5", "GABA_A", "OX1", "OX2", "MT1", "mTOR", "SIRT1", "KEAP1",
-    "GBA1", "PDE4B", "Nav1_5", "Nav1_7", "Nav1_1", "TAAR1", "GluA2",
-]}
+_GEN = _adfp.generator()
+
+# The endpoint list comes from the registry, never from a copy kept here. The copy this
+# replaced held 49 names: it still listed withdrawn Nav1_1 and GluA2, and omitted 11 registered
+# endpoints, 8 of them deployed, which therefore had no endpoint-specific domain at all while the
+# script printed success. That is the defect src/sai_cns/panel.py was written to abolish.
+def _endpoint_list():
+    try:
+        import panel as _panel
+        names = sorted(set(_panel.names(deployed=True)))
+    except Exception:
+        names = []
+    core = ["BBB", "AChE", "BChE", "BACE1", "GSK3B", "MAO_A", "MAO_B", "hERG"]
+    tables = {p.stem for p in (ROOT / "data" / "endpoints").glob("*.csv")}
+    return {ep: "endpoints" for ep in sorted(set(names) | set(core)) if ep in tables}
+
+
+ENDPOINTS = _endpoint_list()
 
 
 def _fps(smiles):
@@ -52,7 +66,10 @@ def main():
         ref["antioxidant"] = _fps(smi)
         print(f"antioxidant: {len(ref['antioxidant'])} fps")
     with OUT.open("wb") as fh:
-        pickle.dump(ref, fh, protocol=pickle.HIGHEST_PROTOCOL)
+        # The spec travels with the fingerprints so a mismatch can be refused at load time
+        # rather than silently answering with wrong similarities.
+        pickle.dump({"spec": _adfp.SPEC, "reference": ref}, fh,
+                    protocol=pickle.HIGHEST_PROTOCOL)
     print("wrote", OUT)
 
 

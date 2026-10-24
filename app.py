@@ -392,12 +392,28 @@ def load_ad_reference():
 
 @st.cache_resource
 def load_ad_per_endpoint():
-    """Per-endpoint fingerprints of measured training chemistry (endpoint-specific domain)."""
+    """Per-endpoint fingerprints of measured training chemistry (endpoint-specific domain).
+
+    Spec-checked for the same reason load_ad_reference() is. This artefact was built
+    stereochemistry-blind and queried chirality-aware for a period, during which morphine, a
+    compound that is in the index, was reported at a maximum similarity of 0.53 rather than 1.00.
+    A wrong similarity is worse than a missing one, so a mismatch returns None and the
+    endpoint-specific panel is omitted rather than filled with wrong numbers.
+    """
     p = MODELS / "ad_per_endpoint.pkl"
     if not p.exists():
         return None
     with p.open("rb") as fh:
-        return pickle.load(fh)
+        obj = pickle.load(fh)
+    # Written before the spec field existed: a bare {endpoint: fingerprints} mapping, which was
+    # necessarily built with the legacy stereochemistry-blind fingerprint.
+    if isinstance(obj, dict) and "spec" in obj and "reference" in obj:
+        spec, ref = obj["spec"], obj["reference"]
+    else:
+        spec, ref = _adfp.LEGACY_SPEC, obj
+    if spec != _adfp.SPEC:
+        return None
+    return ref
 
 
 @st.cache_resource
@@ -839,12 +855,21 @@ def cns_mpo(r, smiles=None):
 
 @st.cache_resource
 def load_readacross():
-    """Measured actives with fingerprints and the targets they hit, for similarity read-across."""
+    """Measured actives with fingerprints and the targets they hit, for similarity read-across.
+
+    Spec-checked. Queried with a fingerprint it was not built with, this index under-reports
+    similarity, so a query loses the analogues that READ_ACROSS_MIN_SIM would have shown it. That
+    is a silent loss of evidence rather than a visible error, which is the worst of the available
+    outcomes, so a mismatch disables read-across instead.
+    """
     p = MODELS / "readacross_index.pkl"
     if not p.exists():
         return None
     with p.open("rb") as fh:
-        return pickle.load(fh)
+        obj = pickle.load(fh)
+    if obj.get("spec", _adfp.LEGACY_SPEC) != _adfp.SPEC:
+        return None
+    return obj
 
 
 def read_across(smiles, k=5, min_sim=0.35):
@@ -977,7 +1002,7 @@ def disease_scores(r):
     scaled by predicted BBB penetration. Returns (bbb, neuro, rows).
 
     The BBB term multiplies every gated disease identically, so it cannot change their relative order
-    (verified in inversion/results/H3_gating.csv). It is an exposure filter: it decides whether
+    (verified in inversion/results/H3_gating.csv; the alternative of gating on predicted unbound brain exposure was tested in inversion/results/H3_gating_arms.csv and ranks compounds measurably worse, while this gate is indistinguishable from applying none, so it is justified as an exposure filter and not as a discriminative term). It is an exposure filter: it decides whether
     anything is reported at all, not which disease is reported. Describing it as though it sharpens
     the disease call would overstate what it does. Conditions in PERIPHERAL_MECHANISM_DISEASES are
     exempt, because for them the assumption the gate encodes is false."""

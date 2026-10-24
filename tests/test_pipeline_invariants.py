@@ -439,5 +439,46 @@ class TestThresholdSequenceIsAtomic(unittest.TestCase):
                     f"unsatisfiable and drove a re-run of one step in isolation")
 
 
+class TestReviewerPackageMatchesSource(unittest.TestCase):
+    """The reviewer package must be the code that produced the results, byte for byte.
+
+    REPOSITORY_MAP.md tells a reviewer that these copies are byte-identical to their originals and
+    that src/ is authoritative if they ever diverge. Six of the seven had diverged, and they were
+    older and shorter rather than reformatted: the reviewer copy of featurize.py called the
+    fingerprint "collision-free-by-construction" and said bit k always means the same environment
+    for every compound, which is the sentence src/ had already corrected as the reverse of the
+    truth, having measured 52,882 distinct environments folded into 1,024 bits. train_rf.py still
+    named the package brainsafe, from before the rename.
+
+    A claim of byte-identity that nothing enforces is a claim that decays. This enforces it.
+    """
+
+    PAIRS = {
+        "calibrate.py": "src/sai_cns/models/calibrate.py",
+        "featurize.py": "src/sai_cns/features/featurize.py",
+        "train_rf.py": "src/sai_cns/models/train_rf.py",
+        "rebuild_endpoints.py": "src/sai_cns/data/rebuild_endpoints.py",
+        "rf_conformal_temporal.py": "src/sai_cns/evaluation/rf_conformal_temporal.py",
+        "model_comparison.py": "src/sai_cns/evaluation/model_comparison.py",
+        "validate_inversion.py": "src/sai_cns/evaluation/validate_inversion.py",
+    }
+
+    def test_every_reviewer_copy_is_byte_identical_to_its_source(self):
+        pkg = ROOT / "reviewer_package" / "scripts"
+        if not pkg.is_dir():
+            self.skipTest("reviewer_package/scripts absent from this checkout")
+        for name, src_rel in self.PAIRS.items():
+            copy, src = pkg / name, ROOT / src_rel
+            if not src.exists():
+                continue
+            with self.subTest(script=name):
+                self.assertTrue(copy.exists(), f"{name} is named in REPOSITORY_MAP but absent")
+                self.assertEqual(
+                    src.read_bytes(), copy.read_bytes(),
+                    f"reviewer_package/scripts/{name} has diverged from {src_rel}. The package "
+                    f"handed to reviewers must be the code that produced the results; copy src/ "
+                    f"over it rather than editing the copy.")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

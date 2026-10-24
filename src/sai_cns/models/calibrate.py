@@ -37,9 +37,17 @@ OOF = ROOT / "data" / "processed" / "cv_predictions"
 
 
 def expected_calibration_error(y, p, n_bins=10):
-    """Mean gap between confidence and accuracy across equal-width probability bins."""
+    """Mean gap between confidence and accuracy across equal-width probability bins.
+
+    The bin index is clipped to the last bin. np.digitize returns n_bins + 1 for a probability of
+    exactly 1.0, because that value sits on the final edge rather than inside the final interval,
+    so subtracting one gave index n_bins and the loop over range(n_bins) skipped it. Every
+    prediction of exactly 1.0 was therefore dropped from the error. A saturated forest emits that
+    value often, so the predictions most likely to be over-confident were the ones excluded, which
+    is the wrong direction for a calibration metric to err.
+    """
     bins = np.linspace(0, 1, n_bins + 1)
-    idx = np.digitize(p, bins) - 1
+    idx = np.clip(np.digitize(p, bins) - 1, 0, n_bins - 1)
     ece = 0.0
     for b in range(n_bins):
         m = idx == b

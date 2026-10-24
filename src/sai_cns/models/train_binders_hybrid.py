@@ -57,7 +57,13 @@ M = ROOT / "models_rf"
 ACTIVE_P, DECOY_RATIO, TAN_MAX = 7.0, 3, 0.35
 ACTIVE_HOLDOUT = 0.20   # share of active scaffold groups withheld from training
 TARGET_FPR = 0.10
-_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+# One definition of the applicability-domain fingerprint. A private copy here compared
+# actives against reference fingerprints built with a different definition; see
+# src/sai_cns/ad_fingerprint.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "sai_cns"))
+import ad_fingerprint as _adfp  # noqa: E402
+
+_GEN = _adfp.generator()
 rng = np.random.default_rng(42)
 RF = dict(n_estimators=300, min_samples_leaf=4, n_jobs=-1, random_state=42, class_weight="balanced")
 

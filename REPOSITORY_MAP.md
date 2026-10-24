@@ -54,14 +54,21 @@ bulky structure libraries are regenerable from the acquisition scripts.
 
 `reviewer_package/scripts/` holds copies of seven of these for reviewers who want to reproduce the
 core result without the full tree. They are byte-identical to their originals in `src/`; if they ever
-diverge, treat `src/` as authoritative.
+diverge, treat `src/` as authoritative. Note that this bundle is built locally and is NOT committed:
+`reviewer_package/` is gitignored, as is the script that assembles it, so a clone of this repository
+does not contain it and the test that enforces byte-identity skips there rather than running. The
+seven originals under `src/` are what a clone gets, and they are the authoritative copies in any
+case. The bundle has to be sent as a bundle, not pointed to in the repository.
 
 ## What was set aside, and why
 
 Everything superseded was moved into one dated archive folder (see ARCHIVE_MANIFEST.csv), listed file by file
-with its checksum in `ARCHIVE_MANIFEST.csv`. Nothing was deleted. The folder is not committed,
-because its contents are either regenerable or already in git history; the manifest is committed, so
-the repository records what was moved and where.
+with its checksum in `ARCHIVE_MANIFEST.csv`. Nothing was deleted. Neither the folder nor the
+manifest is committed: the folder because its contents are either regenerable or already in git
+history, and the manifest because it indexes superseded material that is deliberately not
+published. The manifest therefore travels with the archive rather than with the repository. The
+bytes were moved off this machine on 2026-10-24 and the manifest sits beside them, which is the
+only index of what was archived.
 
 Six categories have been archived so far, across two passes (2026-08-10 and 2026-09-20):
 

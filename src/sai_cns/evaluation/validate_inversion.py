@@ -46,7 +46,13 @@ AD_THRESHOLD = 0.30   # the cut app.assess_domain uses to call a compound out of
 
 RDLogger.DisableLog("rdApp.*")
 ROOT = Path(__file__).resolve().parents[3]
-_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+# One definition of the applicability-domain fingerprint, shared with the server. A private
+# copy here would query the reference with a different fingerprint from the one it was built
+# with, which returns similarities that are wrong rather than missing.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import ad_fingerprint as _adfp  # noqa: E402
+
+_GEN = _adfp.generator()
 rows = []
 
 
@@ -204,7 +210,12 @@ def check_applicability():
     # query look less well placed than the application would report it.
     import pickle
     with (ROOT / "models_rf" / "ad_reference.pkl").open("rb") as _fh:
-        _ref_smiles, ref = pickle.load(_fh)
+        _obj = pickle.load(_fh)
+    _ref_smiles, ref = _obj[0], _obj[1]
+    _spec = _obj[2] if len(_obj) == 3 else _adfp.LEGACY_SPEC
+    if _spec != _adfp.SPEC:
+        raise SystemExit(f"the reference was built with '{_spec}' but this script computes "
+                         f"'{_adfp.SPEC}'; rebuild with src/sai_cns/build_ad_reference.py")
     # A panel, not a molecule. Eight structures could not distinguish a working domain flag from a
     # broken one at any sensible significance level; the earlier version of this check used one.
     alien = [

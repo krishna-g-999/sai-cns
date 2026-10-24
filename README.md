@@ -10,11 +10,17 @@ SAI-CNS predicts, from chemical structure alone, whether a compound reaches the 
 it is likely to do once there. It couples the two questions that most CNS drug-discovery tools answer
 separately: a target score is admitted only in proportion to the compound's predicted brain exposure,
 so potency at a target the compound cannot reach contributes nothing to the output. A submitted
-structure returns engagement across **54 molecular targets** spanning the principal neurodegenerative,
+structure returns engagement across **54 molecular targets**, though not 54 independent ones:
+the falsification suite found that 37 co-firing targets span roughly 16 independent directions,
+and the interface now groups homologues and quotes their correlation rather than presenting each as
+separate corroboration. They span the principal neurodegenerative,
 psychiatric, neuroinflammatory, analgesic and sleep-related mechanisms, predicted blood-brain barrier
 penetration, two cardiac safety liabilities (hERG, Nav1.5), and a nine-endpoint ADME and exposure
 layer including a directly modelled unbound brain-to-plasma ratio (Kp,uu). Engaged targets are traced
-through a curated pathway graph to the conditions they touch.
+through a curated pathway graph to the conditions they touch. The graph's predictive content lies in
+its topology rather than in its weights: uniform and randomly permuted weights score 0.7897 and
+0.7874 against the curated 0.7901, so the weights are reported as structure and not as tuned
+parameters.
 
 Every endpoint is trained on **measured** experimental values only, never on qualitative annotation.
 The panel holds **228,200 measured compound-endpoint records** over **170,619 distinct structures**
@@ -41,9 +47,20 @@ barrier model, and the hERG safety classifier.
 | External (306 FDA-approved drugs absent from B3DB) | 0.764, or 0.767 on the 227 also distinguishable from training in feature space |
 
 Binder classifiers, validated against compounds measured and found inactive at the same target
-rather than against decoys: mean AUROC **0.917** across the 47 deployed (range 0.719–0.985).
+rather than against decoys: mean AUROC **0.917** across the 47 deployed (range 0.719 to 0.985).
+Validated that way, but not trained that way: 44 of the 52 fitted models are trained partly against
+property-matched decoys, which are presumed rather than measured inactives, because for most targets
+the measured negative class is too thin to train on.
 
-Isotonic-calibrated probabilities (mean expected calibration error **0.0801 → 0.0147**); conformal
+AUROC measures ranking, which is not the quantity a deployed cut needs, so the sensitivity at that
+cut is reported beside it: mean **0.764**, median 0.835, range 0.303 to 0.993. **Thirteen of the 47
+recover under 70 per cent of their own known actives at their deployed threshold, nine under 60 per
+cent and six under 50 per cent** (COX2, GABA-A, GluN2B, P2X7, SIRT1, TAAR1), and those six are
+flagged in the interface as low-power. Silence from this panel is not evidence of inactivity.
+Screening mode trades further sensitivity for specificity: 19 of the 47 carry a screening threshold
+at or above 0.99, where sensitivity falls to 0.26 at 5-HT1A and 0.30 at D2.
+
+Isotonic-calibrated probabilities (mean expected calibration error **0.0801 → 0.0151**); conformal
 prediction on the eight core classifiers achieves empirical coverage **0.876–0.933** against a 0.90
 target; an applicability-domain distance to the nearest measured analogue on every prediction. On
 1,000 compounds with no recorded activity at any modelled target, specificity is **0.925** (95% CI

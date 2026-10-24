@@ -89,10 +89,12 @@ models_rf_uncompressed/
 # master_training_usage.csv (the endpoint-compound usage table it joins to) IS committed.
 results/tables/master_feature_vectors.csv
 
-# ---- Consolidated archive (see ARCHIVE_MANIFEST.csv, which IS committed) ----
+# ---- Consolidated archive (indexed by ARCHIVE_MANIFEST.csv, which is NOT committed) ----
 # Everything superseded lives in one dated folder: the July publication bundle, the 2026-07-20
 # legacy archive, build intermediates, run logs and the unused literature. Roughly 4 GB, all of it
-# either regenerable or already in git history, so the folder stays local and the manifest travels.
+# either regenerable or already in git history, so the folder stays local. Its index is not
+# published either, for the reason given under internal bookkeeping below. It travels with the
+# archive instead, which is why a copy sits beside the tars wherever the bytes are kept.
 _ARCHIVE_*/
 .pytest_cache/
 repro/coverage/

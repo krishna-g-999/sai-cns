@@ -37,6 +37,10 @@ sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 import panel  # noqa: E402
 from features.featurize import featurize  # noqa: E402
 
+# The applicability-domain reference has one guarded accessor; see ad_fingerprint.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "sai_cns"))
+import ad_fingerprint as _adfp  # noqa: E402
+
 M = ROOT / "models_rf"
 TARGET_FPR = 0.10        # on the target's own measured inactives
 BACKGROUND_FPR = 0.05    # on random library chemistry
@@ -46,9 +50,7 @@ rng = np.random.default_rng(7)
 
 
 def main():
-    import pickle
-    with (M / "ad_reference.pkl").open("rb") as fh:
-        bg_smiles, _ = pickle.load(fh)
+    bg_smiles, _ = _adfp.load_reference(M / "ad_reference.pkl")
     idx = rng.choice(len(bg_smiles), size=min(N_BACKGROUND, len(bg_smiles)), replace=False)
     bg = [str(bg_smiles[i]) for i in idx]
     Xbg, _ = featurize(bg)

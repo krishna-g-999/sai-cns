@@ -37,13 +37,20 @@ sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 from features.featurize import featurize  # noqa: E402
 from models.train_rf import _scaffold_groups  # noqa: E402
 
+# The applicability-domain reference has one guarded accessor; see ad_fingerprint.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "sai_cns"))
+import ad_fingerprint as _adfp  # noqa: E402
+
 M = ROOT / "models_rf"
 OUT = M / "holdout"
 OUT.mkdir(exist_ok=True)
 ACTIVE_P, DECOY_RATIO, TAN_MAX = 7.0, 3, 0.35
 HOLDOUT_FRAC = 0.20
 TARGET_FPR, BACKGROUND_FPR = 0.10, 0.05
-_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+# One definition of the applicability-domain fingerprint. A private copy here compared
+# actives against reference fingerprints built with a different definition; see
+# src/sai_cns/ad_fingerprint.py.
+_GEN = _adfp.generator()
 rng = np.random.default_rng(2026)
 
 TARGETS = ["HT1A", "HT6", "HT7", "H3", "DAT", "NET", "Sigma1", "CB1", "OPRK1", "OPRM1", "D3", "A1",
@@ -65,8 +72,7 @@ def main():
         TARGETS = sys.argv[1:]
         print(f"retraining hold-out twins for: {', '.join(TARGETS)}", flush=True)
 
-    with (M / "ad_reference.pkl").open("rb") as fh:
-        bg_smiles, bg_fps = pickle.load(fh)
+    bg_smiles, bg_fps = _adfp.load_reference(M / "ad_reference.pkl")
     bg_smiles = np.array(bg_smiles)
     bgX, bgm = featurize(list(bg_smiles))
     bg_ok = bg_smiles[bgm]

@@ -30,6 +30,11 @@ TARGETS = {
     "DAT": "CHEMBL238", "NET": "CHEMBL222", "Sigma1": "CHEMBL287", "CB1": "CHEMBL218",
     "OPRK1": "CHEMBL237", "OPRM1": "CHEMBL233", "D3": "CHEMBL234", "A1": "CHEMBL226",
     "a7nAChR": "CHEMBL2492", "LRRK2": "CHEMBL5407",
+    # Non-CNS expansion. Every identifier here was resolved by searching the ChEMBL API and
+    # checking the returned pref_name, never taken from memory, and every candidate cleared the
+    # 800-activity bar on both volume and source diversity. The assessment that chose them is
+    # src/sai_cns/data/assess_noncns_targets.py and results/noncns_target_data.csv.
+    "EGFR": "CHEMBL203",
 }
 
 
@@ -59,8 +64,21 @@ def fetch_activities(cid):
     return pd.DataFrame(rows)
 
 
+# The label rule lives in one place. This file used to carry a private copy that took no relation
+# argument, so every censored bound was read as an exact potency.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from activity_labels import ACTIVE_CUT, INACTIVE_CUT  # noqa: E402
+from fetch_endpoints import fetch_inactive_activities  # noqa: E402
+
+
 def label_from(p):
-    return 1 if p >= 6 else (0 if p < 5 else None)
+    """Exact-value rule, matching rebuild_endpoints.py.
+
+    Censored records never reach this function. A bound is not a potency, and ">10000 nM" arrives
+    here as exactly 5.0, which this rule discards as grey-zone; for AChE that silently lost 253
+    measured non-binders. They are recovered separately in main().
+    """
+    return 1 if p >= ACTIVE_CUT else (0 if p < INACTIVE_CUT else None)
 
 
 def main():
@@ -76,14 +94,48 @@ def main():
             print(f"[{name}] no data"); continue
         med = add_parent_key(df).groupby("inchikey").agg(
             smiles=("smiles", "first"), pchembl=("pchembl", "median"),
-            year=("year", "max")).reset_index(drop=True)
+            year=("year", "max")).reset_index()
         med["label"] = med["pchembl"].apply(label_from)
         med = med.dropna(subset=["label"])
         med["label"] = med["label"].astype(int)
         med["source"] = "ChEMBL"
+
+        # Recover the measured negative class. ChEMBL assigns a pchembl_value only where
+        # standard_relation is "=", so the query above cannot see a record of the form "no
+        # inhibition up to 10 uM": those are not missing data, they are the measured inactives, and
+        # for AChE alone the filter discards 2,210 of them. fetch_inactive_activities asks for the
+        # complement and converts each bound to a potency bound, keeping only bounds at or below
+        # the inactive cut, which are inactive whatever the true value is.
+        #
+        # Two rules from rebuild_endpoints.py are kept deliberately: the bound is an upper limit on
+        # potency, so the WEAKEST bound is the safest per-compound summary, and an exact
+        # measurement always wins, so only compounds with no exact value are added.
+        n_recovered = 0
+        try:
+            raw = fetch_inactive_activities(name, cid)
+        except Exception as exc:
+            print(f"[{name}] inactive fetch failed, continuing without it: {exc}", flush=True)
+            raw = []
+        if raw:
+            ina = pd.DataFrame([{"smiles": r.get("smiles"),
+                                 "pchembl": float(r["pchembl_bound"]),
+                                 "year": r.get("year")} for r in raw
+                                if r.get("smiles") and r.get("pchembl_bound") is not None])
+            if len(ina):
+                ina = add_parent_key(ina).groupby("inchikey").agg(
+                    smiles=("smiles", "first"), pchembl=("pchembl", "min"),
+                    year=("year", "max")).reset_index()
+                ina = ina[~ina["inchikey"].isin(set(med["inchikey"]))]
+                if len(ina):
+                    ina["label"] = 0
+                    ina["source"] = "ChEMBL_inactive"
+                    med = pd.concat([med, ina], ignore_index=True)
+                    n_recovered = len(ina)
+
         med[["smiles", "label", "pchembl", "year", "source"]].to_csv(dest, index=False)
         print(f"[{name}] wrote {len(med)} compounds "
-              f"({int(med['label'].sum())} active, {int((med['label'] == 0).sum())} inactive)", flush=True)
+              f"({int(med['label'].sum())} active, {int((med['label'] == 0).sum())} inactive, "
+              f"{n_recovered} recovered from censored bounds)", flush=True)
     print("DONE")
 
 

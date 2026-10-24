@@ -1,16 +1,16 @@
 {
   "schema": 1,
-  "version": "1.1",
+  "version": "1.3",
   "archive": "sai_cns_models_v1.1.tar.gz",
   "archive_bytes": 866941137,
   "archive_sha256": "eefd05f77519403342e9588982df9bb2acd5cb0297b77410b4f61f35b44cbfd2",
   "n_files": 252,
-  "unpacked_bytes": 920392950,
+  "unpacked_bytes": 920399027,
   "urls": [
     "https://saicnsmodels2026.blob.core.windows.net/models/sai_cns_models_v1.1.tar.gz"
   ],
   "doi": "",
-  "note": "Fetched at start-up by model_fetch.py when models_rf/ is absent. Every file is verified against its checksum before the server loads anything. The URL above is a deployment mirror; the citable archive DOI goes in \"doi\" when the Zenodo deposit is made, and both may be listed in \"urls\".",
+  "note": "Fetched at start-up by model_fetch.py when models_rf/ is absent. Every file is verified against its checksum before the server loads anything. The archive named here is a BASE: files whose checksum has moved since it was published carry their own url and are refreshed individually, each verified against its own sha256. This exists because republishing 0.86 GB to ship 65 MB of change is impractical on a slow uplink, and because the old recovery path re-extracted all 252 files to repair one.",
   "files": {
     "models_rf/A1_binder.joblib": {
       "bytes": 4198507,
@@ -65,12 +65,14 @@
       "sha256": "f3b7395ad4697b92d02fa55973d796c07105ebc18592c6ff228ce0a01171a655"
     },
     "models_rf/ad_per_endpoint.pkl": {
-      "bytes": 14792715,
-      "sha256": "fce3751e1afb24f241a9942c10ca08087f2fd12c40caf174ce3219977262b608"
+      "bytes": 17778360,
+      "sha256": "2b538c9fbb1b2616ca12c4ac6a647cb40811bc340587d044836b7a4ee016fa6c",
+      "url": "https://saicnsmodels2026.blob.core.windows.net/models/files/v1.3/ad_per_endpoint.pkl"
     },
     "models_rf/ad_reference.pkl": {
-      "bytes": 22425008,
-      "sha256": "d81dcd2a051435a3a75da8d8bf05a0e92c2aeda3bc44d4239fd572e392e7bc15"
+      "bytes": 22431085,
+      "sha256": "524fa31df1ef3a3a5d5146a10c1129b2d559bc5b1664022705d6a6f60b1616dc",
+      "url": "https://saicnsmodels2026.blob.core.windows.net/models/files/v1.3/ad_reference.pkl"
     },
     "models_rf/adme/caco2_permeability.joblib": {
       "bytes": 3477867,
@@ -977,8 +979,9 @@
       "sha256": "74302b166b404d71152a7ce9a5ee199041f1d79fe5ead28e0edd0ad7a5fb8ba1"
     },
     "models_rf/readacross_index.pkl": {
-      "bytes": 23762778,
-      "sha256": "472b9166f4582107feca9c127c69bdd0a7883b22edea358186472836444ff9f1"
+      "bytes": 24754792,
+      "sha256": "a93be0b868e5ac475019caef8d7399b548169e180bc3dd9109feb43ddfd2afd4",
+      "url": "https://saicnsmodels2026.blob.core.windows.net/models/files/v1.3/readacross_index.pkl"
     },
     "models_rf/RIPK1_binder.joblib": {
       "bytes": 2225611,
@@ -1020,5 +1023,6 @@
       "bytes": 261450,
       "sha256": "c1c3e03779ac9088dc649d2c408772e4aca9743889fef0c8aed96e41dc062280"
     }
-  }
+  },
+  "base_archive_version": "1.1"
 }

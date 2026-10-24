@@ -33,6 +33,10 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 from features.featurize import featurize  # noqa: E402
 
+# The applicability-domain reference has one guarded accessor; see ad_fingerprint.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "sai_cns"))
+import ad_fingerprint as _adfp  # noqa: E402
+
 M = ROOT / "models_rf"
 SCREENING_FPR = 0.01
 N_BACKGROUND = 3000
@@ -40,8 +44,7 @@ rng = np.random.default_rng(11)
 
 
 def main():
-    with (M / "ad_reference.pkl").open("rb") as fh:
-        bg, _ = pickle.load(fh)
+    bg, _ = _adfp.load_reference(M / "ad_reference.pkl")
     idx = rng.choice(len(bg), size=min(N_BACKGROUND, len(bg)), replace=False)
     Xbg, _ = featurize([str(bg[i]) for i in idx])
     print(f"independent background sample: {Xbg.shape[0]} compounds", flush=True)

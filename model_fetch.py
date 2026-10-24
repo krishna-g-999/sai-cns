@@ -78,6 +78,61 @@ def _download(url, dest, expect_bytes, log):
     return dest.stat().st_size
 
 
+def _refresh_per_file(manifest, log):
+    """Re-fetch individual files whose checksum has moved since the base archive was published.
+
+    WHY THIS EXISTS. The archive is 0.86 GB and the manifest covers 252 files. When one 22 MB file
+    changes, the whole archive had to be rebuilt and republished, and on a 55 KB/s uplink that is
+    4.4 hours to ship 65 MB of actual change. Worse, the recovery path made the coupling tighter:
+    a single mismatched file sent ensure_models back to the archive, which extracted all 252 files
+    over the top of whatever was there.
+
+    So the manifest now describes a BASE archive plus a per-file delta. `archive` and
+    `archive_sha256` name a published archive that does not move often; `files[path].sha256` is the
+    current truth for every file; and `files[path].url`, where present, says where to fetch that
+    file when the base archive's copy is stale.
+
+    This does not loosen the integrity guarantee, it tightens it. Every refreshed file is verified
+    against its own recorded sha256 before it is accepted, and a file that fails is left for the
+    caller's final full verification to reject. Nothing is trusted because it downloaded cleanly.
+    """
+    pending = [(rel, meta) for rel, meta in manifest["files"].items() if meta.get("url")]
+    if not pending:
+        return True
+    stale = []
+    for rel, meta in pending:
+        p = ROOT.joinpath(*rel.replace("\\", "/").split("/"))
+        if not p.exists() or p.stat().st_size != meta["bytes"] or _sha256(p) != meta["sha256"]:
+            stale.append((rel, meta))
+    if not stale:
+        return True
+    log(f"{len(stale)} file(s) differ from the base archive and carry their own URL")
+    ok = True
+    for rel, meta in stale:
+        dest = ROOT.joinpath(*rel.replace("\\", "/").split("/"))
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        urls = meta["url"] if isinstance(meta["url"], list) else [meta["url"]]
+        for url in urls:
+            tmp = dest.with_suffix(dest.suffix + ".part")
+            try:
+                size = _download(url, tmp, meta.get("bytes"), log)
+            except Exception as e:
+                log(f"  {rel}: failed, {str(e)[:120]}")
+                tmp.unlink(missing_ok=True)
+                continue
+            if size != meta["bytes"] or _sha256(tmp) != meta["sha256"]:
+                log(f"  {rel}: CHECKSUM MISMATCH after download; discarding")
+                tmp.unlink(missing_ok=True)
+                continue
+            tmp.replace(dest)
+            log(f"  {rel}: refreshed and verified")
+            break
+        else:
+            log(f"  {rel}: no URL produced a file matching its checksum")
+            ok = False
+    return ok
+
+
 def _flag(name):
     """Read SAI_CNS_<name>, falling back to the former BRAINSAFE_<name>.
 
@@ -108,6 +163,11 @@ def ensure_models(verbose=True):
     manifest = json.loads(MANIFEST.read_text())
     missing = _missing(manifest, quick=True)
     if not missing:
+        # Everything is present at the right size. A per-file delta can still be stale, and that
+        # costs one checksum per delta file rather than a 0.86 GB download, so it is worth doing
+        # on the start-up path.
+        if any(m.get("url") for m in manifest["files"].values()):
+            _refresh_per_file(manifest, log)
         return True
 
     # One download at a time. A Streamlit host starts a script run per session, and on the first
@@ -173,6 +233,10 @@ def ensure_models(verbose=True):
             lock.unlink(missing_ok=True)
             log("every download URL failed")
             return False
+
+    # The base archive is extracted; now bring any file whose checksum has moved since that
+    # archive was published up to the manifest's current truth.
+    _refresh_per_file(manifest, log)
 
     log("verifying every extracted file ...")
     bad = _missing(manifest, quick=False)

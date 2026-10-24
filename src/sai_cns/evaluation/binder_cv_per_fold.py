@@ -52,6 +52,10 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "src" / "sai_cns"))
 from features.featurize import featurize  # noqa: E402
 
+# The applicability-domain reference has one guarded accessor; see ad_fingerprint.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "src" / "sai_cns"))
+import ad_fingerprint as _adfp  # noqa: E402
+
 M = ROOT / "models_rf"
 EP = ROOT / "data" / "endpoints"
 OUT_F = ROOT / "results" / "tables" / "binder_cv_folds.csv"
@@ -69,7 +73,7 @@ def _fpgen():
         from rdkit.Chem import rdFingerprintGenerator
         # 2048 bits, matching models_rf/ad_reference.pkl. This is the similarity fingerprint used to
         # keep decoys away from the actives, and is deliberately not the 1024-bit model input.
-        _GEN = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+        _GEN = _adfp.generator()
     return _GEN
 
 
@@ -172,8 +176,7 @@ def main():
         else:
             done = set(pd.read_csv(OUT_F)["endpoint"].astype(str))
 
-    with (M / "ad_reference.pkl").open("rb") as fh:
-        bg_smiles, bg_fps = pickle.load(fh)
+    bg_smiles, bg_fps = _adfp.load_reference(M / "ad_reference.pkl")
     bg_smiles = np.array(bg_smiles)
     bgX, bgm = featurize(list(bg_smiles))
     bg_ok = bg_smiles[bgm]
