@@ -13,12 +13,16 @@ published number without raising an error, and most correspond to a defect the a
                   the cut. Feeding a bound to the exact-value rule silently discarded 253 measured
                   non-binders for AChE alone.
   determinism     the declared seed actually fixes the result.
+  base+delta      models_manifest.json's hand-maintained base-plus-delta fields, which have no
+                  writer and whose loss is invisible until a fresh deployment refuses to start.
 
 Run:  python -m pytest tests/ -v
 """
 from __future__ import annotations
 
+import hashlib
 import importlib
+import json
 import re
 import sys
 import unittest
@@ -478,6 +482,83 @@ class TestReviewerPackageMatchesSource(unittest.TestCase):
                     f"reviewer_package/scripts/{name} has diverged from {src_rel}. The package "
                     f"handed to reviewers must be the code that produced the results; copy src/ "
                     f"over it rather than editing the copy.")
+
+
+class ManifestBasePlusDelta(unittest.TestCase):
+    """The base-plus-delta arrangement in models_manifest.json, which has no writer.
+
+    Nothing generates these fields. `base_archive_version` and the per-file `url` entries are
+    maintained by hand, so the arrangement can be undone silently by doing the obvious thing:
+    package_models.py writes a complete archive and a manifest with no per-file urls, which is
+    correct for a full republish and destroys the delta if run when only a few files have moved.
+    The repository then describes a base archive it no longer has a delta for, every checksum still
+    verifies locally, and the failure appears only on a fresh deployment, which is the one place
+    nobody looks before submitting.
+
+    These tests encode the invariant rather than the current contents, so adding or publishing a
+    delta file keeps them passing and dropping the scheme does not.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        path = ROOT / "models_manifest.json"
+        if not path.exists():
+            raise unittest.SkipTest("models_manifest.json absent from this checkout")
+        cls.man = json.loads(path.read_text(encoding="utf-8"))
+        cls.files = cls.man.get("files") or {}
+        cls.delta = {k: v for k, v in cls.files.items() if v.get("url")}
+
+    def test_a_manifest_newer_than_its_base_archive_carries_a_delta(self):
+        base = self.man.get("base_archive_version")
+        if base is None:
+            self.skipTest("no base_archive_version: this manifest describes a full archive")
+        self.assertNotEqual(
+            base, self.man.get("version"),
+            "base_archive_version equals version, so the base archive should describe every file "
+            "and the field is redundant; drop one or the other rather than leaving both.")
+        self.assertTrue(
+            self.delta,
+            f"the manifest declares base archive v{base} but version "
+            f"v{self.man.get('version')} and gives no file a url. Any file whose checksum moved "
+            f"since v{base} is then unfetchable: the base archive supplies the old bytes, "
+            f"verification fails and the server refuses to start. This is what running "
+            f"package_models.py instead of publish_model_archive.py --delta does.")
+
+    def test_every_delta_file_exists_and_matches_its_recorded_checksum(self):
+        for rel, meta in sorted(self.delta.items()):
+            with self.subTest(file=rel):
+                f = ROOT / rel
+                if not f.exists():
+                    self.skipTest(f"{rel} absent from this checkout")
+                data = f.read_bytes()
+                self.assertEqual(len(data), meta["bytes"], f"{rel} size differs from the manifest")
+                self.assertEqual(hashlib.sha256(data).hexdigest(), meta["sha256"],
+                                 f"{rel} content differs from the checksum the manifest publishes; "
+                                 f"the url would serve bytes the manifest rejects")
+
+    def test_every_delta_url_is_versioned_and_names_the_file_it_serves(self):
+        for rel, meta in sorted(self.delta.items()):
+            with self.subTest(file=rel):
+                url = meta["url"] if isinstance(meta["url"], str) else meta["url"][0]
+                self.assertRegex(
+                    url, r"/files/v\d+\.\d+/",
+                    f"{rel}'s url carries no /files/vX.Y/ prefix. The prefix is what keeps a "
+                    f"re-published file from being served from a cache of the previous one.")
+                self.assertTrue(
+                    url.endswith("/" + Path(rel).name),
+                    f"{rel}'s url ends in {url.rsplit('/', 1)[-1]!r}, not the file's own name; "
+                    f"publish_delta uploads to exactly this url, so the mismatch would publish "
+                    f"the bytes under the wrong name and leave the real name a 404.")
+
+    def test_no_two_delta_files_share_a_url(self):
+        seen = {}
+        for rel, meta in sorted(self.delta.items()):
+            url = meta["url"] if isinstance(meta["url"], str) else meta["url"][0]
+            self.assertNotIn(
+                url, seen,
+                f"{rel} and {seen.get(url)} publish to the same url, so one would overwrite the "
+                f"other and whichever lost would fail its checksum on a fresh deployment.")
+            seen[url] = rel
 
 
 if __name__ == "__main__":

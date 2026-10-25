@@ -22,12 +22,16 @@
     "background_fpr_in_sample": 0.0277,
     "n_measured_inactive_for_threshold": 360,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9818,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.523,
+    "screening_threshold": 0.9886,
+    "screening_background_fpr": 0.0057,
+    "screening_sensitivity": 0.2,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0253,
-    "sensitivity_in_sample_superseded": 0.871
+    "sensitivity_in_sample_superseded": 0.871,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 420
   },
   "A2A": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -53,11 +57,15 @@
     "n_measured_inactive_for_threshold": 406,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.9979,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.344,
+    "screening_background_fpr": 0.0087,
+    "screening_sensitivity": 0.224,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0367,
-    "sensitivity_in_sample_superseded": 0.928
+    "sensitivity_in_sample_superseded": 0.928,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 768
   },
   "a7nAChR": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -83,11 +91,15 @@
     "n_measured_inactive_for_threshold": 193,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.5022,
-    "screening_background_fpr": 0.007,
-    "screening_sensitivity": 0.875,
+    "screening_background_fpr": 0.003,
+    "screening_sensitivity": 0.571,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0057,
-    "sensitivity_in_sample_superseded": 0.875
+    "sensitivity_in_sample_superseded": 0.875,
+    "screening_background_fpr_in_sample": 0.0053,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 63
   },
   "CB1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -112,12 +124,16 @@
     "background_fpr_in_sample": 0.0287,
     "n_measured_inactive_for_threshold": 1616,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9903,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.482,
+    "screening_threshold": 0.992,
+    "screening_background_fpr": 0.0063,
+    "screening_sensitivity": 0.22,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.032,
-    "sensitivity_in_sample_superseded": 0.954
+    "sensitivity_in_sample_superseded": 0.954,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 522
   },
   "COX2": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -143,11 +159,15 @@
     "n_measured_inactive_for_threshold": 770,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.7353,
-    "screening_background_fpr": 0.0063,
-    "screening_sensitivity": 0.639,
+    "screening_background_fpr": 0.0083,
+    "screening_sensitivity": 0.338,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0063,
-    "sensitivity_in_sample_superseded": 0.639
+    "sensitivity_in_sample_superseded": 0.639,
+    "screening_background_fpr_in_sample": 0.0063,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 299
   },
   "CSF1R": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -172,12 +192,16 @@
     "background_fpr_in_sample": 0.0093,
     "n_measured_inactive_for_threshold": 101,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9821,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.854,
+    "screening_threshold": 0.9929,
+    "screening_background_fpr": 0.009,
+    "screening_sensitivity": 0.643,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0187,
-    "sensitivity_in_sample_superseded": 0.942
+    "sensitivity_in_sample_superseded": 0.942,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 364
   },
   "D2": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -202,12 +226,16 @@
     "background_fpr_in_sample": 0.05,
     "n_measured_inactive_for_threshold": 572,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9929,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.301,
+    "screening_threshold": 0.992,
+    "screening_background_fpr": 0.0123,
+    "screening_sensitivity": 0.258,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.046,
-    "sensitivity_in_sample_superseded": 0.829
+    "sensitivity_in_sample_superseded": 0.829,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 767
   },
   "D3": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -233,11 +261,15 @@
     "n_measured_inactive_for_threshold": 216,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.9992,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.338,
+    "screening_background_fpr": 0.009,
+    "screening_sensitivity": 0.241,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0537,
-    "sensitivity_in_sample_superseded": 0.893
+    "sensitivity_in_sample_superseded": 0.893,
+    "screening_background_fpr_in_sample": 0.0103,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 677
   },
   "DAT": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -262,12 +294,16 @@
     "background_fpr_in_sample": 0.0267,
     "n_measured_inactive_for_threshold": 397,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9533,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.773,
+    "screening_threshold": 0.9531,
+    "screening_background_fpr": 0.0113,
+    "screening_sensitivity": 0.472,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.029,
-    "sensitivity_in_sample_superseded": 0.963
+    "sensitivity_in_sample_superseded": 0.963,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 235
   },
   "GABA_A": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -293,11 +329,15 @@
     "n_measured_inactive_for_threshold": 37,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.661,
-    "screening_background_fpr": 0.006,
-    "screening_sensitivity": 0.826,
+    "screening_background_fpr": 0.0047,
+    "screening_sensitivity": 0.303,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.005,
-    "sensitivity_in_sample_superseded": 0.826
+    "sensitivity_in_sample_superseded": 0.826,
+    "screening_background_fpr_in_sample": 0.0047,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 33
   },
   "GBA1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -323,11 +363,15 @@
     "n_measured_inactive_for_threshold": 240,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.1869,
-    "screening_background_fpr": 0.0023,
-    "screening_sensitivity": 0.908,
+    "screening_background_fpr": 0.0047,
+    "screening_sensitivity": 0.795,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0057,
-    "sensitivity_in_sample_superseded": 0.908
+    "sensitivity_in_sample_superseded": 0.908,
+    "screening_background_fpr_in_sample": 0.0037,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 39
   },
   "GluN2B": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -353,11 +397,15 @@
     "n_measured_inactive_for_threshold": 34,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.9645,
-    "screening_background_fpr": 0.0043,
-    "screening_sensitivity": 0.737,
+    "screening_background_fpr": 0.0087,
+    "screening_sensitivity": 0.374,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0063,
-    "sensitivity_in_sample_superseded": 0.737
+    "sensitivity_in_sample_superseded": 0.737,
+    "screening_background_fpr_in_sample": 0.0053,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 155
   },
   "H3": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -382,12 +430,16 @@
     "background_fpr_in_sample": 0.0323,
     "n_measured_inactive_for_threshold": 192,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9994,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.494,
+    "screening_threshold": 0.9995,
+    "screening_background_fpr": 0.0107,
+    "screening_sensitivity": 0.302,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0377,
-    "sensitivity_in_sample_superseded": 0.976
+    "sensitivity_in_sample_superseded": 0.976,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 553
   },
   "HDAC1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -412,12 +464,16 @@
     "background_fpr_in_sample": 0.042,
     "n_measured_inactive_for_threshold": 810,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9829,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.396,
+    "screening_threshold": 0.983,
+    "screening_background_fpr": 0.0117,
+    "screening_sensitivity": 0.226,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.038,
-    "sensitivity_in_sample_superseded": 0.946
+    "sensitivity_in_sample_superseded": 0.946,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 492
   },
   "HDAC6": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -442,12 +498,16 @@
     "background_fpr_in_sample": 0.05,
     "n_measured_inactive_for_threshold": 568,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9898,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.396,
+    "screening_threshold": 0.9907,
+    "screening_background_fpr": 0.0063,
+    "screening_sensitivity": 0.081,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0423,
-    "sensitivity_in_sample_superseded": 0.957
+    "sensitivity_in_sample_superseded": 0.957,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 705
   },
   "HT1A": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -472,12 +532,16 @@
     "background_fpr_in_sample": 0.05,
     "n_measured_inactive_for_threshold": 261,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9987,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.261,
+    "screening_threshold": 0.9983,
+    "screening_background_fpr": 0.0153,
+    "screening_sensitivity": 0.278,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.052,
-    "sensitivity_in_sample_superseded": 0.875
+    "sensitivity_in_sample_superseded": 0.875,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 633
   },
   "HT2A": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -503,11 +567,15 @@
     "n_measured_inactive_for_threshold": 319,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.997,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.348,
+    "screening_background_fpr": 0.0073,
+    "screening_sensitivity": 0.208,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.049,
-    "sensitivity_in_sample_superseded": 0.846
+    "sensitivity_in_sample_superseded": 0.846,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 899
   },
   "HT6": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -532,12 +600,16 @@
     "background_fpr_in_sample": 0.0293,
     "n_measured_inactive_for_threshold": 107,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9979,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.539,
+    "screening_threshold": 0.9982,
+    "screening_background_fpr": 0.009,
+    "screening_sensitivity": 0.22,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.033,
-    "sensitivity_in_sample_superseded": 0.975
+    "sensitivity_in_sample_superseded": 0.975,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 432
   },
   "HT7": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -562,12 +634,16 @@
     "background_fpr_in_sample": 0.0407,
     "n_measured_inactive_for_threshold": 150,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9922,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.642,
+    "screening_threshold": 0.9897,
+    "screening_background_fpr": 0.016,
+    "screening_sensitivity": 0.557,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0403,
-    "sensitivity_in_sample_superseded": 0.917
+    "sensitivity_in_sample_superseded": 0.917,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 289
   },
   "KEAP1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -593,11 +669,15 @@
     "n_measured_inactive_for_threshold": 86,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.7793,
-    "screening_background_fpr": 0.0033,
-    "screening_sensitivity": 0.639,
+    "screening_background_fpr": 0.0017,
+    "screening_sensitivity": 0.52,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.003,
-    "sensitivity_in_sample_superseded": 0.639
+    "sensitivity_in_sample_superseded": 0.639,
+    "screening_background_fpr_in_sample": 0.0033,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 25
   },
   "LRRK2": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -622,12 +702,16 @@
     "background_fpr_in_sample": 0.012,
     "n_measured_inactive_for_threshold": 55,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.713,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.957,
+    "screening_threshold": 0.647,
+    "screening_background_fpr": 0.0153,
+    "screening_sensitivity": 0.865,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0143,
-    "sensitivity_in_sample_superseded": 0.977
+    "sensitivity_in_sample_superseded": 0.977,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 222
   },
   "mGluR5": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -652,12 +736,16 @@
     "background_fpr_in_sample": 0.012,
     "n_measured_inactive_for_threshold": 264,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9122,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.764,
+    "screening_threshold": 0.9301,
+    "screening_background_fpr": 0.0057,
+    "screening_sensitivity": 0.644,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0067,
-    "sensitivity_in_sample_superseded": 0.817
+    "sensitivity_in_sample_superseded": 0.817,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 289
   },
   "MT1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -683,11 +771,15 @@
     "n_measured_inactive_for_threshold": 41,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.9509,
-    "screening_background_fpr": 0.004,
-    "screening_sensitivity": 0.858,
+    "screening_background_fpr": 0.0057,
+    "screening_sensitivity": 0.678,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.004,
-    "sensitivity_in_sample_superseded": 0.858
+    "sensitivity_in_sample_superseded": 0.858,
+    "screening_background_fpr_in_sample": 0.0053,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 118
   },
   "mTOR": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -713,11 +805,15 @@
     "n_measured_inactive_for_threshold": 557,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.9995,
-    "screening_background_fpr": 0.0143,
-    "screening_sensitivity": 0.63,
+    "screening_background_fpr": 0.0117,
+    "screening_sensitivity": 0.505,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0283,
-    "sensitivity_in_sample_superseded": 0.987
+    "sensitivity_in_sample_superseded": 0.987,
+    "screening_background_fpr_in_sample": 0.0113,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 426
   },
   "Nav1_5": {
     "mode": "measured_labels_holdout",
@@ -737,12 +833,16 @@
     "background_fpr_in_sample": 0.05,
     "n_measured_inactive_for_threshold": 871,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.3995,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.95,
+    "screening_threshold": 0.3905,
+    "screening_background_fpr": 0.0103,
+    "screening_sensitivity": 0.743,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.058,
-    "sensitivity_in_sample_superseded": 0.95
+    "sensitivity_in_sample_superseded": 0.95,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 35
   },
   "NET": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -767,12 +867,16 @@
     "background_fpr_in_sample": 0.0273,
     "n_measured_inactive_for_threshold": 257,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.97,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.723,
+    "screening_threshold": 0.9937,
+    "screening_background_fpr": 0.0037,
+    "screening_sensitivity": 0.175,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0253,
-    "sensitivity_in_sample_superseded": 0.916
+    "sensitivity_in_sample_superseded": 0.916,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 355
   },
   "NLRP3": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -798,11 +902,15 @@
     "n_measured_inactive_for_threshold": 116,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.3645,
-    "screening_background_fpr": 0.0027,
-    "screening_sensitivity": 0.923,
+    "screening_background_fpr": 0.0023,
+    "screening_sensitivity": 0.867,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0023,
-    "sensitivity_in_sample_superseded": 0.923
+    "sensitivity_in_sample_superseded": 0.923,
+    "screening_background_fpr_in_sample": 0.0013,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 45
   },
   "OPRK1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -827,12 +935,16 @@
     "background_fpr_in_sample": 0.0303,
     "n_measured_inactive_for_threshold": 499,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9969,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.415,
+    "screening_threshold": 0.9966,
+    "screening_background_fpr": 0.0117,
+    "screening_sensitivity": 0.362,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.03,
-    "sensitivity_in_sample_superseded": 0.889
+    "sensitivity_in_sample_superseded": 0.889,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 594
   },
   "OPRM1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -857,12 +969,16 @@
     "background_fpr_in_sample": 0.046,
     "n_measured_inactive_for_threshold": 672,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9963,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.309,
+    "screening_threshold": 0.9961,
+    "screening_background_fpr": 0.0083,
+    "screening_sensitivity": 0.2,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0413,
-    "sensitivity_in_sample_superseded": 0.952
+    "sensitivity_in_sample_superseded": 0.952,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 814
   },
   "OX1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -887,12 +1003,16 @@
     "background_fpr_in_sample": 0.0287,
     "n_measured_inactive_for_threshold": 288,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9983,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.394,
+    "screening_threshold": 0.9982,
+    "screening_background_fpr": 0.0093,
+    "screening_sensitivity": 0.233,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.035,
-    "sensitivity_in_sample_superseded": 0.976
+    "sensitivity_in_sample_superseded": 0.976,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 524
   },
   "OX2": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -917,12 +1037,16 @@
     "background_fpr_in_sample": 0.0397,
     "n_measured_inactive_for_threshold": 344,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9953,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.33,
+    "screening_threshold": 0.995,
+    "screening_background_fpr": 0.009,
+    "screening_sensitivity": 0.185,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.038,
-    "sensitivity_in_sample_superseded": 0.959
+    "sensitivity_in_sample_superseded": 0.959,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 729
   },
   "P2X7": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -948,11 +1072,15 @@
     "n_measured_inactive_for_threshold": 85,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.9995,
-    "screening_background_fpr": 0.011,
-    "screening_sensitivity": 0.551,
+    "screening_background_fpr": 0.0137,
+    "screening_sensitivity": 0.327,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.013,
-    "sensitivity_in_sample_superseded": 0.677
+    "sensitivity_in_sample_superseded": 0.677,
+    "screening_background_fpr_in_sample": 0.0137,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 630
   },
   "PDE10A": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -977,12 +1105,16 @@
     "background_fpr_in_sample": 0.0267,
     "n_measured_inactive_for_threshold": 122,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9994,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.479,
+    "screening_threshold": 0.9995,
+    "screening_background_fpr": 0.012,
+    "screening_sensitivity": 0.208,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.027,
-    "sensitivity_in_sample_superseded": 0.958
+    "sensitivity_in_sample_superseded": 0.958,
+    "screening_background_fpr_in_sample": 0.0157,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 873
   },
   "PDE4B": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1007,12 +1139,16 @@
     "background_fpr_in_sample": 0.0123,
     "n_measured_inactive_for_threshold": 166,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.6386,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.937,
+    "screening_threshold": 0.652,
+    "screening_background_fpr": 0.0123,
+    "screening_sensitivity": 0.761,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0193,
-    "sensitivity_in_sample_superseded": 0.969
+    "sensitivity_in_sample_superseded": 0.969,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 180
   },
   "SERT": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1037,12 +1173,16 @@
     "background_fpr_in_sample": 0.039,
     "n_measured_inactive_for_threshold": 281,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9974,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.428,
+    "screening_threshold": 0.9973,
+    "screening_background_fpr": 0.0093,
+    "screening_sensitivity": 0.114,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.041,
-    "sensitivity_in_sample_superseded": 0.947
+    "sensitivity_in_sample_superseded": 0.947,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 455
   },
   "Sigma1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1067,12 +1207,16 @@
     "background_fpr_in_sample": 0.0297,
     "n_measured_inactive_for_threshold": 56,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9954,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.426,
+    "screening_threshold": 0.995,
+    "screening_background_fpr": 0.011,
+    "screening_sensitivity": 0.196,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.03,
-    "sensitivity_in_sample_superseded": 0.82
+    "sensitivity_in_sample_superseded": 0.82,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 285
   },
   "SIRT1": {
     "mode": "measured_labels_holdout",
@@ -1092,13 +1236,17 @@
     "background_fpr_in_sample": 0.05,
     "n_measured_inactive_for_threshold": 277,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.6186,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.833,
+    "screening_threshold": 0.6204,
+    "screening_background_fpr": 0.0097,
+    "screening_sensitivity": 0.27,
     "rethreshold_reason": "random-chemistry false-positive rate 0.058, above the 5 percent intended",
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0533,
-    "sensitivity_in_sample_superseded": 0.967
+    "sensitivity_in_sample_superseded": 0.967,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 37
   },
   "TAAR1": {
     "mode": "measured_labels_holdout",
@@ -1118,12 +1266,16 @@
     "background_fpr_in_sample": 0.0457,
     "n_measured_inactive_for_threshold": 83,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.8681,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.699,
+    "screening_threshold": 0.8735,
+    "screening_background_fpr": 0.014,
+    "screening_sensitivity": 0.25,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.034,
-    "sensitivity_in_sample_superseded": 0.763
+    "sensitivity_in_sample_superseded": 0.763,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 76
   },
   "GluA2": {
     "mode": "measured_labels_holdout",
@@ -1143,12 +1295,16 @@
     "background_fpr_in_sample": 0.0363,
     "n_measured_inactive_for_threshold": 69,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.6693,
+    "screening_threshold": 0.6717,
     "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.536,
+    "screening_sensitivity": 0.069,
     "deployed": false,
     "withdrawn_reason": "fires on glucose and atenolol at its calibrated threshold of 0.629, reaching 0.719 on a trivial molecule, with a random-chemistry false-positive rate of 0.072 and a sensitivity of 0.103. Withdrawn on the current fits, having previously passed",
-    "withdrawn_evidence": "results/deployed_specificity_audit.csv"
+    "withdrawn_evidence": "results/deployed_specificity_audit.csv",
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 29
   },
   "Nav1_1": {
     "mode": "measured_labels_holdout",
@@ -1168,12 +1324,16 @@
     "background_fpr_in_sample": 0.05,
     "n_measured_inactive_for_threshold": 227,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.6234,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.385,
+    "screening_threshold": 0.6213,
+    "screening_background_fpr": 0.0117,
+    "screening_sensitivity": 0.12,
     "deployed": false,
     "withdrawn_reason": "fires on glucose, urea, glycine, lactate and atenolol at its calibrated threshold of 0.571, with a random-chemistry false-positive rate of 0.080. Holding 5 per cent on random chemistry would need 0.594, and its sensitivity at the calibrated cut is already 0.120, so no threshold separates trivial metabolites from real ligands. Its AUROC of 0.952 measures ranking, which is not the quantity a deployed cut needs",
-    "withdrawn_evidence": "results/deployed_specificity_audit.csv"
+    "withdrawn_evidence": "results/deployed_specificity_audit.csv",
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 25
   },
   "Nav1_7": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1198,12 +1358,16 @@
     "background_fpr_in_sample": 0.0243,
     "n_measured_inactive_for_threshold": 369,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9932,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.504,
+    "screening_threshold": 0.9933,
+    "screening_background_fpr": 0.0093,
+    "screening_sensitivity": 0.318,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.025,
-    "sensitivity_in_sample_superseded": 0.932
+    "sensitivity_in_sample_superseded": 0.932,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 579
   },
   "a4b2nAChR": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1229,11 +1393,15 @@
     "n_measured_inactive_for_threshold": 177,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.7822,
-    "screening_background_fpr": 0.0017,
-    "screening_sensitivity": 0.863,
+    "screening_background_fpr": 0.0007,
+    "screening_sensitivity": 0.754,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.001,
-    "sensitivity_in_sample_superseded": 0.863
+    "sensitivity_in_sample_superseded": 0.863,
+    "screening_background_fpr_in_sample": 0.0007,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 69
   },
   "a3b4nAChR": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1258,12 +1426,16 @@
     "background_fpr_in_sample": 0.0113,
     "n_measured_inactive_for_threshold": 148,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.2963,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.965,
+    "screening_threshold": 0.3229,
+    "screening_background_fpr": 0.0097,
+    "screening_sensitivity": 0.906,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.013,
-    "sensitivity_in_sample_superseded": 0.97
+    "sensitivity_in_sample_superseded": 0.97,
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 32
   },
   "Nav1_6": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1289,11 +1461,15 @@
     "n_measured_inactive_for_threshold": 52,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.9442,
-    "screening_background_fpr": 0.0017,
-    "screening_sensitivity": 0.764,
+    "screening_background_fpr": 0.0023,
+    "screening_sensitivity": 0.532,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.001,
-    "sensitivity_in_sample_superseded": 0.764
+    "sensitivity_in_sample_superseded": 0.764,
+    "screening_background_fpr_in_sample": 0.0023,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 77
   },
   "Nav1_8": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1320,10 +1496,14 @@
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.5971,
     "screening_background_fpr": 0.0003,
-    "screening_sensitivity": 0.947,
+    "screening_sensitivity": 0.892,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0007,
-    "sensitivity_in_sample_superseded": 0.947
+    "sensitivity_in_sample_superseded": 0.947,
+    "screening_background_fpr_in_sample": 0.0,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 102
   },
   "Cav3_2": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1350,10 +1530,14 @@
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.3697,
     "screening_background_fpr": 0.0,
-    "screening_sensitivity": 0.98,
+    "screening_sensitivity": 0.975,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0003,
-    "sensitivity_in_sample_superseded": 0.98
+    "sensitivity_in_sample_superseded": 0.98,
+    "screening_background_fpr_in_sample": 0.0003,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 79
   },
   "CGRP": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1379,11 +1563,15 @@
     "n_measured_inactive_for_threshold": 23,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.3414,
-    "screening_background_fpr": 0.0007,
-    "screening_sensitivity": 0.997,
+    "screening_background_fpr": 0.0,
+    "screening_sensitivity": 0.993,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.0013,
-    "sensitivity_in_sample_superseded": 0.997
+    "sensitivity_in_sample_superseded": 0.997,
+    "screening_background_fpr_in_sample": 0.0003,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 145
   },
   "DHODH": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1409,11 +1597,15 @@
     "n_measured_inactive_for_threshold": 329,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.1749,
-    "screening_background_fpr": 0.002,
-    "screening_sensitivity": 0.981,
+    "screening_background_fpr": 0.0023,
+    "screening_sensitivity": 0.948,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.001,
-    "sensitivity_in_sample_superseded": 0.981
+    "sensitivity_in_sample_superseded": 0.981,
+    "screening_background_fpr_in_sample": 0.002,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 233
   },
   "RIPK1": {
     "mode": "hybrid_decoys_plus_measured_inactives",
@@ -1439,11 +1631,15 @@
     "n_measured_inactive_for_threshold": 451,
     "n_measured_inactive_basis": "held_out_only",
     "screening_threshold": 0.05,
-    "screening_background_fpr": 0.0067,
-    "screening_sensitivity": 0.984,
+    "screening_background_fpr": 0.0077,
+    "screening_sensitivity": 0.938,
     "deployed": true,
     "background_fpr_at_old_threshold": 0.005,
-    "sensitivity_in_sample_superseded": 0.984
+    "sensitivity_in_sample_superseded": 0.984,
+    "screening_background_fpr_in_sample": 0.0037,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 341
   },
   "NRF2": {
     "mode": "measured_labels_holdout",
@@ -1463,12 +1659,16 @@
     "background_fpr_in_sample": 0.05,
     "n_measured_inactive_for_threshold": 285,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.3806,
+    "screening_threshold": 0.368,
     "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.636,
+    "screening_sensitivity": 0.364,
     "deployed": false,
     "withdrawn_reason": "added to test natural-product coverage. Its random-chemistry false-positive rate is 0.057, above the 5 per cent the panel holds to, and reaching that rate would need a threshold of 0.303 against a calibrated 0.301. On the refit it discriminates better than it did (AUROC 0.789 against its own held-out measured inactives, sensitivity 0.545) but it still cannot be given a cut that controls false positives. Of its labelled NPASS records 0.0 per cent are a direct binding constant (Ki or Kd); 1,019 of 1,029 are Potency, a pooled functional readout that does not define a binding class a ligand fingerprint can separate",
-    "withdrawn_evidence": "results/tables/binder_cv_summary.csv, models_rf/binder_modes.json, results/tables/np_endpoint_assay_composition.csv"
+    "withdrawn_evidence": "results/tables/binder_cv_summary.csv, models_rf/binder_modes.json, results/tables/np_endpoint_assay_composition.csv",
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 11
   },
   "NFKB1": {
     "mode": "measured_labels_holdout",
@@ -1488,12 +1688,16 @@
     "background_fpr_in_sample": 0.0207,
     "n_measured_inactive_for_threshold": 103,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.4639,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.333,
+    "screening_threshold": 0.447,
+    "screening_background_fpr": 0.0163,
+    "screening_sensitivity": 0.0,
     "deployed": false,
     "withdrawn_reason": "added to test natural-product coverage. Fires on glucose, urea, acetate, glycine and lactate at its calibrated threshold of 0.416, and scores AUROC 0.459 against its own held-out measured inactives at a sensitivity of 0.000: it recovers no active while calling five trivial metabolites binders. Of its labelled NPASS records 0.3 per cent are a direct binding constant; 344 of 362 are Potency. Same cause as NRF2",
-    "withdrawn_evidence": "results/tables/binder_cv_summary.csv, models_rf/binder_modes.json, results/tables/np_endpoint_assay_composition.csv"
+    "withdrawn_evidence": "results/tables/binder_cv_summary.csv, models_rf/binder_modes.json, results/tables/np_endpoint_assay_composition.csv",
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 19
   },
   "NR3C1": {
     "mode": "measured_labels_holdout",
@@ -1513,11 +1717,15 @@
     "background_fpr_in_sample": 0.0287,
     "n_measured_inactive_for_threshold": 37,
     "n_measured_inactive_basis": "held_out_only",
-    "screening_threshold": 0.9238,
-    "screening_background_fpr": 0.01,
-    "screening_sensitivity": 0.2,
+    "screening_threshold": 0.927,
+    "screening_background_fpr": 0.009,
+    "screening_sensitivity": 0.167,
     "deployed": false,
     "withdrawn_reason": "added to test natural-product coverage. It passes the specificity audit, firing on no trivial molecule, and fails on discrimination instead: AUROC 0.410 against its own held-out measured inactives is below chance, at a sensitivity of 0.167. The only one of the three with real binding data (14.8 per cent Ki or Kd) and the one with too few compounds to fit: 140 after deduplication",
-    "withdrawn_evidence": "results/tables/binder_cv_summary.csv, models_rf/binder_modes.json, results/tables/np_endpoint_assay_composition.csv"
+    "withdrawn_evidence": "results/tables/binder_cv_summary.csv, models_rf/binder_modes.json, results/tables/np_endpoint_assay_composition.csv",
+    "screening_background_fpr_in_sample": 0.01,
+    "screening_background_basis": "threshold_pool_quantile_evaluation_pool_rate",
+    "screening_sensitivity_basis": "held_out_actives_by_scaffold",
+    "n_active_for_screening_sensitivity": 6
   }
 }

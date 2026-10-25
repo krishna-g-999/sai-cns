@@ -57,10 +57,11 @@ cut is reported beside it: mean **0.764**, median 0.835, range 0.303 to 0.993. *
 recover under 70 per cent of their own known actives at their deployed threshold, nine under 60 per
 cent and six under 50 per cent** (COX2, GABA-A, GluN2B, P2X7, SIRT1, TAAR1), and those six are
 flagged in the interface as low-power. Silence from this panel is not evidence of inactivity.
-Screening mode trades further sensitivity for specificity: 19 of the 47 carry a screening threshold
-at or above 0.99, where sensitivity falls to 0.26 at 5-HT1A and 0.30 at D2.
+Screening mode trades further sensitivity for specificity: 21 of the 47 carry a screening threshold
+at or above 0.99, and across the deployed panel its sensitivity on held-out actives averages
+**0.465** against the triage mode's 0.764, falling to 0.28 at 5-HT1A and 0.26 at D2.
 
-Isotonic-calibrated probabilities (mean expected calibration error **0.0801 → 0.0151**); conformal
+Isotonic-calibrated probabilities (mean expected calibration error **0.0801 → 0.0098**); conformal
 prediction on the eight core classifiers achieves empirical coverage **0.876–0.933** against a 0.90
 target; an applicability-domain distance to the nearest measured analogue on every prediction. On
 1,000 compounds with no recorded activity at any modelled target, specificity is **0.925** (95% CI

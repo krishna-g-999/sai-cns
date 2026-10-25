@@ -6,9 +6,11 @@ the honest improvement, then saves calibrated deployment models.
 
 Method. The calibration quality is measured on the already-saved out-of-fold predictions (random
 10-fold), so nothing is evaluated on data it was fit on: the raw out-of-fold probabilities are
-recalibrated by isotonic regression under an inner 5-fold, and the Brier score and expected
-calibration error are reported before and after. Deployment models wrap the random forest in
-CalibratedClassifierCV (isotonic, 5-fold) fit on all data.
+recalibrated by isotonic regression under an inner stratified 5-fold, and the Brier score and
+expected calibration error are reported before and after. Deployment models wrap the random
+forest in CalibratedClassifierCV (isotonic, 5-fold) fit on all data, which is stratified by
+construction; the inner fold here is stratified to match it. See the note at the call site for
+what the unstratified version measured instead.
 
 Outputs:
   results/tables/calibration.csv          Brier and ECE, raw vs calibrated, per endpoint
@@ -26,7 +28,7 @@ from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.isotonic import IsotonicRegression
 from sklearn.metrics import brier_score_loss
-from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import StratifiedKFold, cross_val_predict
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from features.featurize import featurize  # noqa: E402
@@ -64,7 +66,17 @@ def main() -> None:
         p = oof["prediction"].to_numpy().astype(float)
 
         # honest recalibration on the out-of-fold probabilities (inner 5-fold)
-        p_cal = cross_val_predict(IsotonicRegression(out_of_bounds="clip"), p, y, cv=5)
+        # The reported figure has to describe the procedure that ships. The deployment model is
+        # CalibratedClassifierCV(cv=5) on a classifier, which check_cv turns into
+        # StratifiedKFold(5); cross_val_predict with IsotonicRegression, a regressor, got plain
+        # contiguous KFold(5) from the same argument. The out-of-fold vector is ordered by
+        # prevalence, so the mismatch fitted an isotonic map at one class balance and applied it
+        # at another: for BBB the five fold prevalences ran 0.863, 0.813, 0.777, 0.418, 0.299.
+        # The direction was conservative, so nothing previously claimed was overstated, but the
+        # figure measured a worse procedure than the deployed one. Stratified, unshuffled, to
+        # match CalibratedClassifierCV exactly rather than to beat it.
+        p_cal = cross_val_predict(IsotonicRegression(out_of_bounds="clip"), p, y,
+                                  cv=StratifiedKFold(5))
         rows.append({
             "endpoint": ep,
             "brier_raw": round(brier_score_loss(y, p), 4),

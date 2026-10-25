@@ -26,7 +26,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.isotonic import IsotonicRegression
 from sklearn.metrics import brier_score_loss
-from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import KFold, StratifiedKFold, cross_val_predict
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -44,12 +44,32 @@ def main() -> int:
     args = ap.parse_args()
 
     stored = pd.read_csv(TABLE).set_index("endpoint")
-    rows = []
+    rows, scheme_rows = [], []
     for ep in CLASSIFICATION:
         oof = pd.read_csv(OOF / f"{ep}_random_oof.csv")
         y = oof["y_true"].to_numpy().astype(int)
         p = oof["prediction"].to_numpy().astype(float)
-        p_cal = cross_val_predict(IsotonicRegression(out_of_bounds="clip"), p, y, cv=5)
+
+        # All three inner folds, so the choice is auditable rather than asserted. "stratified" is
+        # the one written out, because it is what CalibratedClassifierCV(cv=5) does and therefore
+        # what the deployed calibrator is. "contiguous" is what cv=5 silently gave a regressor and
+        # what the previously published figure measured. "shuffled" is the robustness check: if it
+        # disagreed with stratified, the gain would be a fold-ordering artefact rather than the
+        # class-balance mismatch it is.
+        cals = {
+            "stratified": cross_val_predict(IsotonicRegression(out_of_bounds="clip"), p, y,
+                                            cv=StratifiedKFold(5)),
+            "contiguous": cross_val_predict(IsotonicRegression(out_of_bounds="clip"), p, y,
+                                            cv=KFold(5)),
+            "shuffled": cross_val_predict(IsotonicRegression(out_of_bounds="clip"), p, y,
+                                          cv=StratifiedKFold(5, shuffle=True, random_state=0)),
+        }
+        prevalences = [round(float(y[te].mean()), 3) for _, te in KFold(5).split(p.reshape(-1, 1))]
+        for name, pc in cals.items():
+            scheme_rows.append({"endpoint": ep, "scheme": name,
+                                "ece_calibrated": round(expected_calibration_error(y, pc), 4),
+                                "brier_calibrated": round(brier_score_loss(y, pc), 4)})
+        p_cal = cals["stratified"]
         rows.append({
             "endpoint": ep,
             "brier_raw": round(brier_score_loss(y, p), 4),
@@ -59,25 +79,44 @@ def main() -> int:
             "n": len(y),
             "n_at_one_raw": int((p >= 1.0).sum()),
             "n_at_one_cal": int((p_cal >= 1.0).sum()),
+            "contiguous_fold_prevalences": "/".join(f"{v:.3f}" for v in prevalences),
         })
 
     out = pd.DataFrame(rows)
     print(out.to_string(index=False))
 
+    # brier_raw depends on neither the metric fix nor the fold scheme, so it is the control that
+    # the out-of-fold predictions being read are the ones the stored table was built from.
+    # brier_calibrated legitimately moves with the fold scheme and is no longer a control.
     brier_ok = True
     for r in rows:
         s = stored.loc[r["endpoint"]]
-        for col in ("brier_raw", "brier_calibrated"):
-            if abs(float(s[col]) - r[col]) > 1e-9:
-                print(f"  CONTROL FAILED {r['endpoint']} {col}: stored {s[col]} vs {r[col]}")
-                brier_ok = False
-    print(f"\nBrier control (must match the stored table exactly): "
+        if abs(float(s["brier_raw"]) - r["brier_raw"]) > 1e-9:
+            print(f"  CONTROL FAILED {r['endpoint']} brier_raw: "
+                  f"stored {s['brier_raw']} vs {r['brier_raw']}")
+            brier_ok = False
+    print(f"\nbrier_raw control (must match the stored table exactly): "
           f"{'PASS' if brier_ok else 'FAIL'}")
+
+    sch = pd.DataFrame(scheme_rows)
+    piv = sch.pivot(index="endpoint", columns="scheme", values="ece_calibrated")
+    piv = piv[["contiguous", "stratified", "shuffled"]]
+    print("\n=== calibrated ECE by inner fold scheme ===")
+    print(piv.to_string())
+    print("\npanel mean:")
+    print(piv.mean().round(4).to_string())
+    print("\ncontiguous is what cv=5 gave IsotonicRegression and what was published; "
+          "stratified is what CalibratedClassifierCV(cv=5) deploys.")
+    harm = [r["endpoint"] for r in rows
+            if r["brier_calibrated"] > float(stored.loc[r["endpoint"], "brier_raw"])]
+    print(f"endpoints where calibration now worsens the Brier score: {harm or 'none'}")
+    sch.to_csv(ROOT / "results" / "tables" / "calibration_fold_schemes.csv", index=False)
+    print(f"wrote results/tables/calibration_fold_schemes.csv ({len(sch)} rows)")
 
     print(f"\nmean ECE raw        {out.ece_raw.mean():.4f}   "
           f"stored {stored.ece_raw.mean():.4f}")
     print(f"mean ECE calibrated {out.ece_calibrated.mean():.4f}   "
-          f"stored {stored.ece_calibrated.mean():.4f}   (README quotes 0.0147)")
+          f"stored {stored.ece_calibrated.mean():.4f}")
     print(f"\npredictions at exactly 1.0: raw {out.n_at_one_raw.sum():,} "
           f"calibrated {out.n_at_one_cal.sum():,} of {out.n.sum():,} "
           f"({100 * out.n_at_one_cal.sum() / out.n.sum():.2f}% calibrated)")

@@ -178,6 +178,16 @@ GRAPH: list[tuple[str, list[str], str]] = [
      "python tools/recompute_calibration_ece.py --write   (calibrate.py also refits the eight "
      "deployment models, which moves their checksums)"),
 
+    # The table that justifies the fold scheme the figure above is computed under. It records the
+    # calibrated error for all three inner folds, so the choice of the stratified one is auditable
+    # rather than asserted: contiguous 0.0151, stratified 0.0098, shuffled 0.0074. Declared because
+    # a reader who disbelieves the stratified figure needs to see the other two from the same run,
+    # and because changing the nesting in calibrate.py must invalidate this table too.
+    ("results/tables/calibration_fold_schemes.csv",
+     ["src/sai_cns/models/calibrate.py", "tools/recompute_calibration_ece.py",
+      "data/processed/cv_predictions/*_random_oof.csv"],
+     "python tools/recompute_calibration_ece.py --write"),
+
     # ---- the binder panel ----------------------------------------------------------------------
     ("models_rf/binder_modes.json", ["data/endpoints/*.csv"],
      "python src/sai_cns/models/train_binders_hybrid.py"),
@@ -198,6 +208,12 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # threshold sequence never writes them.
     ("results/tables/final_thresholds.csv", ["models_rf/*_binder.joblib"], THRESHOLD_SEQUENCE),
     ("results/tables/screening_thresholds.csv", ["models_rf/*_binder.joblib"],
+     THRESHOLD_SEQUENCE),
+
+    # Precision depends on the prevalence a user screens at far more steeply than on anything the
+    # model does, so the curve is the honest form of the single precision figure the script used to
+    # print. Written by screening_thresholds.py, so it goes stale with the thresholds it describes.
+    ("results/tables/screening_precision_curve.csv", ["models_rf/*_binder.joblib"],
      THRESHOLD_SEQUENCE),
     ("results/tables/background_specificity.csv", ["models_rf/*_binder.joblib"],
      THRESHOLD_SEQUENCE),
@@ -304,6 +320,16 @@ GRAPH: list[tuple[str, list[str], str]] = [
     # over the same 47 targets. It is now derived from the registry and declared here.
     ("results/tables/binder_vs_measured_inactives.csv", ["models_rf/binder_modes.json"],
      "python src/sai_cns/evaluation/binder_vs_measured_inactives.py"),
+
+    # The precision-recall counterpart to the headline AUROC, on the same measured-inactive
+    # validation set. AUROC is imbalance-insensitive by construction and that set is imbalanced, so
+    # the two diverge where it matters most: SIRT1 reads 0.792 AUROC against 0.409 average
+    # precision. It scores the saved models against the training-time holdout, so it depends on the
+    # models as well as on the registry.
+    ("results/tables/measured_inactive_pr_auc.csv",
+     ["models_rf/binder_modes.json", "models_rf/*_binder.joblib",
+      "tools/measured_inactive_pr_auc.py"],
+     "python tools/measured_inactive_pr_auc.py"),
 
     # The two artefacts the LIVE SERVER quotes on every query, and the two that were outside this
     # graph the longest. Both were found stale by a reviewer-style audit of the deployed interface,
@@ -552,6 +578,36 @@ GRAPH: list[tuple[str, list[str], str]] = [
     ("docs/ML_METHODS_AND_FORMULAS.md",
      ["models_rf/BBB_calibrated.joblib", "results/tables/rf_conformal.csv"],
      "python tools/build_ml_formulas.py"),
+
+    # ---- the two label-formulation benchmarks --------------------------------------------------
+    # These answer a reviewer's question about the labelling rule with a measurement rather than an
+    # argument, so they are the evidence behind a Methods claim and have to go stale when either the
+    # data they read or the comparison they implement changes. Neither writes a model file; both
+    # refit from the activity caches, so the caches are the input.
+    ("results/tables/label_formulation_benchmark.csv",
+     ["data/_chembl_cache/*_y.json", "tools/benchmark_label_formulations.py"],
+     "python tools/benchmark_label_formulations.py"),
+    ("results/tables/censored_formulation_benchmark.csv",
+     ["data/_chembl_cache/*_y.json", "data/_chembl_cache/*_censored.json",
+      "tools/benchmark_censored_formulations.py"],
+     "python tools/benchmark_censored_formulations.py"),
+
+    # The inventory is what makes the censored benchmark's premise checkable: how many censored
+    # records exist per endpoint, how many settle a class under the deployed rule, and how many are
+    # usable only by a censored model. A reviewer who doubts that the discarded records are
+    # numerous enough to matter reads this rather than taking the claim on trust.
+    ("results/tables/censored_data_inventory.csv",
+     ["data/_chembl_cache/*_censored.json", "tools/benchmark_censored_formulations.py"],
+     "python tools/benchmark_censored_formulations.py"),
+
+    # The per-endpoint band census. The two figures a referee will ask for, 23.5 per cent pooled and
+    # 43.0 per cent at hERG, were quoted internally for months with no artefact behind either; this
+    # is the artefact, and it also records which endpoints it cannot measure rather than implying it
+    # covers all of them.
+    ("results/tables/band_discard_census.csv",
+     ["data/_chembl_cache/*_y.json", "src/sai_cns/data/activity_labels.py",
+      "tools/band_discard_census.py"],
+     "python tools/band_discard_census.py"),
 ]
 
 # Checked by content rather than by timestamp, because it carries checksums of what it describes.
