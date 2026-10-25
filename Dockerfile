@@ -26,11 +26,18 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY app.py api.py serve.py model_fetch.py models_manifest.json ./
 COPY src/ ./src/
 COPY assets/ ./assets/
-# results/ and docs/ are not copied in: they hold validation tables and write-ups for the paper,
-# not anything the running server needs. Every place app.py/api.py reads from either is already
-# guarded (an .exists() check or a try/except returning an empty result), verified by grep across
-# both files before this line was removed, so their absence here degrades a few optional UI
-# sections rather than failing the build or a request.
+# results/ and docs/ are not copied in wholesale: they hold validation tables and write-ups for
+# the paper. Every place app.py/api.py reads from either is guarded by an .exists() check or a
+# try/except returning an empty result, so their absence degrades optional sections rather than
+# failing a request.
+#
+# ONE FILE IS NOT OPTIONAL. panel_shape() counts the whole panel from MODEL_INVENTORY.csv, and
+# its guard returns "-" when the file is missing, so the first deployment advertised
+# "- molecular targets" at the top of the landing page where it should read 54. The guard that
+# was meant to make the absence harmless is exactly what hid it: the build succeeded, the
+# healthcheck went green, every test passed, and the page was wrong. It is tracked in git, so
+# copying it costs 24 KB and removes the dependency on anything else under results/.
+COPY results/tables/MODEL_INVENTORY.csv ./results/tables/
 
 # The models are fetched at BUILD time from the published archive rather than copied from the build
 # context or downloaded at start-up. Three reasons, in order of importance:
