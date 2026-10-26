@@ -110,8 +110,6 @@ def main() -> int:
     harm = [r["endpoint"] for r in rows
             if r["brier_calibrated"] > float(stored.loc[r["endpoint"], "brier_raw"])]
     print(f"endpoints where calibration now worsens the Brier score: {harm or 'none'}")
-    sch.to_csv(ROOT / "results" / "tables" / "calibration_fold_schemes.csv", index=False)
-    print(f"wrote results/tables/calibration_fold_schemes.csv ({len(sch)} rows)")
 
     print(f"\nmean ECE raw        {out.ece_raw.mean():.4f}   "
           f"stored {stored.ece_raw.mean():.4f}")
@@ -128,6 +126,10 @@ def main() -> int:
         print("\n(dry run; pass --write to update the table)")
         return 0
 
+    # Written only under --write. It used to be written unconditionally, so a dry run
+    # modified a table check_freshness.py tracks, which is the opposite of a dry run.
+    sch.to_csv(ROOT / "results" / "tables" / "calibration_fold_schemes.csv", index=False)
+    print(f"wrote results/tables/calibration_fold_schemes.csv ({len(sch)} rows)")
     out[["endpoint", "brier_raw", "brier_calibrated", "ece_raw",
          "ece_calibrated"]].to_csv(TABLE, index=False)
     print(f"\nwrote {TABLE.relative_to(ROOT).as_posix()} "

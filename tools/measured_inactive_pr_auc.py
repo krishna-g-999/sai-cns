@@ -46,7 +46,10 @@ from features.featurize import featurize  # noqa: E402
 M = ROOT / "models_rf"
 OUT = ROOT / "results" / "tables" / "measured_inactive_pr_auc.csv"
 MIN_INACTIVE = 15
-AUROC_TOLERANCE = 0.005      # the registry rounds to three decimals
+AUROC_TOLERANCE = 0.0006     # three-decimal rounding bounds the error at 0.0005; the extra
+                             # 1e-4 is float slack. At the previous 0.005 a genuine 0.004
+                             # discrepancy, which would mean a different compound set, passed
+                             # the control the docstring promises would catch it.
 
 
 def holdout(ep, key):

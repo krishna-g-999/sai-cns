@@ -177,6 +177,13 @@ def main() -> int:
                 continue
             truth = (y[te_dec] >= ACTIVE_CUT).astype(int)
             if truth.sum() < MIN_PER_CLASS or (1 - truth).sum() < MIN_PER_CLASS:
+                # Said out loud. HT2A has 104 measured inactives panel-wide, so every one
+                # of its folds fails here and the endpoint vanished from both benchmark
+                # tables while still appearing in the inventory. An endpoint dropped by a
+                # data-dependent rule with no record of it is exactly what a referee finds.
+                print(f"  [{ep}] fold {k} skipped: {int(truth.sum())} active / "
+                      f"{int((1 - truth).sum())} inactive test compounds, "
+                      f"below MIN_PER_CLASS={MIN_PER_CLASS}", flush=True)
                 continue
 
             scores = {}

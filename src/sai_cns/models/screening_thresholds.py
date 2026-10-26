@@ -193,7 +193,7 @@ def write_precision_curve(out, modes) -> None:
     path = ROOT / "results" / "tables" / "screening_precision_curve.csv"
     curve.to_csv(path, index=False)
 
-    print("\nprecision against prevalence, panel mean of the per-endpoint values")
+    print("\nprecision against prevalence, panel median of the per-endpoint values")
     print(f"{'prevalence':>11}  {'triage':>18}  {'screening':>18}")
     for prev in PREVALENCES:
         cell = {}
@@ -203,8 +203,17 @@ def write_precision_curve(out, modes) -> None:
             if len(sub) == 0:
                 cell[mode] = "       n/a        "
                 continue
-            m = sub["precision"].mean()
-            cell[mode] = f"{m:7.2%}  ({(1 - m) / max(m, 1e-12):6.1f} false)"
+            # The false-lead count must be the median of the per-endpoint values, not a transform
+            # of the mean precision. (1-p)/p is convex, so by Jensen's inequality the transform of
+            # the mean sits below the mean of the transforms, and it understated the cost badly:
+            # at 1 per cent prevalence it printed 2.0 false leads per hit where the per-endpoint
+            # median is 3.4 and the mean 4.9, and at 1 in 10,000 it printed 59 against a median of
+            # 344. The sign of the error reverses at high prevalence, which is the signature of
+            # convexity rather than an arithmetic slip. The per-row column in the CSV was always
+            # right; only this summary was wrong, and it is the line that got quoted.
+            m = sub["precision"].median()
+            fl = sub["false_leads_per_hit"].median()
+            cell[mode] = f"{m:7.2%}  ({fl:6.1f} false)"
         print(f"{prev:>10.2%}   {cell['triage']}  {cell['screening']}")
     print(f"\nwrote {path.relative_to(ROOT).as_posix()}  ({len(curve):,} rows)")
 

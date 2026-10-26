@@ -8,8 +8,11 @@ Method. The calibration quality is measured on the already-saved out-of-fold pre
 10-fold), so nothing is evaluated on data it was fit on: the raw out-of-fold probabilities are
 recalibrated by isotonic regression under an inner stratified 5-fold, and the Brier score and
 expected calibration error are reported before and after. Deployment models wrap the random
-forest in CalibratedClassifierCV (isotonic, 5-fold) fit on all data, which is stratified by
-construction; the inner fold here is stratified to match it. See the note at the call site for
+forest in CalibratedClassifierCV (isotonic, 5-fold) fit on all data, whose folds are
+stratified by construction; the inner fold here is stratified to match that partition. The
+two are not the same estimator: the deployed one averages five isotonic maps over five refits
+of the forest, while this measures one map per fold over a fixed out-of-fold vector. Matching
+the fold scheme makes this a closer proxy, not an exact measurement of the deployed object. See the note at the call site for
 what the unstratified version measured instead.
 
 Outputs:
