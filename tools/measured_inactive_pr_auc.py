@@ -92,7 +92,14 @@ def main() -> int:
             "auroc_agrees": (None if stored is None
                              else bool(abs(au - float(stored)) <= AUROC_TOLERANCE)),
             "average_precision": round(ap, 4),
+            # Lift over prevalence is kept because it is the familiar quantity, but it is NOT
+            # comparable across endpoints: its ceiling is 1/prevalence, which runs from 1.13 to
+            # 25.91 here, so it ranks COX2 (AUROC 0.783) above CGRP (AUROC 0.985) purely because
+            # COX2's actives are rarer. The range-normalised form divides the gain over prevalence
+            # by the gain that was available, so 1.0 is a perfect ranker at any prevalence, and it
+            # orders the panel the way AUROC does. Quote the normalised column, not the lift.
             "ap_lift_over_prevalence": round(ap / base, 3) if base > 0 else None,
+            "ap_normalised": round((ap - base) / (1 - base), 4) if base < 1 else None,
             "scorable": True,
         })
         print(f"[{ep:10}] AUROC {au:.4f} (registry {stored}) | AP {ap:.4f} "
@@ -117,15 +124,20 @@ def main() -> int:
               "headline AUROC for those endpoints.")
     print(f"\nmean AUROC            {ok.auroc_recomputed.mean():.4f}")
     print(f"mean average precision {ok.average_precision.mean():.4f}  "
-          f"(mean prevalence {ok.positive_rate.mean():.4f}, "
-          f"mean lift {ok.ap_lift_over_prevalence.mean():.3f})")
+          f"(mean prevalence {ok.positive_rate.mean():.4f})")
+    print(f"mean range-normalised AP {ok.ap_normalised.mean():.3f}  "
+          f"({ok.ap_normalised.min():.3f} to {ok.ap_normalised.max():.3f}); "
+          f"this is the comparable figure, not the raw lift")
     print(f"average precision range {ok.average_precision.min():.3f} "
           f"({ok.loc[ok.average_precision.idxmin(), 'target']}) to "
           f"{ok.average_precision.max():.3f} "
           f"({ok.loc[ok.average_precision.idxmax(), 'target']})")
-    low = ok[ok.ap_lift_over_prevalence < 1.05]
-    print(f"endpoints whose average precision is within 5 per cent of simply calling everything "
-          f"active: {len(low)}"
+    # Previously thresholded the raw lift at 1.05, which is prevalence-dependent: above a
+    # prevalence of 0.952 even a perfect ranker scores a lift below 1.05 and would have been
+    # flagged as worthless. The normalised form has no such dependence.
+    low = ok[ok.ap_normalised < 0.50]
+    print(f"endpoints recovering under half the average precision available above their own "
+          f"prevalence: {len(low)}"
           + (f" ({', '.join(low.target)})" if len(low) else ""))
     print(f"\nwrote {OUT.relative_to(ROOT).as_posix()}")
     return 0
