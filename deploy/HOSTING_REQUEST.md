@@ -1,137 +1,145 @@
 # Request for institutional hosting of SAI-CNS
 
-Draft email to SSSIHL, for the guide to review and forward. Everything stated below is measured
-or quoted, not estimated. Sources are given at the end so any figure can be checked.
+For the supervisors to review and forward to the Institute's IT department, alongside the manuscript
+and the one-page NAR proposal. Every figure below was measured on a running deployment on
+26 October 2026, not estimated. Section 7 gives the sources.
 
 ---
 
-**Subject:** Institutional hosting for SAI-CNS, a web server being submitted to Nucleic Acids Research
+**Subject:** Institutional hosting and a subdomain for SAI-CNS, a web server being submitted to
+Nucleic Acids Research
 
 Dear Sir / Madam,
 
-I am writing to request institutional hosting for **SAI-CNS**, a computational tool developed in
-our group that we are preparing to submit to the *Nucleic Acids Research* (NAR) Web Server Issue.
-The request is specific and modest, and I set out below exactly what the journal requires, what we
-have already built and verified, and what we need from the Institute.
+We write to request a hosted address under the Institute domain for **SAI-CNS**, a computational
+research tool developed in our group and being prepared for submission to the *Nucleic Acids
+Research* Web Server Issue. The request is small and specific. Set out below is what the journal
+requires, what we have already built and verified, and the exact provisioning we are asking for.
 
-## What SAI-CNS does
+## 1. What SAI-CNS does
 
-SAI-CNS predicts, from a chemical structure, whether a small molecule reaches the human brain, what
-molecular targets it engages there, and which neurological conditions those mechanisms touch. It
-covers 54 molecular targets, nine ADME and exposure endpoints, blood-brain-barrier penetration and
-a cardiac safety endpoint. It is intended for researchers prioritising compounds in early CNS drug
-discovery. It is open source under the MIT licence, and developed under the SAI-Net initiative at
-SSSIHL.
+Given a chemical structure, SAI-CNS predicts which of 54 protein targets the molecule is likely to
+engage, whether it reaches brain tissue, and what the engaged proteins imply mechanistically. It
+covers 54 molecular targets, nine ADME and exposure endpoints, blood-brain barrier penetration and a
+cardiac safety endpoint. It is intended for researchers prioritising compounds in early discovery,
+is open source under the MIT licence, and is developed under the SAI-Net initiative at SSSIHL.
 
-## Why hosting is a journal requirement, not a convenience
+**Team.** Krishnasalini Gunanathan (Biosciences, research scholar); Prof. R. Raghunatha Sarma and
+Dr. Sai Shyam (Mathematics and Computer Science); Dr. Ramya E. M. and Prof. S. Venketesh, Head of
+Department (Biosciences).
 
-This is the part I would particularly ask you to note. For this class of publication, a working
-public server is not supplementary material: **it is the object being peer reviewed.** The journal's
-own instructions require that the server:
+## 2. Why hosting is a journal requirement rather than a convenience
 
-- is **functional at the time of submission**, and reviewers will use it;
-- is reached **through a web browser over HTTPS on port 443**;
-- requires **no login, no registration and no email address** from users;
-- provides **sample data** so a reviewer can try it immediately;
-- displays a **standard licence** on its landing page;
-- is **maintained for at least five years**.
+For this class of publication the working public server is not supplementary material. **It is the
+object being peer reviewed.** The journal's instructions require that the server:
 
-The five-year maintenance expectation is the reason a personal or student account is not an
-appropriate home. The commitment is institutional in nature, and reviewers read it that way.
+- **"be functional on the date of the proposal submission"**, and reviewers test it themselves,
+  *"preferably on at least two commonly used web browsers"*;
+- **"use the HTTPS protocol and run on the http standard port (443)"**;
+- not **"require users to log in, to register, or to leave an email address"**;
+- provide sample data loadable in one click, and help pages explaining how to read the output;
+- display a standard licence on the landing page;
+- be **"maintained for at least five years"**.
 
-This is also how comparable tools are hosted. KEGG runs on Kyoto University's Institute for
-Chemical Research supercomputer facility. SwissTargetPrediction is operated by the University of
-Lausanne together with the Swiss Institute of Bioinformatics, whose stated position is that such
-resources "need to be hosted on dedicated computational infrastructures and supported by
-professional staff". MetaboAnalyst runs on dedicated cloud infrastructure with additional compute
-nodes at McGill University. None of these runs on a free or personal service.
+That last expectation is why a personal or student account is not a suitable long-term home, and it
+is the main reason for this request. Comparable resources are institutionally hosted: KEGG runs at
+Kyoto University's Institute for Chemical Research, and SwissTargetPrediction is operated by the
+University of Lausanne with the Swiss Institute of Bioinformatics, whose stated position is that
+such resources need dedicated infrastructure and professional staff.
 
-## What we have already completed
+## 3. What is already complete and verified
 
-The software is finished and independently verified. Nothing below is pending.
+Nothing in this table is pending or projected.
 
 | | |
-|---|---|
-| Server | built, running, and tested end to end on the institute HPC |
-| Correctness | 3,476 output values compared against the validated reference: **largest difference 0** |
-| Accuracy | **AUROC 0.8011** on 247 compounds absent from every training set, against 0.8010 published |
-| Test suite | 92 tests and 79 subtests passing; 252 of 252 model checksums verified |
-| Source code | public and MIT licensed at github.com/krishna-g-999/sai-cns |
+| --- | --- |
+| Server | built, containerised, and **running now** on a cloud instance, verified end to end |
+| Deployment integrity | all **252 model files** checksum-verified at image build time |
+| Test suite | **97 tests and 94 subtests passing** |
+| Accuracy | mean **AUROC 0.917** and average precision 0.899 against compounds experimentally tested and found inactive at the same target; **21 of 47** target models at AUROC 0.95 or better |
+| Independent validation | four hold-out regimes: random, scaffold-grouped, by publication date, and by curator |
+| Compliance | no login, no cookies set, no third-party resources loaded, sample data in one click, MIT licence shown on the landing page |
+| Source code | public at github.com/krishna-g-999/sai-cns |
 | Trained models | published as a verifiable archive with per-file checksums |
 | Manuscript | drafted, with the one-page proposal the journal requires |
 
-We have also already satisfied most of the journal's server requirements: no login, sample data on
-the landing page, and the licence displayed. **The only requirement we cannot meet ourselves is a
-public HTTPS address.**
+**The only journal requirement we cannot satisfy ourselves is a durable public HTTPS address under
+an institutional domain.**
 
-## What we are asking for
+## 4. What we are asking for
 
-The resource requirement is small. Measured, not estimated:
+The resource requirement is modest, and these are measurements from the running service rather than
+estimates.
 
 | | |
-|---|---|
-| Memory | **2.5 GB** resident while serving |
-| CPU | 2 cores is sufficient; it is not a parallel workload |
-| Disk | about 5 GB, including the trained models |
-| Traffic | low; this is a research tool, not a consumer service |
+| --- | --- |
+| Memory | **2.4 GB resident** while serving; 4 GB allocated is comfortable |
+| CPU | **2 cores**, sufficient; this is not a parallel workload |
+| Disk | about **8 GB**, including the container image and trained models |
+| Throughput | 300 structures profiled across the full panel in **59.5 seconds** on 2 cores |
+| Traffic | low. A research tool, not a consumer service |
+| Inbound ports | **443 only**, or none at all under option B below |
 
-Concretely, we would ask the Institute for either:
+We would be grateful for either of the following.
 
-1. **A small virtual machine that stays powered on**, with 4 GB of RAM and 2 cores, together with a
-   public hostname under the Institute domain and a TLS certificate, for example
-   `saicns.sssihl.edu.in`; **or**
-2. if a public address cannot be allocated, **permission to run an outbound-only secure tunnel**
-   from an internal machine. This requires no public IP, no inbound firewall change and no open
-   port, as the connection is established from inside the network outward.
+**Option A, a hosted virtual machine.** 2 cores, 4 GB RAM, about 8 GB disk, kept powered on, with a
+public hostname under the Institute domain such as **`saicns.sssihl.edu.in`** and a TLS certificate.
+The application ships as a single container, so deployment is one command and the IT team need
+install nothing else.
 
-We are currently running the server on an HPC node for testing only. I want to be explicit that we
-do not regard that as an appropriate long-term home: it is a shared login node, a permanent web
-service there would compete with other users' work, and it is not reachable from outside the
-Institute network in any case.
+**Option B, a subdomain only, with the service running on hardware we already have.** If allocating
+a public address or a virtual machine is difficult, a DNS record for `saicns.sssihl.edu.in` pointing
+to a secure outbound tunnel would be sufficient. This needs **no public IP, no inbound firewall
+change and no open port**, because the connection is established from inside the network outward.
+This is the lighter option for the Institute and we are glad to take it.
 
-## What the Institute gains
+Option B alone would unblock the submission.
 
-The server would carry an Institute address and would be cited by that address in a journal whose
-Web Server Issue is among the most widely used resources in computational biology. The maintenance
-commitment would rest with the Institute rather than with an individual student account, which is
-both what the journal expects and what makes the resource durable after I complete my degree.
+## 5. What the Institute gains
 
-I would be glad to present the tool, to answer any technical questions from the IT team, and to
-work within whatever security arrangements they consider appropriate.
+The server would carry an Institute address and be cited by that address in a journal whose Web
+Server Issue is among the most used resources in computational biology, and which is indexed in
+PubMed on acceptance. The maintenance commitment would rest with the Institute rather than with an
+individual account, which is both what the journal expects and what makes the resource outlive any
+one student's enrolment.
+
+We are glad to demonstrate the tool, to answer any technical questions from the IT team, and to work
+within whatever security arrangements they consider appropriate.
 
 Thank you for your consideration.
 
 Yours sincerely,
 
-Krishnasalini Gunanathan
-Research Scholar, SSSIHL
+Krishnasalini Gunanathan\
+Research Scholar, Department of Biosciences, SSSIHL\
 krishnasalinig@sssihl.edu.in
+
+Endorsed by Prof. S. Venketesh, Head, Department of Biosciences\
+svenketesh@sssihl.edu.in, +91 8555 287235
 
 ---
 
-## Notes for the guide, not for sending
+## 6. Notes for the supervisors, not for forwarding
 
-**Where the journal requirements come from.** Oxford Academic, "Submitting to the Web Server Issue"
-(academic.oup.com/nar/pages/Submission_Webserver), and the 2026 Web Server Issue editorial
-(doi.org/10.1093/nar/gkag669). Two points changed recently and are worth knowing:
+**The interim position.** The server is live now on a cloud instance paid from a student credit of
+about 35 US dollars a month, which gives roughly three months of runway. That is enough to carry the
+proposal and the first review round, and it is not a five-year answer. A free permanent address is
+also available from the cloud provider and needs one firewall rule, so the submission is not blocked
+on the Institute; the Institute address is what makes the five-year commitment credible.
 
-- Proposals are no longer tied to a December deadline. They can now be submitted **at any time**,
-  and after approval the manuscript is due **two months later**. There is no acceptance deadline.
-- A **one-page proposal must be approved before a manuscript can be submitted.** It is emailed to
-  the editors, not uploaded to a portal. Ours is written and builds to exactly one page.
+**Why not simply buy a domain.** A commercial domain costs about ten US dollars a year and would
+work, but a server cited in a journal under a personal domain carries the same durability problem as
+a personal account. An Institute subdomain is what a reviewer reads as a maintained resource.
 
-**Why the timing matters for this request.** The server must be live and public *when the proposal
-is sent*, because the editors check it. Hosting is therefore the one blocker between us and
-starting the submission process, not something that can follow acceptance.
+**What this costs commercially, for comparison.** A 4 GB always-on container is roughly 25 to 35 US
+dollars a month on major cloud providers, so about 1,500 to 2,100 dollars over the five-year
+maintenance period. Free tiers were tested and do not fit: Cloudflare Workers caps an instance far
+below what is needed, Streamlit Community Cloud at 2.7 GB is below what loading completes with, and
+this account's Hugging Face allowance is currently zero.
 
-**What it would cost commercially, for comparison.** A 4 GB always-on container is roughly $25 to
-$35 per month on Google Cloud Run or Microsoft Azure, so about $1,500 to $2,100 over the five-year
-maintenance period. Free tiers were tested and do not fit: Cloudflare Workers caps an instance at
-128 MB, Streamlit Community Cloud at 2.7 GB which is below what loading completes with, and Hugging
-Face's free allowance for this account is now zero. An Azure for Students subscription was obtained
-and tried; its $100 credit would cover roughly three months, and it blocks the cloud build service
-the deployment needs.
+## 7. Sources
 
-**Fallback if the Institute declines.** The tool can be hosted commercially for the review period
-and migrated later, but the five-year commitment would then sit with a personal account, which
-weakens the submission. It is worth making the institutional case first.
+Journal requirements quoted from Oxford Academic, "Submitting to the Web Server Issue",
+academic.oup.com/nar/pages/Submission_Webserver, read 26 October 2026, and the 2026 Web Server Issue
+editorial, doi.org/10.1093/nar/gkag669. Proposals are emailed to the editors rather than uploaded,
+can be sent at any time, and the manuscript is due two months after approval.

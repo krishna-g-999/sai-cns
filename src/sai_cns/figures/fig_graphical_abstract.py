@@ -293,7 +293,7 @@ def main() -> None:
             va="top", color=S.MUTED, transform=ax.transAxes, linespacing=1.5)
 
     ax.text(MX, Y_URL,
-            "freely available, no registration · huggingface.co/spaces/Krishnag999/sai-cns",
+            "freely available, no registration · github.com/krishna-g-999/sai-cns",
             fontsize=7.8, ha="left", va="center", color=S.EXPOSURE, fontweight="bold",
             transform=ax.transAxes)
 
