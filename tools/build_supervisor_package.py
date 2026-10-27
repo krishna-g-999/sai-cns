@@ -104,6 +104,9 @@ def main() -> int:
 
     (OUT / "00_INDEX.md").write_text(index_text(len(chapters), len(figs), checked), encoding="utf-8")
 
+    converted = to_word(OUT)
+    print(f"  converted {converted} markdown file(s) to .docx")
+
     print(f"\nwrote {OUT.relative_to(ROOT).as_posix()}")
     print(f"  {copied} file(s) across 6 folders, plus the index")
     if missing:
@@ -111,6 +114,32 @@ def main() -> int:
         for m in missing:
             print(f"    {m}")
     return 0
+
+
+def to_word(folder: Path) -> int:
+    """Render every markdown file in the package as .docx and drop the markdown.
+
+    The supervisors read these in Word, and a folder mixing .md and .docx makes the reader decide
+    which copy is authoritative. Pandoc is already a dependency of the manuscript build, so this
+    adds nothing new. The markdown stays in the repository as the editable source; only the copy
+    inside the sent package is converted.
+    """
+    try:
+        import pypandoc
+    except ImportError:
+        print("  pypandoc unavailable; markdown left as-is")
+        return 0
+    n = 0
+    for md in sorted(folder.rglob("*.md")):
+        docx = md.with_suffix(".docx")
+        try:
+            pypandoc.convert_file(str(md), "docx", outputfile=str(docx))
+        except Exception as e:
+            print(f"    {md.name}: conversion failed, markdown kept ({type(e).__name__})")
+            continue
+        md.unlink()
+        n += 1
+    return n
 
 
 def index_text(n_chapters: int, n_figs: int, checked: str) -> str:
@@ -122,8 +151,8 @@ writing: {checked}, with no disagreement between any document and the artefact b
 
 ## Read in this order
 
-**01_read_first.** `email_to_send.md` is the covering note, written to be sent as it stands.
-`hosting_request_for_IT.md` is the request for an Institute subdomain, written so that it can be
+**01_read_first.** `email_to_send.docx` is the covering note, written to be sent as it stands.
+`hosting_request_for_IT.docx` is the request for an Institute subdomain, written so that it can be
 forwarded to the IT department unchanged. These two carry the ask.
 
 **02_for_the_journal.** The one-page proposal that goes to the Nucleic Acids Research Web Server

@@ -215,6 +215,13 @@ def audit() -> None:
     for path in sorted(OUT.rglob("*")):
         if path.is_dir():
             continue
+        # TO_SEND_* is the assembled supervisor package, built by its own script from these
+        # same files and audited there. Walking it here double-reports every finding, and
+        # re-flags literal identifiers that must keep the old name: the background-pool hash
+        # salt, which pools.py forbids renaming because every published threshold was
+        # measured against it, and the _ARCHIVE_2026-08-10_Brainsafe directory name.
+        if any(part.startswith("TO_SEND_") for part in path.parts):
+            continue
         if path.suffix == ".docx":
             text = docx_text(path)
         elif path.suffix in (".md", ".csv", ".txt"):
